@@ -404,7 +404,7 @@
                     WinMgr.create("Properties", Icons.prop, 350, 420, `
                         <div style="padding:15px;"><div class="prop-preview"><div id="${pid}" class="prop-screen" style="background-image:url('${Wallpapers.bliss}')"></div></div>
                         <fieldset style="margin-top:20px; padding:10px;"><legend>Background</legend>
-                        <select onchange="document.getElementById('${pid}').style.backgroundImage='url('+this.value+')'; OS.temp=this.value;" style="width:100%"><option value="${Wallpapers.bliss}">Bliss</option><option value="${Wallpapers.autumn}">Autumn</option><option value="${Wallpapers.erfan}">Erfan</option></select>
+                        <select onchange="document.getElementById('${pid}').style.backgroundImage='url('+this.value+')'; OS.temp=this.value;" style="width:100%"><option value="${Wallpapers.bliss}">Bliss</option><option value="${Wallpapers.montian}">mountain</option><option value="${Wallpapers.erfan}">Erfan</option></select>
                         <button style="margin-top:10px;" onclick="OS.setWallpaper(OS.temp); WinMgr.close(this.closest('.window').id)">Apply</button></fieldset></div>`);
                 } else if(app === 'notepad') {
                     WinMgr.create("Notepad", Icons.resume, 400, 300, `<textarea style="width:100%;height:100%;border:none;resize:none;font-family:monospace;padding:5px;">Hello Erfan</textarea>`);
