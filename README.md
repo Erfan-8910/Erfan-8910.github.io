@@ -1,4 +1,4 @@
-<img width="1439" height="789" alt="image" src="https://github.com/user-attachments/assets/5b69b124-59b1-4b85-bd6d-c99b62cf7554" />> **A nostalgic, fully interactive Operating System simulation running in your browser.** 
+**A nostalgic, fully interactive Operating System simulation running in your browser.** 
 
 [![Live Demo](https://img.shields.io/badge/🟢_Live_Demo-Click_Here-brightgreen?style=for-the-badge&logo=github)](https://Erfan-8910.github.io)
 ![JavaScript](https://img.shields.io/badge/Made%20With-Vanilla%20JS-yellow?style=for-the-badge&logo=javascript)
