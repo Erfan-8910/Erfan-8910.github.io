@@ -1,5 +1,3 @@
-<img width="1439" height="790" alt="image" src="https://github.com/user-attachments/assets/7d7b856d-920f-4ab5-ad56-b81bfe9357b1" /># 🖥️ Windows XP Web Portfolio
-
 > **A nostalgic, fully interactive Operating System simulation running in your browser.** 
 
 [![Live Demo](https://img.shields.io/badge/🟢_Live_Demo-Click_Here-brightgreen?style=for-the-badge&logo=github)](https://Erfan-8910.github.io)
@@ -10,8 +8,8 @@
 
 ## 🖼️ Preview 
 
-![Windows XP Preview](.assets/Image/screenshot.png)
-*(Note: Please upload a screenshot of your project named 'screenshot.png' to the repository root)*
+![Uploading image.png…]()
+
 
 ---
 
