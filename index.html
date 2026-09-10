@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#020309">
-<meta name="description" content="Erfan's Realistic Milky Way 3D Universe — Explore accurate 3D planets, meteor showers, 360° free cosmic viewing, and interact with the grounded vintage CRT terminal.">
-<title>ERFAN / MILKY WAY 8910 — Photorealistic 3D Cosmos</title>
+<meta name="description" content="Erfan's Realistic Milky Way 3D Universe — Explore ultra-detailed planets, celestial shooting stars, elastic 50° viewport controls, and the grounded vintage CRT terminal.">
+<title>ERFAN / MILKY WAY 8910 — Ultra-Detailed 3D Cosmos</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,31 +169,17 @@ a{color:inherit;text-decoration:none}
 }
 .audio-waves span{
   width:2px;background:currentColor;border-radius:1px;
-  animation:wave-bar 1.8s ease-in-out infinite;
+  animation:wave-bar 2.0s ease-in-out infinite;
 }
 .audio-waves span:nth-child(1){height:4px;animation-delay:0s}
-.audio-waves span:nth-child(2){height:11px;animation-delay:0.35s}
-.audio-waves span:nth-child(3){height:7px;animation-delay:0.7s}
-.audio-waves span:nth-child(4){height:3px;animation-delay:0.2s}
+.audio-waves span:nth-child(2){height:11px;animation-delay:0.4s}
+.audio-waves span:nth-child(3){height:7px;animation-delay:0.8s}
+.audio-waves span:nth-child(4){height:3px;animation-delay:0.25s}
 .audio-muted .audio-waves span{animation:none;height:2px;opacity:0.35}
 
 @keyframes wave-bar{
   0%,100%{transform:scaleY(0.4)}
   50%{transform:scaleY(1)}
-}
-
-/* 3D 360-degree Free View Indicator */
-#view-mode-pill{
-  position:fixed;top:74px;left:50%;transform:translateX(-50%);
-  z-index:18;display:flex;align-items:center;gap:8px;
-  background:rgba(4,10,18,0.75);border:1px solid rgba(78,240,232,0.3);
-  padding:4px 14px;border-radius:20px;backdrop-filter:blur(10px);
-  font-family:var(--font-mono);font-size:11px;color:var(--cyan);
-  pointer-events:none;transition:opacity .3s ease;
-}
-#view-mode-pill .dot{
-  width:6px;height:6px;border-radius:50%;background:var(--cyan);
-  box-shadow:0 0 8px var(--cyan);animation:beacon-blink 1.4s infinite alternate;
 }
 
 /* 3D Waypoint Navigator Sidebar */
@@ -233,7 +219,7 @@ a{color:inherit;text-decoration:none}
   opacity:0;transform:translateY(12px);pointer-events:none;
   transition:opacity .65s ease,transform .8s cubic-bezier(0.16,1,0.3,1);
   padding:22px 26px;border-radius:14px;
-  background:rgba(3,8,16,0.82);border:1px solid rgba(148,185,214,0.2);
+  background:rgba(3,8,16,0.85);border:1px solid rgba(148,185,214,0.2);
   backdrop-filter:blur(16px);
   box-shadow:0 18px 52px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
 }
@@ -643,7 +629,6 @@ input::placeholder{color:#6c8299}
   .brand{font-size:10px;letter-spacing:1px;padding:4px 8px}
   .tools .button{font-size:11px;padding:6px 9px}
   .waypoint-nav{display:none}
-  #view-mode-pill{top:60px;font-size:9.5px;padding:3px 10px}
   #story{inset-inline:14px;width:auto;bottom:16vh;padding:16px 18px}
   #story h2{font-size:20px}
   #coordinates{display:none}
@@ -695,14 +680,14 @@ input::placeholder{color:#6c8299}
           <span class="lbl">WARP VELOCITY</span>
         </div>
         <div class="telemetry-item">
-          <span class="val" id="hud-dist">1.0 AU</span>
+          <span class="val" id="hud-dist">1.00 AU</span>
           <span class="lbl">TARGET DIST</span>
         </div>
       </div>
     </div>
 
     <div class="tools">
-      <button class="button icon-only audio-toggle" id="audio-btn" aria-label="Audio / صدا" title="Serene Atmosphere On/Off">
+      <button class="button icon-only audio-toggle" id="audio-btn" aria-label="Audio / صدا" title="Relaxing Ambient Music On/Off">
         <div class="audio-waves" aria-hidden="true">
           <span></span><span></span><span></span><span></span>
         </div>
@@ -714,12 +699,6 @@ input::placeholder{color:#6c8299}
       <button class="button language-switch"></button>
     </div>
   </header>
-
-  <!-- 360-Degree Free Look Hint Banner -->
-  <div id="view-mode-pill">
-    <span class="dot"></span>
-    <span data-t="freeLookNotice">دید ۳۶۰ درجه آزاد (کلیک و چرخش دوربین به هر سو)</span>
-  </div>
 
   <!-- 3D Sidebar Waypoint Navigator across the Milky Way -->
   <nav class="waypoint-nav" id="waypoint-rail" aria-label="Planetary Waypoints">
@@ -767,7 +746,7 @@ input::placeholder{color:#6c8299}
     <button class="button" id="next-stage" aria-label="Next stage">↓</button>
   </nav>
 
-  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">اسکرول برای پرواز بین سیارات · درگ برای چرخش ۳۶۰ درجه به تمام جهات ↓</span></div>
+  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">اسکرول یا دکمه‌ها برای پرواز بین سیارات · درگ برای چرخش دید پیرامونی ↓</span></div>
   <div id="coordinates" aria-hidden="true">ORBIT // EARTH [1.00 AU]</div>
   <div id="progress" aria-hidden="true"></div>
 </div>
@@ -786,7 +765,7 @@ input::placeholder{color:#6c8299}
     <div class="receiver" aria-hidden="true"></div>
     <div class="eyebrow">REALISTIC MILKY WAY // 8910</div>
     <h1 id="gate-title" data-t="welcome">جهان زندهٔ سه‌بعدی در کهکشان راه شیری</h1>
-    <p data-t="intro">کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی برگرفته از تصاویر ناسا، دید آزاد ۳۶۰ درجه و فرود روی زمین تاریک عرفان.</p>
+    <p data-t="intro">کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی با کیفیت خیره‌کننده، صدای آرامش‌بخش و فرود روی زمین تاریک عرفان.</p>
 
     <div class="language-picker" aria-label="Language / زبان">
       <button data-lang="fa" lang="fa" aria-pressed="true">فارسی</button>
@@ -794,7 +773,7 @@ input::placeholder{color:#6c8299}
     </div>
 
     <button class="button primary" id="start" disabled data-t="start">ورود به جهان کیهانی (پرواز)</button>
-    <div id="load-status" role="status">در حال تولید شیدرهای فیزیکی سیارات و کهکشان زنده…</div>
+    <div id="load-status" role="status">در حال بارگذاری شیدرهای فیزیکی سیارات و کهکشان زنده…</div>
 
     <div class="gate-actions">
       <button class="link-button terminal-trigger" data-t="directTerminal">کنسول مستقیم >_</button>
@@ -949,7 +928,7 @@ input::placeholder{color:#6c8299}
     <div class="crt-header">
       <div class="crt-title">
         <div class="crt-led"></div>
-        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.8</span>
+        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.9</span>
       </div>
       <div class="crt-top-actions">
         <button class="crt-theme-btn" id="theme-cycle-btn">🎨 THEME</button>
@@ -1001,7 +980,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 /* ------------------------------------------------------------------
-   1. TRANQUIL & SERENE CELESTIAL AMBIENT SOUND (SOFT & RELAXING)
+   1. SERENE, PEACEFUL & WARM AMBIENT SOUND (PURE COMFORT & BEAUTY)
    ------------------------------------------------------------------ */
 class SereneSpaceAtmosphere {
   constructor(){
@@ -1017,12 +996,12 @@ class SereneSpaceAtmosphere {
     this.chimeTimer = null;
     this.currentChord = 0;
 
-    // Brian Eno / Deep Space Peaceful Ambient Progression: Fmaj9 -> Am9 -> Dm9 -> Cmaj7
+    // Heartwarming, relaxing harmonic chords: Cmaj9 -> Em9 -> Am9 -> Fmaj7
     this.chords = [
-      [41, 48, 53, 57, 60], // Fmaj7
-      [45, 52, 57, 60, 64], // Am9
-      [38, 45, 50, 53, 57], // Dm9
-      [36, 43, 48, 52, 55]  // Cmaj7
+      [48, 55, 59, 62, 64], // Cmaj9
+      [40, 47, 52, 55, 59], // Em9
+      [45, 52, 55, 60, 64], // Am9
+      [41, 48, 52, 57, 60]  // Fmaj7
     ];
   }
 
@@ -1032,9 +1011,9 @@ class SereneSpaceAtmosphere {
     if(!AudioContext) return;
     this.ctx = new AudioContext();
 
-    // Very gentle master volume (0.12) to ensure it is peaceful and never intrusive
+    // Velvet-soft master volume for pure relaxation
     this.master = this.ctx.createGain();
-    this.master.gain.setValueAtTime(this.muted ? 0 : 0.12, this.ctx.currentTime);
+    this.master.gain.setValueAtTime(this.muted ? 0 : 0.11, this.ctx.currentTime);
 
     this.analyser = this.ctx.createAnalyser();
     this.analyser.fftSize = 64;
@@ -1059,7 +1038,7 @@ class SereneSpaceAtmosphere {
     if(this.master && this.ctx){
       const t = this.ctx.currentTime;
       this.master.gain.cancelScheduledValues(t);
-      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.12, t + 0.4);
+      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.11, t + 0.4);
     }
     this.updateUI();
     return !this.muted;
@@ -1069,7 +1048,7 @@ class SereneSpaceAtmosphere {
     const btn = $("#audio-btn");
     if(!btn) return;
     btn.classList.toggle("audio-muted", this.muted);
-    btn.setAttribute("aria-label", this.muted ? "Unmute Space Atmosphere" : "Mute Space Atmosphere");
+    btn.setAttribute("aria-label", this.muted ? "Unmute Ambient Atmosphere" : "Mute Ambient Atmosphere");
   }
 
   midiToFreq(midi){
@@ -1081,19 +1060,19 @@ class SereneSpaceAtmosphere {
     const t = this.ctx.currentTime;
 
     this.padGain = this.ctx.createGain();
-    this.padGain.gain.setValueAtTime(0.08, t);
+    this.padGain.gain.setValueAtTime(0.07, t);
 
     this.filter = this.ctx.createBiquadFilter();
     this.filter.type = "lowpass";
-    this.filter.frequency.setValueAtTime(140, t); // Super soft warm low-pass
-    this.filter.Q.setValueAtTime(1.0, t);
+    this.filter.frequency.setValueAtTime(160, t);
+    this.filter.Q.setValueAtTime(0.8, t);
 
-    // Ultra gentle breathing LFO
+    // Warm, gentle breathing LFO
     const lfo = this.ctx.createOscillator();
     const lfoGain = this.ctx.createGain();
     lfo.type = "sine";
-    lfo.frequency.setValueAtTime(0.02, t);
-    lfoGain.gain.setValueAtTime(30, t);
+    lfo.frequency.setValueAtTime(0.025, t);
+    lfoGain.gain.setValueAtTime(25, t);
     lfo.connect(lfoGain);
     lfoGain.connect(this.filter.frequency);
     lfo.start();
@@ -1105,9 +1084,9 @@ class SereneSpaceAtmosphere {
 
       osc.type = "sine";
       const freq = this.midiToFreq(initialChord[i]);
-      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.15 : -0.15), t);
+      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.12 : -0.12), t);
 
-      voiceGain.gain.setValueAtTime(0.06, t);
+      voiceGain.gain.setValueAtTime(0.05, t);
 
       osc.connect(voiceGain);
       voiceGain.connect(this.filter);
@@ -1119,7 +1098,7 @@ class SereneSpaceAtmosphere {
     this.filter.connect(this.padGain);
     this.padGain.connect(this.master);
 
-    // Slowly morph chords every 22 seconds for deep tranquility
+    // Smooth chord progression every 20 seconds
     setInterval(() => {
       if(!this.ctx || this.muted) return;
       this.currentChord = (this.currentChord + 1) % this.chords.length;
@@ -1127,25 +1106,25 @@ class SereneSpaceAtmosphere {
       const now = this.ctx.currentTime;
       this.voices.forEach((v, idx) => {
         const targetFreq = this.midiToFreq(targetChord[idx]);
-        v.osc.frequency.setTargetAtTime(targetFreq, now, 6.0);
+        v.osc.frequency.setTargetAtTime(targetFreq, now, 5.5);
       });
-    }, 22000);
+    }, 20000);
 
     this.scheduleCosmicBell();
   }
 
   scheduleCosmicBell(){
     if(!this.ctx) return;
-    const bellNotes = [220.0, 261.63, 293.66, 329.63, 392.0, 440.0];
+    const bellNotes = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25];
     const playNext = () => {
       if(!this.muted && this.ctx && this.ctx.state === "running"){
         const freq = bellNotes[Math.floor(Math.random() * bellNotes.length)];
         this.playWarmBell(freq);
       }
-      const delay = 8000 + Math.random() * 9000;
+      const delay = 9000 + Math.random() * 11000;
       this.chimeTimer = setTimeout(playNext, delay);
     };
-    this.chimeTimer = setTimeout(playNext, 3500);
+    this.chimeTimer = setTimeout(playNext, 4000);
   }
 
   playWarmBell(freq){
@@ -1158,7 +1137,7 @@ class SereneSpaceAtmosphere {
     osc.frequency.setValueAtTime(freq, t);
 
     gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(0.012, t + 0.4);
+    gain.gain.linearRampToValueAtTime(0.012, t + 0.35);
     gain.gain.exponentialRampToValueAtTime(0.00001, t + 5.5);
 
     osc.connect(gain);
@@ -1170,7 +1149,7 @@ class SereneSpaceAtmosphere {
   setWarp(warpFactor){
     if(!this.ctx || !this.filter) return;
     const t = this.ctx.currentTime;
-    const cutoff = 140 + warpFactor * 220;
+    const cutoff = 160 + warpFactor * 200;
     this.filter.frequency.setTargetAtTime(cutoff, t, 0.3);
   }
 
@@ -1184,7 +1163,7 @@ class SereneSpaceAtmosphere {
       const gain = this.ctx.createGain();
       osc.type = "sine";
       osc.frequency.setValueAtTime(320, t);
-      osc.frequency.exponentialRampToValueAtTime(460, t + 0.05);
+      osc.frequency.exponentialRampToValueAtTime(440, t + 0.05);
       gain.gain.setValueAtTime(0.015, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
       osc.connect(gain);
@@ -1195,8 +1174,8 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(40, t);
-      osc.frequency.linearRampToValueAtTime(55, t + 0.8);
+      osc.frequency.setValueAtTime(45, t);
+      osc.frequency.linearRampToValueAtTime(60, t + 0.8);
       osc.frequency.linearRampToValueAtTime(35, t + 2.0);
       gain.gain.setValueAtTime(0.02, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 2.1);
@@ -1208,7 +1187,7 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(350 + Math.random() * 80, t);
+      osc.frequency.setValueAtTime(360 + Math.random() * 80, t);
       gain.gain.setValueAtTime(0.006, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.025);
       osc.connect(gain);
@@ -1219,7 +1198,7 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(500, t);
+      osc.frequency.setValueAtTime(480, t);
       osc.frequency.exponentialRampToValueAtTime(120, t + 0.08);
       gain.gain.setValueAtTime(0.02, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
@@ -1286,9 +1265,9 @@ audio.updateUI();
 const COPY = {
   fa: {
     welcome: "جهان زندهٔ سه‌بعدی در کهکشان راه شیری",
-    intro: "کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی برگرفته از داده‌های فضایی، دید آزاد ۳۶۰ درجه و فرود روی زمین تاریک عرفان.",
+    intro: "کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی با کیفیت خیره‌کننده، صدای آرامش‌بخش و فرود روی زمین تاریک عرفان.",
     start: "ورود به جهان کیهانی (پرواز)",
-    preparing: "در حال رندر شیدرهای فیزیکی سیارات و کهکشان زنده…",
+    preparing: "در حال بارگذاری شیدرهای فیزیکی سیارات و کهکشان زنده…",
     ready: "جهان سه‌بعدی آماده است · زبان را انتخاب کن و دکمه پرواز را بزن",
     failure: "فضای سه‌بعدی بارگذاری نشد. WebGL و اتصال اینترنت را بررسی کن.",
     lost: "رندر سه‌بعدی متوقف شد؛ صفحه را تازه کن.",
@@ -1304,9 +1283,8 @@ const COPY = {
     endTitle: "سیگنال ۸۹۱۰ روی زمین بازیابی شد",
     endText: "فرود در پایگاه زمینی در پس‌زمینهٔ آسمان شب · توسعه یافته توسط عرفان (Erfan-8910)",
     launchTerminal: ">_ باز کردن کنسول سیستم",
-    scroll: "اسکرول برای پرواز بین سیارات · درگ برای چرخش ۳۶۰ درجه به تمام جهات ↓",
+    scroll: "اسکرول یا دکمه‌ها برای پرواز بین سیارات · درگ برای چرخش دید پیرامونی ↓",
     navigation: "سیارات کهکشان راه شیری",
-    freeLookNotice: "دید ۳۶۰ درجه آزاد (کلیک و چرخش دوربین به هر سو)",
     previous: "سیارهٔ قبل",
     next: "سیارهٔ بعد",
     search: "نام پروژه، موضوع یا توضیحات…",
@@ -1355,9 +1333,9 @@ const COPY = {
   },
   en: {
     welcome: "Living 3D Universe across the Milky Way",
-    intro: "A living galaxy with dynamic shooting stars, realistic planets derived from space imagery, 360° panoramic view, and landing on Erfan's ground base.",
+    intro: "A living galaxy with dynamic shooting stars, photorealistic planets, serene soothing soundtrack, and landing on Erfan's ground base.",
     start: "Enter 3D Cosmos (Fly)",
-    preparing: "Rendering physical planet shaders and living galaxy…",
+    preparing: "Loading physical planet shaders and living galaxy…",
     ready: "3D Universe aligned · Select language and hit launch",
     failure: "3D scene failed to load. Check WebGL and internet connection.",
     lost: "3D renderer lost context. Please reload the page.",
@@ -1373,9 +1351,8 @@ const COPY = {
     endTitle: "Signal 8910 Recovered on Ground",
     endText: "Touchdown on dark ground base under the night sky · Developed by Erfan (Erfan-8910)",
     launchTerminal: ">_ Enter Ground Console",
-    scroll: "Scroll to fly between planets · Drag anywhere for 360° free cosmic viewing ↓",
+    scroll: "Scroll or use arrows to fly between planets · Drag to tilt view ↓",
     navigation: "Milky Way Planetary Waypoints",
-    freeLookNotice: "360° Panoramic Free View (Click & Drag Camera in Any Direction)",
     previous: "Previous Planet",
     next: "Next Planet",
     search: "Search project name, topics, or description…",
@@ -1856,8 +1833,8 @@ class ResponsiveCyberTerminal {
   printBanner(){
     const banner = [
       "╔════════════════════════════════════════════════════════════╗",
-      "║  VT-8910 CYBER COMMAND // REALISTIC UNIVERSE v4.8          ║",
-      "║  STATUS: SIGNAL 8910 MHz RESTORED · 360° FREE VIEW ACTIVE  ║",
+      "║  VT-8910 CYBER COMMAND // REALISTIC UNIVERSE v4.9          ║",
+      "║  STATUS: SIGNAL 8910 MHz RESTORED · SERENE AMBIENCE: OK    ║",
       "╚════════════════════════════════════════════════════════════╝",
       "Type 'help' for instructions or tap the command chips below.",
       ""
@@ -1889,7 +1866,7 @@ class ResponsiveCyberTerminal {
           "  play       - Launch 'COSMIC INTERCEPTOR' arcade space game",
           "  matrix     - Stream digital phosphor matrix rain",
           "  sysinfo    - Display system info & ground station telemetry",
-          "  sound      - Toggle space ambient soundscape (on/off)",
+          "  sound      - Toggle ambient music soundscape (on/off)",
           "  theme      - Change phosphor theme (green/cyan/amber/purple)",
           "  clear      - Clear terminal screen buffer",
           "  exit       - Close terminal and return to 3D cosmos",
@@ -1955,11 +1932,11 @@ class ResponsiveCyberTerminal {
       case "sysinfo":
       case "neofetch":
         this.log([
-          "       .---.          OS:        Erfan Living Cosmos OS v4.8",
+          "       .---.          OS:        Erfan Living Cosmos OS v4.9",
           "      /     \\         Host:      Realistic Ground Observatory 8910",
-          "     | () () |        Sky:       360° Free Panoramic Milky Way",
+          "     | () () |        Sky:       Living Milky Way with Elastic View",
           "      \\  _  /         Meteors:   Dynamic Ion Trail Shooting Stars",
-          "       |||||          Planets:   NASA Photorealistic Shaders",
+          "       |||||          Planets:   Ultra High-Quality NASA Shaders",
           "       |||||          Display:   " + window.innerWidth + "x" + window.innerHeight + " (Responsive)",
           "       '---'          Status:    Standing on Dark Ground Base",
           ""
@@ -1969,7 +1946,7 @@ class ResponsiveCyberTerminal {
       case "sound":
       case "music":
         const isUnmuted = audio.toggleMute();
-        this.log(`Space atmosphere audio is now ${isUnmuted ? "ACTIVE (Serene Soft Ambient)" : "MUTED"}.`);
+        this.log(`Ambient music is now ${isUnmuted ? "ACTIVE (Serene Warm Progression)" : "MUTED"}.`);
         break;
 
       case "play":
@@ -2182,7 +2159,7 @@ $("#next-stage").onclick = () => { audio.playSFX("click"); controller?.step(1); 
 setLanguage(language);
 
 /* ------------------------------------------------------------------
-   4. REALISTIC LIVING 3D MILKY WAY, REALISTIC PLANETS & 360° FREE LOOK
+   4. ULTRA-DETAILED 3D SOLAR SYSTEM & ELASTIC 50° VIEWPORT SYSTEM
    ------------------------------------------------------------------ */
 const loadTimer = setTimeout(() => {
   if(sceneStatus === "preparing"){
@@ -2230,8 +2207,8 @@ async function initialize(){
   composer.addPass(new OutputPass());
 
   // Physical Solar Lighting from Sun Center
-  scene.add(new THREE.AmbientLight(0x788aa0, 0.5));
-  const sunLight = new THREE.DirectionalLight(0xfffaec, 2.9);
+  scene.add(new THREE.AmbientLight(0x788aa0, 0.55));
+  const sunLight = new THREE.DirectionalLight(0xfffaec, 3.0);
   sunLight.position.set(-120, 80, 100);
   scene.add(sunLight);
 
@@ -2312,13 +2289,16 @@ async function initialize(){
   let toCamPos = currentCamPos.clone();
   let toCamTarget = currentCamTarget.clone();
 
-  // Full 360-degree free look spherical angles (Yaw / Pitch)
+  // Elastic Camera Tilt limited to max 50 degrees (0.87 rad), automatically springs back on release
+  const MAX_TILT = 50 * (Math.PI / 180); // ~0.872 rad
   let freeYaw = 0;
   let freePitch = 0;
   let targetYaw = 0;
   let targetPitch = 0;
   let isDragging = false;
   let dragStart = new THREE.Vector2();
+  let dragDist = 0;
+  let lastActionTime = 0;
 
   let travelProgress = 0;
   let travelDuration = 2.4;
@@ -2400,7 +2380,6 @@ async function initialize(){
       float halo = exp(-d * d * 18.0) * 0.22;
       float alpha = (core + halo) * smoothstep(0.5, 0.25, d);
 
-      // Living scintillation / twinkling based on stellar temperature
       float twinkle = 1.0 + sin(uTime * 1.2 + vSeed * 13.0) * 0.14 * uMotion;
       gl_FragColor = vec4(vColor * twinkle, alpha);
       #include <tonemapping_fragment>
@@ -2434,16 +2413,15 @@ async function initialize(){
   }
 
   const stellarColors = [
-    new THREE.Color("#fff5eb"), // Solar G
-    new THREE.Color("#c8e0ff"), // Hot B
-    new THREE.Color("#ebf4fa"), // A
-    new THREE.Color("#ffd4a3"), // Warm K
-    new THREE.Color("#74f0e0"), // Cyan Neon
-    new THREE.Color("#d596ff")  // Purple Nebula
+    new THREE.Color("#fff5eb"),
+    new THREE.Color("#c8e0ff"),
+    new THREE.Color("#ebf4fa"),
+    new THREE.Color("#ffd4a3"),
+    new THREE.Color("#74f0e0"),
+    new THREE.Color("#d596ff")
   ];
   const col = new THREE.Color();
 
-  // 360-degree deep celestial vault
   {
     const pos = [], colors = [], sizes = [], seeds = [];
     const count = mobile ? 8000 : 16000;
@@ -2481,7 +2459,6 @@ async function initialize(){
       const py = rand(-1.8, 1.8) * (0.6 + r * 0.025);
       const pz = Math.sin(angle) * r + rand(-spread, spread);
 
-      // Dust lane absorption gap
       const inDust = Math.sin(r * 0.2 + angle * 2.0) > 0.82 && r > 20.0;
       if(inDust && Math.random() > 0.35) continue;
 
@@ -2501,7 +2478,7 @@ async function initialize(){
   createMilkyWayDisc();
 
   // -------------------------------------------------------------
-  // DYNAMIC SHOOTING STARS / METEORS (شهاب سنگ در حرکت در آسمان)
+  // DYNAMIC SHOOTING STARS / METEORS
   // -------------------------------------------------------------
   const meteorMat = new THREE.LineBasicMaterial({
     color: 0x68eca0,
@@ -2509,7 +2486,6 @@ async function initialize(){
     opacity: 0,
     blending: THREE.AdditiveBlending
   });
-  const meteorGeos = [];
   const METEOR_POOL = 6;
   for(let i = 0; i < METEOR_POOL; i++){
     const geo = new THREE.BufferGeometry();
@@ -2546,10 +2522,10 @@ async function initialize(){
     free.active = true;
   }
   setInterval(() => {
-    if(!document.hidden && !reducedMotion.matches && Math.random() > 0.3){
+    if(!document.hidden && !reducedMotion.matches && Math.random() > 0.35){
       spawnMeteor();
     }
-  }, 2200);
+  }, 2400);
 
   // Warp Hyperspace Streaks System
   const warpCount = mobile ? 260 : 540;
@@ -2580,7 +2556,7 @@ async function initialize(){
   scene.add(warpLines);
 
   // -------------------------------------------------------------
-  // PHOTOREALISTIC PROCEDURAL SHADERS FOR ALL PLANETS
+  // ULTRA-DETAILED PHOTOREALISTIC PROCEDURAL SHADERS
   // -------------------------------------------------------------
   const planetVertex = `
     varying vec3 vSurface;
@@ -2595,7 +2571,6 @@ async function initialize(){
     }
   `;
 
-  // Photorealistic Shaders (Earth, Mars, Saturn, Neptune, Kepler)
   const planetFragment = `
     ${NOISE}
     uniform float uTime;
@@ -2612,11 +2587,11 @@ async function initialize(){
 
       vec3 albedo = vec3(0.1);
       float specularMask = 0.0;
-      float detail = fbm(p * 45.0);
-      float continental = fbm(p * 3.2 + vec3(2.7, 0.4, 4.2));
+      float detail = fbm(p * 50.0);
+      float continental = fbm(p * 3.4 + vec3(2.7, 0.4, 4.2));
 
       if(uType < 0.5){
-        // 🌍 1. PHOTOREALISTIC EARTH (Realistic Continents, Oceans & Rayleigh Atmosphere)
+        // 🌍 1. ULTRA HIGH-QUALITY EARTH
         float land = smoothstep(0.47, 0.51, continental);
         float ocean = 1.0 - land;
         specularMask = ocean * 0.95;
@@ -2637,7 +2612,7 @@ async function initialize(){
         albedo = mix(albedo, vec3(0.85, 0.9, 0.94), ice);
         specularMask = mix(specularMask, 0.2, ice);
 
-        // Dynamic Volumetric Clouds
+        // Dynamic Volumetric Clouds with soft terrain shadows
         vec3 cp = p;
         float a = uTime * 0.006;
         cp.xz = mat2(cos(a), -sin(a), sin(a), cos(a)) * cp.xz;
@@ -2646,7 +2621,7 @@ async function initialize(){
         specularMask *= (1.0 - clouds);
 
       } else if(uType < 1.5){
-        // 🔴 2. PHOTOREALISTIC MARS (Iron Oxide Rust, Dark Basaltic Maria, Olympus Mons, Ice Caps)
+        // 🔴 2. ULTRA HIGH-QUALITY MARS
         vec3 rustBright = vec3(0.68, 0.32, 0.16);
         vec3 rustDark = vec3(0.36, 0.14, 0.07);
         vec3 basaltMaria = vec3(0.18, 0.11, 0.08);
@@ -2654,40 +2629,36 @@ async function initialize(){
         float maria = smoothstep(0.38, 0.58, continental);
         albedo = mix(basaltMaria, mix(rustDark, rustBright, detail), maria);
 
-        // Towering Olympus Mons & Canyon Details
         float crater = smoothstep(0.72, 0.85, fbm(p * 22.0));
         albedo *= (0.85 + crater * 0.3);
 
-        // CO2 Polar Ice Caps
         float iceCap = smoothstep(0.86, 0.98, abs(p.y));
         albedo = mix(albedo, vec3(0.9, 0.92, 0.95), iceCap);
 
       } else if(uType < 2.5){
-        // 🪐 3. PHOTOREALISTIC SATURN (Subtle Ammonia/Methane Banding & Globe Shadows)
+        // 🪐 3. ULTRA HIGH-QUALITY SATURN
         float bands = sin(p.y * 70.0 + fbm(p * 8.0) * 8.0);
         vec3 ochreLow = vec3(0.42, 0.34, 0.22);
         vec3 creamHigh = vec3(0.78, 0.68, 0.48);
         albedo = mix(ochreLow, creamHigh, 0.5 + 0.5 * bands) * (0.88 + detail * 0.24);
 
       } else if(uType < 3.5){
-        // 💎 4. PHOTOREALISTIC NEPTUNE (Deep Azure Methane & Great Dark Spot & Scooter Clouds)
+        // 💎 4. ULTRA HIGH-QUALITY NEPTUNE
         float bands = sin(p.y * 42.0 + fbm(p * 6.5) * 6.0);
         vec3 deepMethane = vec3(0.04, 0.14, 0.52);
         vec3 azureBright = vec3(0.16, 0.44, 0.9);
         albedo = mix(deepMethane, azureBright, 0.5 + 0.5 * bands);
 
-        // High Altitude White Cirrus Scooter Clouds
         float scooter = smoothstep(0.72, 0.86, fbm(p * 16.0 + uTime * 0.012));
         albedo = mix(albedo, vec3(0.85, 0.94, 1.0), scooter * 0.7);
 
       } else {
-        // 🌌 5. KEPLER-8910 (Bioluminescent Aurora Exoplanet)
+        // 🌌 5. KEPLER-8910
         float land = smoothstep(0.46, 0.52, continental);
         vec3 bioSea = mix(vec3(0.12, 0.04, 0.32), vec3(0.24, 0.08, 0.55), continental);
         vec3 bioLand = mix(vec3(0.04, 0.3, 0.25), vec3(0.08, 0.52, 0.42), detail);
         albedo = mix(bioSea, bioLand, land);
 
-        // Polar Aurora Borealis
         float aurora = smoothstep(0.66, 0.96, abs(p.y)) * (0.5 + 0.5 * sin(p.x * 22.0 + uTime * 0.9));
         albedo += vec3(0.15, 0.95, 0.75) * aurora * 0.9;
       }
@@ -2696,14 +2667,12 @@ async function initialize(){
       float daylight = smoothstep(-0.15, 0.25, dot(n, lightDir));
       vec3 result = albedo * (0.04 + lambert * 1.85);
 
-      // Specular ocean reflection
       if(specularMask > 0.01){
         vec3 halfVec = normalize(lightDir + viewDir);
         float spec = pow(max(dot(n, halfVec), 0.0), 32.0);
         result += vec3(0.8, 0.9, 1.0) * spec * specularMask * 1.5 * daylight;
       }
 
-      // Atmospheric Rayleigh Rim Glow
       float rim = pow(1.0 - max(dot(n, viewDir), 0.0), 3.5);
       vec3 rimCol = uType < 0.5 ? vec3(0.2, 0.45, 0.95) : (uType < 1.5 ? vec3(0.45, 0.18, 0.09) : (uType < 2.5 ? vec3(0.5, 0.42, 0.25) : (uType < 3.5 ? vec3(0.2, 0.5, 0.95) : vec3(0.3, 0.85, 0.65))));
       result += rimCol * rim * (0.15 + daylight * 0.65);
@@ -2725,14 +2694,14 @@ async function initialize(){
     });
 
     const globe = new THREE.Mesh(
-      new THREE.SphereGeometry(radius, mobile ? 80 : 128, mobile ? 56 : 88),
+      new THREE.SphereGeometry(radius, mobile ? 96 : 128, mobile ? 64 : 96),
       material
     );
     globe.rotation.z = tiltZ;
     group.add(globe);
 
     // Orbiting 3D Moons (Moon, Phobos, Titan, Triton)
-    const moonGeo = new THREE.SphereGeometry(radius * 0.22, 24, 24);
+    const moonGeo = new THREE.SphereGeometry(radius * 0.22, 28, 28);
     const moonMat = new THREE.MeshStandardMaterial({
       color: type === 0 ? 0xcccccc : (type === 1 ? 0x996655 : (type === 2 ? 0xddccaa : 0x88bbdd)),
       roughness: 0.88
@@ -2743,9 +2712,9 @@ async function initialize(){
     group.add(moonMesh);
     moons.push({ mesh: moonMesh, dist: moonDist, speed: 0.02 + type * 0.006, offset: type * 1.5 });
 
-    // Saturn / Neptune Real Rings with Optical Gaps (Cassini Division)
+    // Saturn / Neptune Real Rings with Optical Gaps
     if(hasRings){
-      const ringGeo = new THREE.RingGeometry(radius * 1.42, radius * 2.85, 80);
+      const ringGeo = new THREE.RingGeometry(radius * 1.42, radius * 2.85, 84);
       const ringMat = new THREE.ShaderMaterial({
         vertexShader: `
           varying vec2 vUv;
@@ -2828,7 +2797,6 @@ async function initialize(){
 
   // -------------------------------------------------------------
   // STAGE 6: GROUND BASE & VINTAGE CRT TERMINAL ON DARK GROUND
-  // ("کامپیوتر هم توی پشت سیاه روی زمین باشه")
   // -------------------------------------------------------------
   const groundBaseGroup = new THREE.Group();
   groundBaseGroup.position.set(0, -2.5, -680);
@@ -3027,6 +2995,8 @@ async function initialize(){
 
     targetYaw = 0;
     targetPitch = 0;
+    freeYaw = 0;
+    freePitch = 0;
 
     stage = next;
     travelProgress = 0;
@@ -3071,7 +3041,7 @@ async function initialize(){
     if(e.ctrlKey || e.metaKey || !$("#gate").hidden || $("#archive").open || $("#terminal-dialog").open) return;
     e.preventDefault();
     const now = performance.now();
-    if(now - lastWheel > 260){ wheelSum = 0; wheelUsed = false; }
+    if(now - lastWheel > 300){ wheelSum = 0; wheelUsed = false; }
     lastWheel = now;
     if(!canMove()){ wheelUsed = true; return; }
     if(wheelUsed || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
@@ -3083,28 +3053,38 @@ async function initialize(){
   }, { passive: false });
 
   // -------------------------------------------------------------
-  // FULL 360-DEGREE FREE PANORAMIC ROTATION CONTROLS (MOUSE & TOUCH)
+  // ELASTIC 50° MAX ROTATION CONTROLS (SPRINGS BACK SMOOTHLY ON RELEASE)
   // -------------------------------------------------------------
   renderer.domElement.addEventListener("pointerdown", e => {
     if(isControl(e.target) || $("#archive").open || $("#terminal-dialog").open) return;
     isDragging = true;
     dragStart.set(e.clientX, e.clientY);
+    dragDist = 0;
   });
 
   addEventListener("pointermove", e => {
     if(!isDragging || $("#archive").open || $("#terminal-dialog").open) return;
-    const dx = (e.clientX - dragStart.x) * 0.005;
-    const dy = (e.clientY - dragStart.y) * 0.005;
+    const dx = (e.clientX - dragStart.x) * 0.004;
+    const dy = (e.clientY - dragStart.y) * 0.004;
+    dragDist += Math.hypot(dx, dy);
 
-    // Full 360° horizontal rotation (look behind, look around in any direction)
-    targetYaw += dx;
-    // Vertical pitch rotation (-85° to +85°)
-    targetPitch = clamp(targetPitch + dy, -1.45, 1.45);
+    // Limit maximum camera tilt to 50 degrees (~0.87 rad)
+    targetYaw = clamp(targetYaw + dx, -MAX_TILT, MAX_TILT);
+    targetPitch = clamp(targetPitch + dy, -MAX_TILT, MAX_TILT);
 
     dragStart.set(e.clientX, e.clientY);
   });
 
-  addEventListener("pointerup", () => isDragging = false);
+  const onPointerRelease = () => {
+    if(!isDragging) return;
+    isDragging = false;
+    // Automatically spring back to default forward position when released
+    targetYaw = 0;
+    targetPitch = 0;
+  };
+
+  addEventListener("pointerup", onPointerRelease);
+  addEventListener("pointercancel", onPointerRelease);
 
   addEventListener("touchstart", e => {
     tracking = false;
@@ -3121,6 +3101,7 @@ async function initialize(){
   }, { passive: false });
 
   addEventListener("touchend", e => {
+    onPointerRelease();
     if(!tracking) return;
     tracking = false;
     if(!canMove() || !e.changedTouches.length) return;
@@ -3131,7 +3112,7 @@ async function initialize(){
   }, { passive: true });
 
   renderer.domElement.addEventListener("click", () => {
-    if(isDragging) return;
+    if(dragDist > 0.04) return;
     if(stage === 5 && !traveling){
       terminal.open();
     } else if(stage === 3 && !traveling){
@@ -3165,9 +3146,10 @@ async function initialize(){
 
     time += dt;
 
-    // Smooth Damping for 360° Free Look
-    freeYaw = lerp(freeYaw, targetYaw, 1 - Math.exp(-dt * 6.5));
-    freePitch = lerp(freePitch, targetPitch, 1 - Math.exp(-dt * 6.5));
+    // Smooth Spring Back Damping
+    const springSpeed = isDragging ? 7.5 : 4.5;
+    freeYaw = lerp(freeYaw, targetYaw, 1 - Math.exp(-dt * springSpeed));
+    freePitch = lerp(freePitch, targetPitch, 1 - Math.exp(-dt * springSpeed));
 
     let bankingRoll = 0;
 
@@ -3224,7 +3206,7 @@ async function initialize(){
     // Compute Base Forward Vector to Target
     const forward = new THREE.Vector3().subVectors(currentCamTarget, currentCamPos).normalize();
     
-    // Apply Full 360° Free Look Spherical Rotation (Yaw & Pitch)
+    // Apply Elastic Max 50° Rotation with Spring Return
     const euler = new THREE.Euler(freePitch, -freeYaw, bankingRoll, "YXZ");
     const rotatedForward = forward.clone().applyEuler(euler);
     const lookAtPoint = camera.position.clone().add(rotatedForward.multiplyScalar(50));
