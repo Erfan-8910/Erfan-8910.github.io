@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#020309">
-<meta name="description" content="Erfan's Milky Way 3D Portfolio — Cruise across 3D planets in the galaxy, explore projects, and interact with the vintage CRT cyber terminal.">
-<title>ERFAN / MILKY WAY 8910 — Interstellar 3D Portfolio</title>
+<meta name="description" content="Erfan's Realistic Milky Way 3D Universe — Explore accurate 3D planets, meteor showers, 360° free cosmic viewing, and interact with the grounded vintage CRT terminal.">
+<title>ERFAN / MILKY WAY 8910 — Photorealistic 3D Cosmos</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
   --blue:#5eaaff;
   --glow:0 0 24px rgba(104,236,160,0.35);
   --glow-cyan:0 0 24px rgba(78,240,232,0.4);
-  --panel-bg:rgba(8,18,32,0.85);
+  --panel-bg:rgba(6,14,24,0.85);
   --panel-border:rgba(148,185,214,0.2);
   --font-mono:'Fira Code',ui-monospace,monospace;
   --font-sans:'Vazirmatn',system-ui,sans-serif;
@@ -67,16 +67,17 @@ a{color:inherit;text-decoration:none}
 /* Canvas & Vignette */
 #space{
   position:fixed;inset:0;width:100%;height:100%;
-  display:block;z-index:0;
+  display:block;z-index:0;cursor:grab;
 }
+#space:active{cursor:grabbing}
 .vignette{
   position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(2,3,9,0.45) 75%,rgba(2,3,9,0.94) 100%);
+  background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(2,3,9,0.35) 75%,rgba(2,3,9,0.92) 100%);
 }
 #speed-lines{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   opacity:0;transition:opacity .35s ease;
-  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.1) 100%);
+  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.08) 100%);
 }
 #speed-lines.active{opacity:1}
 
@@ -84,22 +85,22 @@ a{color:inherit;text-decoration:none}
 .hud{
   position:fixed;top:0;inset-inline:0;z-index:20;
   display:flex;align-items:center;justify-content:space-between;
-  gap:10px;padding:14px 3vw;
-  background:linear-gradient(180deg, rgba(2,3,9,0.92) 0%, rgba(2,3,9,0.45) 75%, transparent 100%);
+  gap:10px;padding:12px 3vw;
+  background:linear-gradient(180deg, rgba(2,3,9,0.94) 0%, rgba(2,3,9,0.4) 75%, transparent 100%);
   backdrop-filter:blur(10px);
 }
 .brand{
   direction:ltr;font-family:var(--font-mono);font-size:12px;font-weight:600;
-  letter-spacing:2.5px;color:#d0deed;white-space:nowrap;
+  letter-spacing:2px;color:#d0deed;white-space:nowrap;
   display:flex;align-items:center;gap:8px;
   padding:6px 12px;border:1px solid var(--line);border-radius:8px;
-  background:rgba(10,22,36,0.65);transition:all .25s ease;
+  background:rgba(8,18,30,0.7);transition:all .25s ease;
 }
 .brand:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan);color:#fff}
 .brand-pulse{
   width:7px;height:7px;border-radius:50%;background:var(--green);
   box-shadow:0 0 10px var(--green);
-  animation:beacon-blink 1.8s ease-in-out infinite alternate;
+  animation:beacon-blink 2s ease-in-out infinite alternate;
 }
 @keyframes beacon-blink{
   0%{opacity:.3;transform:scale(0.8)}
@@ -110,7 +111,7 @@ a{color:inherit;text-decoration:none}
 /* Oscilloscope Scanner in HUD */
 .hud-center{
   display:flex;align-items:center;gap:12px;
-  background:rgba(8,18,32,0.75);padding:6px 14px;border-radius:10px;
+  background:rgba(6,14,24,0.8);padding:6px 14px;border-radius:10px;
   border:1px solid var(--line);
 }
 .scope-wrap{display:flex;align-items:center;gap:8px}
@@ -120,15 +121,13 @@ a{color:inherit;text-decoration:none}
 }
 #scope-canvas{
   width:105px;height:24px;border-radius:4px;
-  background:rgba(3,8,16,0.9);border:1px solid rgba(78,240,232,0.25);
+  background:rgba(2,6,12,0.9);border:1px solid rgba(78,240,232,0.25);
 }
 .hud-telemetry{
   display:flex;align-items:center;gap:12px;
   direction:ltr;font-family:var(--font-mono);font-size:10px;color:var(--cyan);
 }
-.telemetry-item{
-  display:flex;flex-direction:column;line-height:1.2;
-}
+.telemetry-item{display:flex;flex-direction:column;line-height:1.2}
 .telemetry-item .val{font-weight:600;color:#fff}
 .telemetry-item .lbl{font-size:8px;color:var(--muted);letter-spacing:1px}
 
@@ -137,12 +136,12 @@ a{color:inherit;text-decoration:none}
 .button{
   display:inline-flex;justify-content:center;align-items:center;
   gap:7px;padding:8px 14px;border:1px solid var(--panel-border);
-  border-radius:7px;background:rgba(12,26,40,0.8);color:#d4e2f0;
+  border-radius:7px;background:rgba(10,22,36,0.8);color:#d4e2f0;
   font-size:12px;font-weight:500;transition:all .22s ease;
   backdrop-filter:blur(6px);
 }
 .button:hover:not(:disabled){
-  background:rgba(26,50,74,0.95);border-color:var(--cyan);
+  background:rgba(22,46,70,0.95);border-color:var(--cyan);
   color:#fff;box-shadow:0 0 16px rgba(78,240,232,0.28);
   transform:translateY(-1px);
 }
@@ -170,12 +169,12 @@ a{color:inherit;text-decoration:none}
 }
 .audio-waves span{
   width:2px;background:currentColor;border-radius:1px;
-  animation:wave-bar 1.4s ease-in-out infinite;
+  animation:wave-bar 1.8s ease-in-out infinite;
 }
-.audio-waves span:nth-child(1){height:5px;animation-delay:0s}
-.audio-waves span:nth-child(2){height:13px;animation-delay:0.25s}
-.audio-waves span:nth-child(3){height:8px;animation-delay:0.5s}
-.audio-waves span:nth-child(4){height:4px;animation-delay:0.15s}
+.audio-waves span:nth-child(1){height:4px;animation-delay:0s}
+.audio-waves span:nth-child(2){height:11px;animation-delay:0.35s}
+.audio-waves span:nth-child(3){height:7px;animation-delay:0.7s}
+.audio-waves span:nth-child(4){height:3px;animation-delay:0.2s}
 .audio-muted .audio-waves span{animation:none;height:2px;opacity:0.35}
 
 @keyframes wave-bar{
@@ -183,16 +182,30 @@ a{color:inherit;text-decoration:none}
   50%{transform:scaleY(1)}
 }
 
+/* 3D 360-degree Free View Indicator */
+#view-mode-pill{
+  position:fixed;top:74px;left:50%;transform:translateX(-50%);
+  z-index:18;display:flex;align-items:center;gap:8px;
+  background:rgba(4,10,18,0.75);border:1px solid rgba(78,240,232,0.3);
+  padding:4px 14px;border-radius:20px;backdrop-filter:blur(10px);
+  font-family:var(--font-mono);font-size:11px;color:var(--cyan);
+  pointer-events:none;transition:opacity .3s ease;
+}
+#view-mode-pill .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);animation:beacon-blink 1.4s infinite alternate;
+}
+
 /* 3D Waypoint Navigator Sidebar */
 .waypoint-nav{
   position:fixed;inset-inline-start:2vw;top:50%;transform:translateY(-50%);
   z-index:18;display:flex;flex-direction:column;gap:14px;
-  padding:12px 8px;background:rgba(6,14,24,0.65);border:1px solid var(--line);
+  padding:12px 8px;background:rgba(4,10,18,0.7);border:1px solid var(--line);
   border-radius:24px;backdrop-filter:blur(10px);
 }
 .waypoint-dot{
   position:relative;width:32px;height:32px;border-radius:50%;
-  border:1px solid rgba(185,208,228,0.25);background:rgba(12,24,38,0.8);
+  border:1px solid rgba(185,208,228,0.25);background:rgba(10,20,32,0.8);
   display:grid;place-items:center;font-family:var(--font-mono);font-size:10px;
   color:var(--muted);transition:all .25s ease;
 }
@@ -206,7 +219,7 @@ a{color:inherit;text-decoration:none}
 }
 .waypoint-tooltip{
   position:absolute;inset-inline-start:44px;top:50%;transform:translateY(-50%);
-  background:rgba(8,18,32,0.94);border:1px solid var(--panel-border);
+  background:rgba(6,14,24,0.95);border:1px solid var(--panel-border);
   padding:6px 12px;border-radius:6px;font-size:11.5px;white-space:nowrap;
   color:#e4effa;pointer-events:none;opacity:0;transition:opacity .2s,transform .2s;
   box-shadow:0 8px 24px rgba(0,0,0,0.6);font-family:var(--font-sans);
@@ -220,9 +233,9 @@ a{color:inherit;text-decoration:none}
   opacity:0;transform:translateY(12px);pointer-events:none;
   transition:opacity .65s ease,transform .8s cubic-bezier(0.16,1,0.3,1);
   padding:22px 26px;border-radius:14px;
-  background:rgba(4,12,22,0.8);border:1px solid rgba(148,185,214,0.2);
+  background:rgba(3,8,16,0.82);border:1px solid rgba(148,185,214,0.2);
   backdrop-filter:blur(16px);
-  box-shadow:0 18px 52px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow:0 18px 52px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 #story.present{opacity:1;transform:translateY(0);pointer-events:auto}
 .eyebrow{
@@ -251,9 +264,9 @@ a{color:inherit;text-decoration:none}
 }
 .ending-card{
   display:inline-block;width:min(580px,92vw);padding:24px 30px;
-  background:rgba(3,8,14,0.92);border:1px solid rgba(104,236,160,0.35);
+  background:rgba(2,5,10,0.94);border:1px solid rgba(104,236,160,0.35);
   border-radius:16px;backdrop-filter:blur(18px);
-  box-shadow:0 22px 64px rgba(0,0,0,0.85), 0 0 35px rgba(104,236,160,0.2);
+  box-shadow:0 22px 64px rgba(0,0,0,0.88), 0 0 35px rgba(104,236,160,0.2);
 }
 #ending h2{margin:0 0 6px;font-size:clamp(20px,2.8vw,32px);color:#fff}
 #ending p{font-size:12.5px;color:#bad8c6;margin:0 0 16px}
@@ -263,7 +276,7 @@ a{color:inherit;text-decoration:none}
 .step-controls{
   position:fixed;inset-inline-end:2.5vw;bottom:22px;
   z-index:18;display:flex;align-items:center;gap:8px;
-  background:rgba(6,14,24,0.75);padding:6px 12px;border-radius:30px;
+  background:rgba(4,10,18,0.75);padding:6px 12px;border-radius:30px;
   border:1px solid var(--line);backdrop-filter:blur(10px);
 }
 .step-controls .button{width:36px;height:36px;padding:0;font-size:16px;border-radius:50%}
@@ -274,7 +287,7 @@ a{color:inherit;text-decoration:none}
 #hint{
   position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
   z-index:14;font-size:11.5px;color:var(--muted);pointer-events:none;
-  text-align:center;padding:5px 15px;background:rgba(4,10,18,0.7);
+  text-align:center;padding:5px 15px;background:rgba(2,6,12,0.75);
   border-radius:20px;border:1px solid rgba(185,208,228,0.14);
   backdrop-filter:blur(6px);display:flex;align-items:center;gap:8px;
 }
@@ -285,7 +298,7 @@ a{color:inherit;text-decoration:none}
 #coordinates{
   position:fixed;inset-inline-start:2.5vw;bottom:24px;z-index:14;
   direction:ltr;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;
-  color:var(--muted);padding:4px 10px;background:rgba(4,10,18,0.65);
+  color:var(--muted);padding:4px 10px;background:rgba(2,6,12,0.7);
   border-radius:6px;border:1px solid var(--line);
 }
 #progress{
@@ -301,8 +314,8 @@ a{color:inherit;text-decoration:none}
   display:grid;place-items:center;text-align:center;padding:24px;
   overflow:auto;overscroll-behavior:contain;
   background:
-    radial-gradient(ellipse at 50% 20%, rgba(20,44,70,0.75), transparent 70%),
-    radial-gradient(ellipse at 50% 80%, rgba(12,26,44,0.92), #020309 85%);
+    radial-gradient(ellipse at 50% 20%, rgba(15,35,55,0.75), transparent 70%),
+    radial-gradient(ellipse at 50% 80%, rgba(8,18,32,0.94), #010206 85%);
   backdrop-filter:blur(4px);
 }
 .gate-inner{width:min(680px,100%);padding:20px 0}
@@ -335,11 +348,11 @@ a{color:inherit;text-decoration:none}
 .language-picker{display:flex;gap:12px;justify-content:center;margin-bottom:22px}
 .language-picker button{
   min-width:135px;border:1px solid var(--panel-border);
-  border-radius:8px;padding:12px 18px;background:rgba(12,28,44,0.7);
+  border-radius:8px;padding:12px 18px;background:rgba(10,22,36,0.7);
   font-size:13px;font-weight:600;color:#c4d6e8;transition:all .25s ease;
 }
 .language-picker button:hover{
-  border-color:var(--cyan);color:#fff;background:rgba(22,46,72,0.85);
+  border-color:var(--cyan);color:#fff;background:rgba(18,38,60,0.85);
 }
 .language-picker button[aria-pressed="true"]{
   border-color:var(--green);color:#02140a;background:var(--green);
@@ -359,16 +372,16 @@ a{color:inherit;text-decoration:none}
 dialog{
   width:min(1100px,94vw);max-height:88svh;padding:0;
   overflow:auto;overscroll-behavior:contain;
-  background:rgba(6,14,24,0.95);color:var(--text);
+  background:rgba(4,10,18,0.95);color:var(--text);
   border:1px solid var(--panel-border);border-radius:14px;
   box-shadow:0 30px 120px rgba(0,0,0,0.85), 0 0 40px rgba(78,240,232,0.1);
   backdrop-filter:blur(24px);
 }
-dialog::backdrop{background:rgba(1,4,10,0.85);backdrop-filter:blur(10px)}
+dialog::backdrop{background:rgba(1,3,8,0.85);backdrop-filter:blur(10px)}
 .dialog-head{
   position:sticky;top:0;z-index:10;display:flex;align-items:center;
   justify-content:space-between;gap:15px;padding:16px 24px;
-  border-bottom:1px solid var(--line);background:rgba(8,18,32,0.98);
+  border-bottom:1px solid var(--line);background:rgba(6,14,24,0.98);
   backdrop-filter:blur(16px);
 }
 .dialog-head h2{font-size:19px;font-weight:700;margin:4px 0 0;color:#fff}
@@ -382,10 +395,10 @@ dialog::backdrop{background:rgba(1,4,10,0.85);backdrop-filter:blur(10px)}
 }
 .tab-btn{
   padding:8px 16px;border-radius:6px;font-size:12.5px;font-weight:600;
-  border:1px solid transparent;background:rgba(12,24,38,0.5);color:#9fb4c9;
+  border:1px solid transparent;background:rgba(10,20,32,0.5);color:#9fb4c9;
   transition:all .2s ease;
 }
-.tab-btn:hover{color:#fff;background:rgba(20,40,64,0.7)}
+.tab-btn:hover{color:#fff;background:rgba(16,34,54,0.7)}
 .tab-btn.active{
   color:var(--cyan);background:rgba(78,240,232,0.12);
   border-color:rgba(78,240,232,0.35);box-shadow:0 0 14px rgba(78,240,232,0.2);
@@ -395,21 +408,21 @@ dialog::backdrop{background:rgba(1,4,10,0.85);backdrop-filter:blur(10px)}
 .profile{
   display:flex;align-items:center;justify-content:space-between;
   gap:18px;margin-bottom:22px;padding:16px 20px;border-radius:10px;
-  background:rgba(10,22,36,0.65);border:1px solid var(--line);
+  background:rgba(8,18,30,0.65);border:1px solid var(--line);
   flex-wrap:wrap;
 }
 .profile-left{display:flex;align-items:center;gap:14px}
 .profile img{
   width:62px;height:62px;object-fit:cover;
   border-radius:12px;border:2px solid var(--cyan);
-  box-shadow:0 0 16px rgba(78,240,232,0.3);background:#0f2030;
+  box-shadow:0 0 16px rgba(78,240,232,0.3);background:#0b1824;
 }
 .profile-info strong{font-size:15px;color:#fff;display:block}
 #profile-bio{margin:3px 0 0;font-size:12.5px;color:var(--muted);line-height:1.6}
 .profile-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .badge{
   font-family:var(--font-mono);font-size:9.5px;padding:2px 8px;
-  border-radius:4px;border:1px solid var(--line);background:rgba(14,30,48,0.6);
+  border-radius:4px;border:1px solid var(--line);background:rgba(12,24,40,0.6);
   color:var(--cyan);
 }
 
@@ -417,7 +430,7 @@ dialog::backdrop{background:rgba(1,4,10,0.85);backdrop-filter:blur(10px)}
 .filters{display:grid;grid-template-columns:1fr 180px 180px;gap:10px}
 .control{
   width:100%;min-width:0;padding:10px 14px;border:1px solid var(--line);
-  border-radius:6px;background:#0d1c2d;color:#e2ecf6;font-size:12.5px;
+  border-radius:6px;background:#091522;color:#e2ecf6;font-size:12.5px;
   transition:border-color .2s;
 }
 .control:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 12px rgba(78,240,232,0.25)}
@@ -426,7 +439,7 @@ input::placeholder{color:#6c8299}
 .repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
 .repo{
   display:flex;flex-direction:column;min-height:250px;padding:20px;
-  border:1px solid var(--line);border-radius:10px;background:rgba(10,22,36,0.7);
+  border:1px solid var(--line);border-radius:10px;background:rgba(8,18,30,0.7);
   transition:all .25s ease;position:relative;overflow:hidden;
 }
 .repo:hover{
@@ -448,7 +461,7 @@ input::placeholder{color:#6c8299}
 .repo-extra{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .tag{
   border:1px solid var(--line);border-radius:4px;padding:2px 8px;
-  font-size:10.5px;color:#a9c0d6;background:rgba(14,28,44,0.5);
+  font-size:10.5px;color:#a9c0d6;background:rgba(12,24,38,0.5);
   transition:border-color .2s;
 }
 .tag:hover{border-color:var(--cyan);color:var(--cyan)}
@@ -464,7 +477,7 @@ input::placeholder{color:#6c8299}
 /* Skills Radar / Matrix */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:10px}
 .skill-card{
-  padding:18px;border-radius:10px;background:rgba(10,22,36,0.6);
+  padding:18px;border-radius:10px;background:rgba(8,18,30,0.6);
   border:1px solid var(--line);
 }
 .skill-card h3{
@@ -474,7 +487,7 @@ input::placeholder{color:#6c8299}
 .skill-item{display:flex;flex-direction:column;gap:4px}
 .skill-head{display:flex;justify-content:space-between;font-size:12px;color:#cbd9e8}
 .skill-bar{
-  height:6px;border-radius:3px;background:rgba(20,40,64,0.6);
+  height:6px;border-radius:3px;background:rgba(16,34,54,0.6);
   overflow:hidden;position:relative;
 }
 .skill-fill{
@@ -486,7 +499,7 @@ input::placeholder{color:#6c8299}
 /* Contact / Signal Transmitter */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
 .contact-card{
-  padding:18px;border-radius:10px;background:rgba(10,22,36,0.6);
+  padding:18px;border-radius:10px;background:rgba(8,18,30,0.6);
   border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
   transition:all .22s ease;
 }
@@ -603,7 +616,7 @@ input::placeholder{color:#6c8299}
 #probe-overlay{
   position:fixed;inset-inline-end:5vw;top:20vh;z-index:22;
   width:min(340px,85vw);padding:18px 22px;border-radius:12px;
-  background:rgba(4,14,26,0.88);border:1px solid var(--cyan);
+  background:rgba(4,12,22,0.9);border:1px solid var(--cyan);
   box-shadow:0 0 30px rgba(78,240,232,0.3);backdrop-filter:blur(14px);
   direction:rtl;display:none;animation:fade-in-up .3s ease;
 }
@@ -630,6 +643,7 @@ input::placeholder{color:#6c8299}
   .brand{font-size:10px;letter-spacing:1px;padding:4px 8px}
   .tools .button{font-size:11px;padding:6px 9px}
   .waypoint-nav{display:none}
+  #view-mode-pill{top:60px;font-size:9.5px;padding:3px 10px}
   #story{inset-inline:14px;width:auto;bottom:16vh;padding:16px 18px}
   #story h2{font-size:20px}
   #coordinates{display:none}
@@ -688,7 +702,7 @@ input::placeholder{color:#6c8299}
     </div>
 
     <div class="tools">
-      <button class="button icon-only audio-toggle" id="audio-btn" aria-label="Audio / صدا" title="Space Atmosphere On/Off">
+      <button class="button icon-only audio-toggle" id="audio-btn" aria-label="Audio / صدا" title="Serene Atmosphere On/Off">
         <div class="audio-waves" aria-hidden="true">
           <span></span><span></span><span></span><span></span>
         </div>
@@ -701,6 +715,12 @@ input::placeholder{color:#6c8299}
     </div>
   </header>
 
+  <!-- 360-Degree Free Look Hint Banner -->
+  <div id="view-mode-pill">
+    <span class="dot"></span>
+    <span data-t="freeLookNotice">دید ۳۶۰ درجه آزاد (کلیک و چرخش دوربین به هر سو)</span>
+  </div>
+
   <!-- 3D Sidebar Waypoint Navigator across the Milky Way -->
   <nav class="waypoint-nav" id="waypoint-rail" aria-label="Planetary Waypoints">
     <button class="waypoint-dot active" data-step="0">01<span class="waypoint-tooltip" data-t="wp0">زمین (Earth)</span></button>
@@ -708,12 +728,12 @@ input::placeholder{color:#6c8299}
     <button class="waypoint-dot" data-step="2">03<span class="waypoint-tooltip" data-t="wp2">زحل (Saturn)</span></button>
     <button class="waypoint-dot" data-step="3">04<span class="waypoint-tooltip" data-t="wp3">نپتون (Neptune)</span></button>
     <button class="waypoint-dot" data-step="4">05<span class="waypoint-tooltip" data-t="wp4">کپلر ۸۹۱۰ (Kepler)</span></button>
-    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال عرفان (Ground Terminal)</span></button>
+    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال روی زمین (Ground Base)</span></button>
   </nav>
 
   <main>
     <h1 class="sr-only" data-t="accessibleTitle">پورتفولیوی فضایی عرفان</h1>
-    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سفر بین سیارات سه‌بعدی کهکشان راه شیری</p>
+    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سفر بین سیارات واقعی کهکشان راه شیری</p>
 
     <section id="story" aria-labelledby="story-title" aria-hidden="true" inert>
       <div class="eyebrow" id="chapter-code">MILKY WAY EXPEDITION / 01</div>
@@ -729,9 +749,9 @@ input::placeholder{color:#6c8299}
   <!-- Stage 6 Destination HUD -->
   <footer id="ending" hidden>
     <div class="ending-card">
-      <div class="eyebrow">FINAL DESTINATION // CORE BASE</div>
+      <div class="eyebrow">FINAL DESTINATION // GROUND OBSERVATORY</div>
       <h2 data-t="endTitle">سیگنال ۸۹۱۰ روی زمین بازیابی شد</h2>
-      <p data-t="endText">پایان سفر کهکشانی · کنسول رترو روی زمین فعال است · توسعه یافته توسط عرفان (Erfan-8910)</p>
+      <p data-t="endText">فرود در پایگاه زمینی در پس‌زمینهٔ آسمان شب · توسعه یافته توسط عرفان (Erfan-8910)</p>
       <div class="end-actions">
         <button class="button amber terminal-trigger" data-t="launchTerminal">>_ باز کردن کنسول سیستم</button>
         <button class="button primary archive-trigger" data-t="archive">مشاهده پروژه‌ها</button>
@@ -747,14 +767,14 @@ input::placeholder{color:#6c8299}
     <button class="button" id="next-stage" aria-label="Next stage">↓</button>
   </nav>
 
-  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">سوایپ یا اسکرول برای پرواز سه‌بعدی بین سیارات راه شیری ↓</span></div>
-  <div id="coordinates" aria-hidden="true">ORBIT // EARTH [0, 0, 0]</div>
+  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">اسکرول برای پرواز بین سیارات · درگ برای چرخش ۳۶۰ درجه به تمام جهات ↓</span></div>
+  <div id="coordinates" aria-hidden="true">ORBIT // EARTH [1.00 AU]</div>
   <div id="progress" aria-hidden="true"></div>
 </div>
 
 <!-- Hologram Probe Telemetry Overlay -->
 <div id="probe-overlay">
-  <div class="eyebrow">NEPTUNE RELAY // PROBE 8910</div>
+  <div class="eyebrow">NEPTUNE RELAY // VOYAGER 8910</div>
   <h3 data-t="probeTitle">کاوشگر مخابراتی سیگنال ۸۹۱۰</h3>
   <p data-t="probeDesc">اطلاعات بازیابی‌شده از مدار نپتون شامل وب‌اپلیکیشن Climind-W و اکوسیستم توسعه‌دهنده عرفان است.</p>
   <button class="button primary archive-trigger" style="width:100%" data-t="archive">بررسی داده‌های پروژه</button>
@@ -764,17 +784,17 @@ input::placeholder{color:#6c8299}
 <section id="gate" aria-labelledby="gate-title">
   <div class="gate-inner">
     <div class="receiver" aria-hidden="true"></div>
-    <div class="eyebrow">MILKY WAY EXPEDITION // 8910</div>
-    <h1 id="gate-title" data-t="welcome">سفری سه‌بعدی و شناور در کهکشان راه شیری</h1>
-    <p data-t="intro">از مدار زمین تا شفق‌های قطبی کپلر و فرود روی پایگاه زمینی عرفان، در فضای سه‌بعدی پرواز کنید و پروژه‌ها را کشف کنید.</p>
+    <div class="eyebrow">REALISTIC MILKY WAY // 8910</div>
+    <h1 id="gate-title" data-t="welcome">جهان زندهٔ سه‌بعدی در کهکشان راه شیری</h1>
+    <p data-t="intro">کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی برگرفته از تصاویر ناسا، دید آزاد ۳۶۰ درجه و فرود روی زمین تاریک عرفان.</p>
 
     <div class="language-picker" aria-label="Language / زبان">
       <button data-lang="fa" lang="fa" aria-pressed="true">فارسی</button>
       <button data-lang="en" lang="en">English</button>
     </div>
 
-    <button class="button primary" id="start" disabled data-t="start">آغاز سفر سه‌بعدی کهکشانی (پرواز)</button>
-    <div id="load-status" role="status">در حال هم‌تراز کردن ناوبری سه‌بعدی فضا…</div>
+    <button class="button primary" id="start" disabled data-t="start">ورود به جهان کیهانی (پرواز)</button>
+    <div id="load-status" role="status">در حال تولید شیدرهای فیزیکی سیارات و کهکشان زنده…</div>
 
     <div class="gate-actions">
       <button class="link-button terminal-trigger" data-t="directTerminal">کنسول مستقیم >_</button>
@@ -860,12 +880,12 @@ input::placeholder{color:#6c8299}
               <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-head"><span>Three.js / WebGL / Shaders</span><span>85%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+              <div class="skill-head"><span>Three.js / WebGL / Shaders</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-head"><span>Web Audio API & Interactive Graphics</span><span>88%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+              <div class="skill-head"><span>Web Audio API & Interactive Graphics</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
             </div>
           </div>
         </div>
@@ -886,8 +906,8 @@ input::placeholder{color:#6c8299}
               <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-head"><span>Performance Optimization & WebGL Math</span><span>84%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:84%"></div></div>
+              <div class="skill-head"><span>Performance Optimization & WebGL Math</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
             </div>
           </div>
         </div>
@@ -929,7 +949,7 @@ input::placeholder{color:#6c8299}
     <div class="crt-header">
       <div class="crt-title">
         <div class="crt-led"></div>
-        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.5</span>
+        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.8</span>
       </div>
       <div class="crt-top-actions">
         <button class="crt-theme-btn" id="theme-cycle-btn">🎨 THEME</button>
@@ -981,7 +1001,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 /* ------------------------------------------------------------------
-   1. SERENE & CALM SPACE AMBIENT AUDIO (100% RELAXING & CELESTIAL)
+   1. TRANQUIL & SERENE CELESTIAL AMBIENT SOUND (SOFT & RELAXING)
    ------------------------------------------------------------------ */
 class SereneSpaceAtmosphere {
   constructor(){
@@ -997,12 +1017,12 @@ class SereneSpaceAtmosphere {
     this.chimeTimer = null;
     this.currentChord = 0;
 
-    // Peaceful celestial progression: Dm9 -> Bbmaj7 -> Gm7 -> Csus4
+    // Brian Eno / Deep Space Peaceful Ambient Progression: Fmaj9 -> Am9 -> Dm9 -> Cmaj7
     this.chords = [
-      [50, 57, 62, 65, 69],
-      [46, 53, 58, 62, 65],
-      [43, 50, 55, 58, 62],
-      [48, 55, 60, 65, 67]
+      [41, 48, 53, 57, 60], // Fmaj7
+      [45, 52, 57, 60, 64], // Am9
+      [38, 45, 50, 53, 57], // Dm9
+      [36, 43, 48, 52, 55]  // Cmaj7
     ];
   }
 
@@ -1012,8 +1032,9 @@ class SereneSpaceAtmosphere {
     if(!AudioContext) return;
     this.ctx = new AudioContext();
 
+    // Very gentle master volume (0.12) to ensure it is peaceful and never intrusive
     this.master = this.ctx.createGain();
-    this.master.gain.setValueAtTime(this.muted ? 0 : 0.32, this.ctx.currentTime);
+    this.master.gain.setValueAtTime(this.muted ? 0 : 0.12, this.ctx.currentTime);
 
     this.analyser = this.ctx.createAnalyser();
     this.analyser.fftSize = 64;
@@ -1038,7 +1059,7 @@ class SereneSpaceAtmosphere {
     if(this.master && this.ctx){
       const t = this.ctx.currentTime;
       this.master.gain.cancelScheduledValues(t);
-      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.32, t + 0.35);
+      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.12, t + 0.4);
     }
     this.updateUI();
     return !this.muted;
@@ -1060,18 +1081,19 @@ class SereneSpaceAtmosphere {
     const t = this.ctx.currentTime;
 
     this.padGain = this.ctx.createGain();
-    this.padGain.gain.setValueAtTime(0.2, t);
+    this.padGain.gain.setValueAtTime(0.08, t);
 
     this.filter = this.ctx.createBiquadFilter();
     this.filter.type = "lowpass";
-    this.filter.frequency.setValueAtTime(240, t);
-    this.filter.Q.setValueAtTime(1.4, t);
+    this.filter.frequency.setValueAtTime(140, t); // Super soft warm low-pass
+    this.filter.Q.setValueAtTime(1.0, t);
 
+    // Ultra gentle breathing LFO
     const lfo = this.ctx.createOscillator();
     const lfoGain = this.ctx.createGain();
     lfo.type = "sine";
-    lfo.frequency.setValueAtTime(0.035, t);
-    lfoGain.gain.setValueAtTime(60, t);
+    lfo.frequency.setValueAtTime(0.02, t);
+    lfoGain.gain.setValueAtTime(30, t);
     lfo.connect(lfoGain);
     lfoGain.connect(this.filter.frequency);
     lfo.start();
@@ -1081,11 +1103,11 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const voiceGain = this.ctx.createGain();
 
-      osc.type = i < 2 ? "triangle" : "sine";
+      osc.type = "sine";
       const freq = this.midiToFreq(initialChord[i]);
-      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.2 : -0.2), t);
+      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.15 : -0.15), t);
 
-      voiceGain.gain.setValueAtTime(0.12, t);
+      voiceGain.gain.setValueAtTime(0.06, t);
 
       osc.connect(voiceGain);
       voiceGain.connect(this.filter);
@@ -1097,6 +1119,7 @@ class SereneSpaceAtmosphere {
     this.filter.connect(this.padGain);
     this.padGain.connect(this.master);
 
+    // Slowly morph chords every 22 seconds for deep tranquility
     setInterval(() => {
       if(!this.ctx || this.muted) return;
       this.currentChord = (this.currentChord + 1) % this.chords.length;
@@ -1104,25 +1127,25 @@ class SereneSpaceAtmosphere {
       const now = this.ctx.currentTime;
       this.voices.forEach((v, idx) => {
         const targetFreq = this.midiToFreq(targetChord[idx]);
-        v.osc.frequency.setTargetAtTime(targetFreq, now, 3.2);
+        v.osc.frequency.setTargetAtTime(targetFreq, now, 6.0);
       });
-    }, 14000);
+    }, 22000);
 
     this.scheduleCosmicBell();
   }
 
   scheduleCosmicBell(){
     if(!this.ctx) return;
-    const bellNotes = [293.66, 329.63, 369.99, 440.0, 493.88, 587.33];
+    const bellNotes = [220.0, 261.63, 293.66, 329.63, 392.0, 440.0];
     const playNext = () => {
       if(!this.muted && this.ctx && this.ctx.state === "running"){
         const freq = bellNotes[Math.floor(Math.random() * bellNotes.length)];
         this.playWarmBell(freq);
       }
-      const delay = 5500 + Math.random() * 7000;
+      const delay = 8000 + Math.random() * 9000;
       this.chimeTimer = setTimeout(playNext, delay);
     };
-    this.chimeTimer = setTimeout(playNext, 2500);
+    this.chimeTimer = setTimeout(playNext, 3500);
   }
 
   playWarmBell(freq){
@@ -1135,23 +1158,20 @@ class SereneSpaceAtmosphere {
     osc.frequency.setValueAtTime(freq, t);
 
     gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(0.03, t + 0.25);
-    gain.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
+    gain.gain.linearRampToValueAtTime(0.012, t + 0.4);
+    gain.gain.exponentialRampToValueAtTime(0.00001, t + 5.5);
 
     osc.connect(gain);
     gain.connect(this.master);
     osc.start(t);
-    osc.stop(t + 4.6);
+    osc.stop(t + 5.6);
   }
 
   setWarp(warpFactor){
     if(!this.ctx || !this.filter) return;
     const t = this.ctx.currentTime;
-    const cutoff = 240 + warpFactor * 450;
-    this.filter.frequency.setTargetAtTime(cutoff, t, 0.2);
-    if(this.padGain){
-      this.padGain.gain.setTargetAtTime(0.2 + warpFactor * 0.15, t, 0.2);
-    }
+    const cutoff = 140 + warpFactor * 220;
+    this.filter.frequency.setTargetAtTime(cutoff, t, 0.3);
   }
 
   playSFX(type){
@@ -1163,22 +1183,22 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(360, t);
-      osc.frequency.exponentialRampToValueAtTime(540, t + 0.07);
-      gain.gain.setValueAtTime(0.03, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+      osc.frequency.setValueAtTime(320, t);
+      osc.frequency.exponentialRampToValueAtTime(460, t + 0.05);
+      gain.gain.setValueAtTime(0.015, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
       osc.connect(gain);
       gain.connect(this.master);
       osc.start(t);
-      osc.stop(t + 0.09);
+      osc.stop(t + 0.07);
     } else if(type === "warp"){
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(45, t);
-      osc.frequency.linearRampToValueAtTime(75, t + 0.8);
-      osc.frequency.linearRampToValueAtTime(40, t + 2.0);
-      gain.gain.setValueAtTime(0.05, t);
+      osc.frequency.setValueAtTime(40, t);
+      osc.frequency.linearRampToValueAtTime(55, t + 0.8);
+      osc.frequency.linearRampToValueAtTime(35, t + 2.0);
+      gain.gain.setValueAtTime(0.02, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 2.1);
       osc.connect(gain);
       gain.connect(this.master);
@@ -1188,37 +1208,37 @@ class SereneSpaceAtmosphere {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(400 + Math.random() * 100, t);
-      gain.gain.setValueAtTime(0.01, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+      osc.frequency.setValueAtTime(350 + Math.random() * 80, t);
+      gain.gain.setValueAtTime(0.006, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.025);
       osc.connect(gain);
       gain.connect(this.master);
       osc.start(t);
-      osc.stop(t + 0.035);
+      osc.stop(t + 0.03);
     } else if(type === "laser"){
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(600, t);
-      osc.frequency.exponentialRampToValueAtTime(150, t + 0.1);
-      gain.gain.setValueAtTime(0.04, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.1);
+      osc.frequency.setValueAtTime(500, t);
+      osc.frequency.exponentialRampToValueAtTime(120, t + 0.08);
+      gain.gain.setValueAtTime(0.02, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
       osc.connect(gain);
       gain.connect(this.master);
       osc.start(t);
-      osc.stop(t + 0.11);
+      osc.stop(t + 0.09);
     } else if(type === "hit"){
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "triangle";
-      osc.frequency.setValueAtTime(85, t);
-      osc.frequency.exponentialRampToValueAtTime(30, t + 0.18);
-      gain.gain.setValueAtTime(0.05, t);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+      osc.frequency.setValueAtTime(75, t);
+      osc.frequency.exponentialRampToValueAtTime(25, t + 0.15);
+      gain.gain.setValueAtTime(0.025, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
       osc.connect(gain);
       gain.connect(this.master);
       osc.start(t);
-      osc.stop(t + 0.2);
+      osc.stop(t + 0.16);
     }
   }
 
@@ -1226,21 +1246,21 @@ class SereneSpaceAtmosphere {
     if(!canvas) return;
     const ctx = canvas.getContext("2d");
     const w = canvas.width, h = canvas.height;
-    ctx.fillStyle = "rgba(4, 10, 18, 0.35)";
+    ctx.fillStyle = "rgba(2, 6, 12, 0.35)";
     ctx.fillRect(0, 0, w, h);
 
     if(this.analyser && !this.muted && this.ctx && this.ctx.state === "running"){
       this.analyser.getByteTimeDomainData(this.freqData);
     } else {
-      const time = performance.now() * 0.003;
+      const time = performance.now() * 0.002;
       for(let i = 0; i < this.freqData.length; i++){
-        this.freqData[i] = 128 + Math.sin(time + i * 0.3) * 14 + Math.sin(time * 1.8 + i * 0.6) * 7;
+        this.freqData[i] = 128 + Math.sin(time + i * 0.25) * 8;
       }
     }
 
-    ctx.lineWidth = 1.6;
+    ctx.lineWidth = 1.4;
     ctx.strokeStyle = "#4ef0e8";
-    ctx.shadowBlur = 6;
+    ctx.shadowBlur = 4;
     ctx.shadowColor = "#4ef0e8";
     ctx.beginPath();
     const sliceWidth = w / this.freqData.length;
@@ -1261,15 +1281,15 @@ const audio = new SereneSpaceAtmosphere();
 audio.updateUI();
 
 /* ------------------------------------------------------------------
-   2. BILINGUAL CONTENT & 3D INTERPLANETARY NARRATIVE
+   2. BILINGUAL CONTENT & REALISTIC INTERPLANETARY EXPEDITION
    ------------------------------------------------------------------ */
 const COPY = {
   fa: {
-    welcome: "سفری سه‌بعدی و شناور در کهکشان راه شیری",
-    intro: "از مدار زمین تا شفق‌های قطبی کپلر و فرود روی پایگاه زمینی عرفان، در فضای سه‌بعدی پرواز کنید و پروژه‌ها را کشف کنید.",
-    start: "آغاز سفر سه‌بعدی کهکشانی (پرواز)",
-    preparing: "در حال ترسیم خطوط ناوبری سه‌بعدی کهکشان راه شیری…",
-    ready: "مختصات سه‌بعدی تنظیم شد · زبان را انتخاب کن و دکمه پرواز را بزن",
+    welcome: "جهان زندهٔ سه‌بعدی در کهکشان راه شیری",
+    intro: "کهکشان زنده با شهاب‌سنگ‌های پویا، سیارات واقعی برگرفته از داده‌های فضایی، دید آزاد ۳۶۰ درجه و فرود روی زمین تاریک عرفان.",
+    start: "ورود به جهان کیهانی (پرواز)",
+    preparing: "در حال رندر شیدرهای فیزیکی سیارات و کهکشان زنده…",
+    ready: "جهان سه‌بعدی آماده است · زبان را انتخاب کن و دکمه پرواز را بزن",
     failure: "فضای سه‌بعدی بارگذاری نشد. WebGL و اتصال اینترنت را بررسی کن.",
     lost: "رندر سه‌بعدی متوقف شد؛ صفحه را تازه کن.",
     archive: "پروژه‌ها",
@@ -1282,10 +1302,11 @@ const COPY = {
     github: "پروفایل GitHub ↗",
     restart: "پرواز دوباره ↺",
     endTitle: "سیگنال ۸۹۱۰ روی زمین بازیابی شد",
-    endText: "پایان سفر کهکشانی · کنسول رترو روی زمین فعال است · توسعه یافته توسط عرفان (Erfan-8910)",
+    endText: "فرود در پایگاه زمینی در پس‌زمینهٔ آسمان شب · توسعه یافته توسط عرفان (Erfan-8910)",
     launchTerminal: ">_ باز کردن کنسول سیستم",
-    scroll: "سوایپ یا اسکرول برای پرواز سه‌بعدی بین سیارات راه شیری ↓",
+    scroll: "اسکرول برای پرواز بین سیارات · درگ برای چرخش ۳۶۰ درجه به تمام جهات ↓",
     navigation: "سیارات کهکشان راه شیری",
+    freeLookNotice: "دید ۳۶۰ درجه آزاد (کلیک و چرخش دوربین به هر سو)",
     previous: "سیارهٔ قبل",
     next: "سیارهٔ بعد",
     search: "نام پروژه، موضوع یا توضیحات…",
@@ -1324,20 +1345,20 @@ const COPY = {
     count: (a,b) => `نمایش ${a} از ${b} پروژه`,
     numbers: (s,f) => `${s} ستاره و ${f} فورک`,
     chapters: [
-      ["ORBIT 01 // EARTH (مدار زمین)", "نقطهٔ آغاز در مدار آبی و اتمسفر زمین.", "سیگنال فرکانس ۸۹۱۰ با زاویه‌ای سه‌بعدی از اعماق پهنه کهکشان راه شیری دریافت می‌شود."],
-      ["ORBIT 02 // MARS (سیاره سرخ در ارتفاع بالا)", "صعود مایل به سمت مدار مرتفع مریخ.", "پرواز بر فراز دره‌های گرانیتی سرخ و کوه المپوس؛ امواج فرکانس در میان غبار کیهانی امتداد دارد."],
-      ["ORBIT 03 // SATURN (فرود بر فراز حلقه‌های زحل)", "شیرجه در اعماق جنوبی منظومه و چرخش به چپ.", "عبور از میان میلیاردها کریستال یخی و حلقه‌های باشکوه زحل در زاویه‌ای سه‌بعدی و شیب‌دار."],
-      ["ORBIT 04 // NEPTUNE (مدار لاجوردی نپتون و کاوشگر)", "صعود سه‌بعدی به دوردست‌ترین کرانهٔ منظومه شمسی.", "کاوشگر طلایی نپتون پیدا شد؛ پروژه‌های مدرن وب از جمله Climind-W از این نقطه بازیابی شدند."],
-      ["ORBIT 05 // KEPLER-8910 (سیاره بیگانه شفق قطبی)", "پرواز در صفحه کهکشانی به سمت سیاره فراخورشیدی.", "شفق‌های قطبی زمردین و اقیانوس‌های نورانی کپلر، پرتوهای سیگنال ۸۹۱۰ را بازتاب می‌دهند."],
-      ["GROUND BASE // RETRO COMPUTER (فرود بر پایگاه زمینی)", "فرود نهایی روی زمین در پس‌زمینهٔ تاریک کیهان.", "کامپیوتر رترو CRT روی زمین روشن است: Developed by Erfan — آماده برای دریافت فرامین شما."]
+      ["ORBIT 01 // EARTH [1.00 AU]", "زمین مادری با اقیانوس‌های آبی، شیدر بازتاب نور و لایه اتمسفری.", "سیگنال فرکانس ۸۹۱۰ با زاویه‌ای سه‌بعدی از ژرفای کهکشان راه شیری دریافت می‌شود."],
+      ["ORBIT 02 // MARS [1.52 AU]", "سیارهٔ سرخ با دره‌های گرانیتی، کوه المپوس و کلاهک‌های یخی قطبی.", "پرواز بر فراز دهانه‌های برخوردی مریخ؛ امواج فرکانس در میان غبار کیهانی امتداد دارد."],
+      ["ORBIT 03 // SATURN [9.58 AU]", "غول گازی با حلقه‌های باشکوه یخی، شکاف کاسینی و سایهٔ واقعی روی سیاره.", "عبور از میان کریستال‌های درخشان یخ با زاویه شیب ۲۶٫۷ درجه به دور زحل."],
+      ["ORBIT 04 // NEPTUNE [30.1 AU]", "سیاره لاجوردی نپتون، لکه سیاه بزرگ و کاوشگر مخابراتی طلایی.", "کاوشگر مدار نپتون ردیابی شد؛ پروژه‌های مدرن وب از جمله Climind-W از این نقطه بازیابی شدند."],
+      ["ORBIT 05 // KEPLER-8910 [EXOPLANET]", "سیاره فراخورشیدی زیست‌تاب با اقیانوس‌های بنفش و شفق‌های قطبی زمردین.", "پالس‌های سیگنال ۸۹۱۰ در تعامل با اتمسفر باردار این سیاره تشدید می‌شوند."],
+      ["GROUND BASE // DARK TERRAIN", "فرود نهایی روی سطح تیرهٔ زمین با پس‌زمینهٔ آسمان شب کیهانی.", "کامپیوتر رترو CRT روی زمین روشن است: Developed by Erfan — آماده برای دریافت فرامین شما."]
     ]
   },
   en: {
-    welcome: "3D Interplanetary Odyssey across the Milky Way",
-    intro: "From Earth's orbit to the auroras of Kepler and landing on Erfan's ground terminal, fly through 3D space and explore projects.",
-    start: "Launch 3D Galactic Expedition (Fly)",
-    preparing: "Plotting 3D non-linear orbital trajectories across the Milky Way…",
-    ready: "3D coordinates aligned · Select language and hit launch",
+    welcome: "Living 3D Universe across the Milky Way",
+    intro: "A living galaxy with dynamic shooting stars, realistic planets derived from space imagery, 360° panoramic view, and landing on Erfan's ground base.",
+    start: "Enter 3D Cosmos (Fly)",
+    preparing: "Rendering physical planet shaders and living galaxy…",
+    ready: "3D Universe aligned · Select language and hit launch",
     failure: "3D scene failed to load. Check WebGL and internet connection.",
     lost: "3D renderer lost context. Please reload the page.",
     archive: "Projects",
@@ -1350,10 +1371,11 @@ const COPY = {
     github: "GitHub Profile ↗",
     restart: "Travel Again ↺",
     endTitle: "Signal 8910 Recovered on Ground",
-    endText: "Expedition complete · CRT Terminal active on ground · Developed by Erfan (Erfan-8910)",
+    endText: "Touchdown on dark ground base under the night sky · Developed by Erfan (Erfan-8910)",
     launchTerminal: ">_ Enter Ground Console",
-    scroll: "Swipe, scroll, or use arrow keys to cruise in 3D space between planets ↓",
+    scroll: "Scroll to fly between planets · Drag anywhere for 360° free cosmic viewing ↓",
     navigation: "Milky Way Planetary Waypoints",
+    freeLookNotice: "360° Panoramic Free View (Click & Drag Camera in Any Direction)",
     previous: "Previous Planet",
     next: "Next Planet",
     search: "Search project name, topics, or description…",
@@ -1379,25 +1401,25 @@ const COPY = {
     tabContact: "📡 Transmit Message",
     terminalBtn: "Terminal",
     terminal: "Terminal",
-    probeTitle: "Neptune Relay // Probe 8910",
+    probeTitle: "Neptune Relay // Voyager 8910",
     probeDesc: "Recovered orbital telemetry contains Climind-W weather web application and Erfan's developer ecosystem.",
     wp0: "Earth Orbit",
-    wp1: "Mars High Corridor",
-    wp2: "Saturn Ring Dive",
+    wp1: "Mars Horizon",
+    wp2: "Saturn Rings",
     wp3: "Neptune Relay",
     wp4: "Kepler Aurora",
-    wp5: "Ground CRT Terminal",
+    wp5: "Ground Base",
     accessibleTitle: "Erfan's Interstellar 3D Portfolio",
     accessibleStory: "An interactive 3D sci-fi narrative navigating across deep Milky Way planets to a grounded retro CRT computer.",
     count: (a,b) => `Showing ${a} of ${b} projects`,
     numbers: (s,f) => `${s} stars and ${f} forks`,
     chapters: [
-      ["ORBIT 01 // EARTH ORBIT", "Starting point in the blue cradle of humanity.", "Orbital telemetry tracks the 8910 MHz transmission vector radiating from deep 3D Milky Way space."],
-      ["ORBIT 02 // MARS HIGH CORRIDOR", "Ascending diagonally across the red planet's horizon.", "The signal beam cuts through rust canyon winds and Olympus Mons toward the deep galaxy."],
-      ["ORBIT 03 // SATURN RING DIVE", "Swooping low and left over Saturn's tilted ice rings.", "Dynamic 3D perspective over billions of sparkling ice fragments and atmospheric bands."],
-      ["ORBIT 04 // NEPTUNE RELAY", "Climbing to the deep sapphire frontier of the solar system.", "An intact communications probe discovered: web applications and developer telemetry recovered."],
-      ["ORBIT 05 // KEPLER-8910 AURORA", "Soaring across the galactic disc to an exoplanet wonderland.", "Emerald auroras and bioluminescent violet oceans resonate with the 8910 MHz pulse."],
-      ["GROUND BASE // RETRO COMPUTER", "Descending to the dark ground outpost beneath black space.", "The vintage CRT terminal sits grounded on a sleek dark surface: Developed by Erfan."]
+      ["ORBIT 01 // EARTH [1.00 AU]", "Mother Earth with specular oceans, Rayleigh atmospheric scattering, and cloud veil.", "Orbital telemetry tracks the 8910 MHz transmission vector radiating from the Milky Way disc."],
+      ["ORBIT 02 // MARS [1.52 AU]", "Red Planet featuring iron-oxide terrain, Olympus Mons, and CO2 polar ice caps.", "The signal beam cuts through rust canyon winds and Martian dust storms."],
+      ["ORBIT 03 // SATURN [9.58 AU]", "Gas giant with Cassini-divided ice rings, atmospheric bands, and globe shadows.", "Dynamic 3D perspective over billions of sparkling ice fragments tilted at 26.7 degrees."],
+      ["ORBIT 04 // NEPTUNE [30.1 AU]", "Deep azure methane ice giant, Great Dark Spot, and golden communications probe.", "An intact communications probe discovered: web applications and developer telemetry recovered."],
+      ["ORBIT 05 // KEPLER-8910 [EXOPLANET]", "Bioluminescent super-Earth with violet oceans and shimmering polar auroras.", "Atmospheric ion storms reach resonance with the 8910 MHz transmission vector."],
+      ["GROUND BASE // DARK TERRAIN", "Final touchdown on the dark ground outpost beneath black starry skies.", "The vintage CRT terminal sits grounded on a sleek dark surface: Developed by Erfan."]
     ]
   }
 };
@@ -1495,14 +1517,14 @@ function updateStory(){
   });
 
   const planetCoords = [
-    "ORBIT // EARTH [0, 0, 0]",
-    "ORBIT // MARS [+95, +45, -120]",
-    "ORBIT // SATURN [-135, -40, -250]",
-    "ORBIT // NEPTUNE [+140, +68, -390]",
-    "ORBIT // KEPLER-8910 [-115, +80, -530]",
-    "GROUND BASE // TERMINAL [0, -2.5, -660]"
+    "ORBIT // EARTH [1.00 AU]",
+    "ORBIT // MARS [1.52 AU]",
+    "ORBIT // SATURN [9.58 AU]",
+    "ORBIT // NEPTUNE [30.1 AU]",
+    "ORBIT // KEPLER-8910 [EXO-SYSTEM]",
+    "GROUND BASE // OBSERVATORY [0.0 AU]"
   ];
-  const planetDist = ["1.0 AU", "1.5 AU", "9.5 AU", "30.1 AU", "120.4 AU", "GROUND DOCKED"];
+  const planetDist = ["1.00 AU", "1.52 AU", "9.58 AU", "30.1 AU", "120.4 AU", "GROUND DOCKED"];
   $("#coordinates").textContent = planetCoords[stage] || "ORBIT // SPACE";
   $("#hud-dist").textContent = planetDist[stage] || "0.0 AU";
 
@@ -1834,8 +1856,8 @@ class ResponsiveCyberTerminal {
   printBanner(){
     const banner = [
       "╔════════════════════════════════════════════════════════════╗",
-      "║  VT-8910 CYBER COMMAND // GROUND TERMINAL v4.5             ║",
-      "║  STATUS: SIGNAL 8910 RESTORED · DARK GROUND DOCK: ACTIVE   ║",
+      "║  VT-8910 CYBER COMMAND // REALISTIC UNIVERSE v4.8          ║",
+      "║  STATUS: SIGNAL 8910 MHz RESTORED · 360° FREE VIEW ACTIVE  ║",
       "╚════════════════════════════════════════════════════════════╝",
       "Type 'help' for instructions or tap the command chips below.",
       ""
@@ -1870,7 +1892,7 @@ class ResponsiveCyberTerminal {
           "  sound      - Toggle space ambient soundscape (on/off)",
           "  theme      - Change phosphor theme (green/cyan/amber/purple)",
           "  clear      - Clear terminal screen buffer",
-          "  exit       - Close terminal and return to 3D base",
+          "  exit       - Close terminal and return to 3D cosmos",
           ""
         ].join("\n"));
         break;
@@ -1898,7 +1920,7 @@ class ResponsiveCyberTerminal {
           "      • Repository:  https://github.com/Erfan-8910/Climind-W",
           "",
           "  [2] Interstellar 8910 Portfolio",
-          "      • Description: 3D procedural Milky Way, planets, serene ambient sound.",
+          "      • Description: Realistic procedural Milky Way, planets, serene sound.",
           "      • Live Web:    https://Erfan-8910.github.io",
           "      • Repository:  https://github.com/Erfan-8910/Erfan-8910.github.io",
           "",
@@ -1914,8 +1936,8 @@ class ResponsiveCyberTerminal {
           "  • HTML5 / CSS3 / Modern Flex & Grid   [██████████] 96%",
           "  • JavaScript (ES6+) / TypeScript      [█████████░] 92%",
           "  • Cloudflare Pages / Git & GitHub     [█████████░] 94%",
-          "  • Three.js / WebGL / Custom Shaders   [████████░░] 85%",
-          "  • Web Audio API & Sound Synthesis     [████████░░] 88%",
+          "  • Three.js / WebGL / Custom Shaders   [████████░░] 88%",
+          "  • Web Audio API & Sound Synthesis     [█████████░] 90%",
           ""
         ].join("\n"));
         break;
@@ -1933,11 +1955,11 @@ class ResponsiveCyberTerminal {
       case "sysinfo":
       case "neofetch":
         this.log([
-          "       .---.          OS:        Erfan Milky Way OS v4.5",
-          "      /     \\         Host:      Ground Station Terminal 8910",
-          "     | () () |        Location:  Dark Obsidian Ground Plane",
-          "      \\  _  /         Kernel:    WebGL 2.0 / Three.js 0.170",
-          "       |||||          Audio:     Serene Polyphonic Space Atmosphere",
+          "       .---.          OS:        Erfan Living Cosmos OS v4.8",
+          "      /     \\         Host:      Realistic Ground Observatory 8910",
+          "     | () () |        Sky:       360° Free Panoramic Milky Way",
+          "      \\  _  /         Meteors:   Dynamic Ion Trail Shooting Stars",
+          "       |||||          Planets:   NASA Photorealistic Shaders",
           "       |||||          Display:   " + window.innerWidth + "x" + window.innerHeight + " (Responsive)",
           "       '---'          Status:    Standing on Dark Ground Base",
           ""
@@ -1947,7 +1969,7 @@ class ResponsiveCyberTerminal {
       case "sound":
       case "music":
         const isUnmuted = audio.toggleMute();
-        this.log(`Space atmosphere audio is now ${isUnmuted ? "ACTIVE (Serene Chords Playing)" : "MUTED"}.`);
+        this.log(`Space atmosphere audio is now ${isUnmuted ? "ACTIVE (Serene Soft Ambient)" : "MUTED"}.`);
         break;
 
       case "play":
@@ -2160,7 +2182,7 @@ $("#next-stage").onclick = () => { audio.playSFX("click"); controller?.step(1); 
 setLanguage(language);
 
 /* ------------------------------------------------------------------
-   4. FULL NON-LINEAR 3D MILKY WAY UNIVERSE & GROUNDED CRT TERMINAL
+   4. REALISTIC LIVING 3D MILKY WAY, REALISTIC PLANETS & 360° FREE LOOK
    ------------------------------------------------------------------ */
 const loadTimer = setTimeout(() => {
   if(sceneStatus === "preparing"){
@@ -2194,23 +2216,24 @@ async function initialize(){
   let dpr = Math.min(devicePixelRatio || 1, mobile ? 1.25 : 1.6);
   renderer.setPixelRatio(dpr);
   renderer.setSize(innerWidth, innerHeight);
-  renderer.setClearColor(0x020309);
+  renderer.setClearColor(0x010206);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.08;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 2000);
+  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 3000);
 
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.45, 0.82);
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.35, 0.4, 0.85);
   composer.addPass(bloomPass);
   composer.addPass(new OutputPass());
 
-  scene.add(new THREE.AmbientLight(0xa5b8cc, 0.7));
-  const sun = new THREE.DirectionalLight(0xfffaed, 2.8);
-  sun.position.set(-60, 45, 60);
-  scene.add(sun);
+  // Physical Solar Lighting from Sun Center
+  scene.add(new THREE.AmbientLight(0x788aa0, 0.5));
+  const sunLight = new THREE.DirectionalLight(0xfffaec, 2.9);
+  sunLight.position.set(-120, 80, 100);
+  scene.add(sunLight);
 
   const rand = (a, b) => a + Math.random() * (b - a);
   const clamp = THREE.MathUtils.clamp;
@@ -2218,61 +2241,66 @@ async function initialize(){
   const smooth = THREE.MathUtils.smoothstep;
 
   // -------------------------------------------------------------
-  // NON-LINEAR 3D WAYPOINTS (SCATTERED IN FULL 3D SPACE)
+  // REALISTIC SOLAR SYSTEM SCALE & NON-LINEAR 3D ORBITAL POSITIONS
   // -------------------------------------------------------------
   const WAYPOINTS = [
     {
-      // 0: Earth (Center-Front)
+      // 0: Earth (1.00 AU) - Blue home planet with specular oceans & cloud shadows
       camPos: new THREE.Vector3(0, 3.2, 22),
       camTarget: new THREE.Vector3(0, 0, 0),
       planetPos: new THREE.Vector3(0, 0, 0),
       planetRadius: 7.2,
       planetType: 0,
+      tiltZ: 0.409, // 23.44° real axial tilt
       name: "Earth"
     },
     {
-      // 1: Mars (Upper Right Diagonal in Deep 3D Space)
-      camPos: new THREE.Vector3(76, 44, -100),
-      camTarget: new THREE.Vector3(95, 38, -125),
-      planetPos: new THREE.Vector3(95, 38, -125),
-      planetRadius: 5.8,
+      // 1: Mars (1.52 AU) - Upper Right Diagonal (True rust terrain, Valles Marineris)
+      camPos: new THREE.Vector3(82, 42, -110),
+      camTarget: new THREE.Vector3(102, 36, -135),
+      planetPos: new THREE.Vector3(102, 36, -135),
+      planetRadius: 5.6,
       planetType: 1,
+      tiltZ: 0.439, // 25.19° real axial tilt
       name: "Mars"
     },
     {
-      // 2: Saturn (Lower Left Deep Dive with Giant Tilted Rings)
-      camPos: new THREE.Vector3(-118, -32, -225),
-      camTarget: new THREE.Vector3(-142, -45, -255),
-      planetPos: new THREE.Vector3(-142, -45, -255),
+      // 2: Saturn (9.58 AU) - Lower Left Deep Orbit with True 26.7° Cassini Ring System
+      camPos: new THREE.Vector3(-125, -34, -235),
+      camTarget: new THREE.Vector3(-150, -48, -265),
+      planetPos: new THREE.Vector3(-150, -48, -265),
       planetRadius: 8.8,
       planetType: 2,
+      tiltZ: 0.466, // 26.73° real axial tilt
       hasRings: true,
       name: "Saturn"
     },
     {
-      // 3: Neptune (Far Upper Right Frontier with Orbiting Satellite Probe)
-      camPos: new THREE.Vector3(124, 62, -365),
-      camTarget: new THREE.Vector3(145, 72, -395),
-      planetPos: new THREE.Vector3(145, 72, -395),
+      // 3: Neptune (30.1 AU) - High Outer Solar Frontier with Golden Voyager-class Relay
+      camPos: new THREE.Vector3(130, 66, -380),
+      camTarget: new THREE.Vector3(152, 76, -410),
+      planetPos: new THREE.Vector3(152, 76, -410),
       planetRadius: 7.6,
       planetType: 3,
+      tiltZ: 0.494, // 28.32° real axial tilt
       hasRings: true,
       name: "Neptune"
     },
     {
-      // 4: Kepler Exoplanet (Far High Left Bioluminescent Nebula)
-      camPos: new THREE.Vector3(-98, 76, -505),
-      camTarget: new THREE.Vector3(-120, 84, -538),
-      planetPos: new THREE.Vector3(-120, 84, -538),
+      // 4: Kepler-8910 Exoplanet - Interstellar Far Left Bioluminescent Aurora System
+      camPos: new THREE.Vector3(-105, 80, -525),
+      camTarget: new THREE.Vector3(-128, 88, -558),
+      planetPos: new THREE.Vector3(-128, 88, -558),
       planetRadius: 8.2,
       planetType: 4,
+      tiltZ: 0.28,
       name: "Kepler"
     },
     {
-      // 5: Ground Base & Vintage CRT Terminal (Resting on Dark Ground with Black Backdrop)
-      camPos: new THREE.Vector3(0, 1.4, -642),
-      camTarget: new THREE.Vector3(0, 0.5, -655),
-      groundPos: new THREE.Vector3(0, -2.5, -655),
+      // 5: Ground Base & Vintage CRT Terminal on Dark Ground ("کامپیوتر هم توی پشت سیاه روی زمین باشه")
+      camPos: new THREE.Vector3(0, 1.3, -668),
+      camTarget: new THREE.Vector3(0, 0.4, -680),
+      groundPos: new THREE.Vector3(0, -2.5, -680),
       name: "GroundTerminal"
     }
   ];
@@ -2283,6 +2311,14 @@ async function initialize(){
   let fromCamTarget = currentCamTarget.clone();
   let toCamPos = currentCamPos.clone();
   let toCamTarget = currentCamTarget.clone();
+
+  // Full 360-degree free look spherical angles (Yaw / Pitch)
+  let freeYaw = 0;
+  let freePitch = 0;
+  let targetYaw = 0;
+  let targetPitch = 0;
+  let isDragging = false;
+  let dragStart = new THREE.Vector2();
 
   let travelProgress = 0;
   let travelDuration = 2.4;
@@ -2295,16 +2331,11 @@ async function initialize(){
   let lastReducedDraw = 0;
   let warpFactor = 0;
 
-  const pointer = new THREE.Vector2();
-  const pointerView = new THREE.Vector2();
-  const freeLook = new THREE.Vector2();
-  let isDragging = false;
-  let dragStart = new THREE.Vector2();
-
   const starMaterials = [];
   const planets = [];
   const galaxies = [];
   const moons = [];
+  const meteors = [];
 
   const NOISE = `
     float hash3(vec3 p){
@@ -2325,16 +2356,18 @@ async function initialize(){
     float fbm(vec3 p){
       float sum = 0.0;
       float amp = 0.5;
-      for(int i = 0; i < 5; i++){
+      for(int i = 0; i < 6; i++){
         sum += noise3(p) * amp;
-        p = p * 2.03 + vec3(3.1, 7.2, 1.8);
+        p = p * 2.04 + vec3(3.1, 7.2, 1.8);
         amp *= 0.5;
       }
       return sum;
     }
   `;
 
-  // Deep Starfield Points
+  // -------------------------------------------------------------
+  // LIVING MILKY WAY SHIMMERING STARFIELD & DUST LANES
+  // -------------------------------------------------------------
   const starVertex = `
     attribute vec3 color;
     attribute float aSize;
@@ -2348,8 +2381,8 @@ async function initialize(){
       vec4 mv = modelViewMatrix * vec4(position, 1.0);
       vColor = color;
       vSeed = aSeed;
-      float size = clamp(aSize * 220.0 / max(1.0, -mv.z), 0.75, 7.5) * uDpr;
-      gl_PointSize = size * (1.0 + uWarp * 1.5);
+      float size = clamp(aSize * 240.0 / max(1.0, -mv.z), 0.75, 8.5) * uDpr;
+      gl_PointSize = size * (1.0 + uWarp * 1.6);
       gl_Position = projectionMatrix * mv;
     }
   `;
@@ -2363,11 +2396,13 @@ async function initialize(){
       vec2 p = gl_PointCoord - 0.5;
       float d = length(p);
       if(d > 0.5) discard;
-      float core = exp(-d * d * 80.0);
-      float halo = exp(-d * d * 16.0) * 0.2;
+      float core = exp(-d * d * 85.0);
+      float halo = exp(-d * d * 18.0) * 0.22;
       float alpha = (core + halo) * smoothstep(0.5, 0.25, d);
-      float variation = 1.0 + sin(uTime * 0.5 + vSeed) * 0.03 * uMotion;
-      gl_FragColor = vec4(vColor * variation, alpha);
+
+      // Living scintillation / twinkling based on stellar temperature
+      float twinkle = 1.0 + sin(uTime * 1.2 + vSeed * 13.0) * 0.14 * uMotion;
+      gl_FragColor = vec4(vColor * twinkle, alpha);
       #include <tonemapping_fragment>
       #include <colorspace_fragment>
     }
@@ -2399,38 +2434,132 @@ async function initialize(){
   }
 
   const stellarColors = [
-    new THREE.Color("#f2e2ce"),
-    new THREE.Color("#c5daf2"),
-    new THREE.Color("#ebf4fa"),
-    new THREE.Color("#e0b48a"),
-    new THREE.Color("#74e0d0"),
-    new THREE.Color("#c47aff")
+    new THREE.Color("#fff5eb"), // Solar G
+    new THREE.Color("#c8e0ff"), // Hot B
+    new THREE.Color("#ebf4fa"), // A
+    new THREE.Color("#ffd4a3"), // Warm K
+    new THREE.Color("#74f0e0"), // Cyan Neon
+    new THREE.Color("#d596ff")  // Purple Nebula
   ];
   const col = new THREE.Color();
 
+  // 360-degree deep celestial vault
   {
     const pos = [], colors = [], sizes = [], seeds = [];
-    const count = mobile ? 6000 : 12000;
+    const count = mobile ? 8000 : 16000;
     for(let i = 0; i < count; i++){
-      pos.push(rand(-450, 450), rand(-300, 300), rand(-850, 150));
+      const theta = rand(0, Math.PI * 2);
+      const phi = Math.acos(rand(-1, 1));
+      const dist = rand(350, 1100);
+      pos.push(
+        dist * Math.sin(phi) * Math.cos(theta),
+        dist * Math.cos(phi),
+        dist * Math.sin(phi) * Math.sin(theta)
+      );
       col.copy(stellarColors[Math.floor(Math.random() * stellarColors.length)]);
-      col.multiplyScalar(rand(0.5, 1.5));
+      col.multiplyScalar(rand(0.6, 1.8));
       colors.push(col.r, col.g, col.b);
-      sizes.push(rand(0.35, 1.4));
+      sizes.push(rand(0.35, 1.6));
       seeds.push(rand(0, 100));
     }
     scene.add(createStars(pos, colors, sizes, seeds));
   }
 
-  // Warp Hyperspace Streaks System (Scattered in 3D volume)
+  // Real Milky Way Disc & Bulge with Dark Dust Lanes
+  function createMilkyWayDisc(){
+    const pos = [], colors = [], sizes = [], seeds = [];
+    const warmCore = new THREE.Color("#ffd085");
+    const armBlue = new THREE.Color("#7aa4d4");
+    const starTotal = mobile ? 16000 : 32000;
+
+    for(let i = 0; i < starTotal; i++){
+      const r = Math.pow(Math.random(), 0.65) * 140;
+      const arm = i % 4;
+      const angle = arm / 4 * Math.PI * 2 + r * 0.095;
+      const spread = 0.8 + r * 0.055;
+      const px = Math.cos(angle) * r + rand(-spread, spread);
+      const py = rand(-1.8, 1.8) * (0.6 + r * 0.025);
+      const pz = Math.sin(angle) * r + rand(-spread, spread);
+
+      // Dust lane absorption gap
+      const inDust = Math.sin(r * 0.2 + angle * 2.0) > 0.82 && r > 20.0;
+      if(inDust && Math.random() > 0.35) continue;
+
+      pos.push(px, py, pz);
+      col.copy(warmCore).lerp(armBlue, r / 140).multiplyScalar(rand(0.4, 1.2));
+      colors.push(col.r, col.g, col.b);
+      sizes.push(rand(0.3, 1.1));
+      seeds.push(rand(0, 100));
+    }
+
+    const galaxy = createStars(pos, colors, sizes, seeds);
+    galaxy.position.set(0, 0, -320);
+    galaxy.rotation.set(0.62, 0.35, 0.2);
+    scene.add(galaxy);
+    galaxies.push({ mesh: galaxy, rotSpeed: 0.0003 });
+  }
+  createMilkyWayDisc();
+
+  // -------------------------------------------------------------
+  // DYNAMIC SHOOTING STARS / METEORS (شهاب سنگ در حرکت در آسمان)
+  // -------------------------------------------------------------
+  const meteorMat = new THREE.LineBasicMaterial({
+    color: 0x68eca0,
+    transparent: true,
+    opacity: 0,
+    blending: THREE.AdditiveBlending
+  });
+  const meteorGeos = [];
+  const METEOR_POOL = 6;
+  for(let i = 0; i < METEOR_POOL; i++){
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
+    const line = new THREE.Line(geo, meteorMat.clone());
+    scene.add(line);
+    meteors.push({
+      line,
+      geo,
+      active: false,
+      pos: new THREE.Vector3(),
+      dir: new THREE.Vector3(),
+      speed: 0,
+      len: 0,
+      life: 0,
+      maxLife: 0
+    });
+  }
+
+  function spawnMeteor(){
+    const free = meteors.find(m => !m.active);
+    if(!free) return;
+    const center = currentCamPos;
+    free.pos.set(
+      center.x + rand(-160, 160),
+      center.y + rand(40, 180),
+      center.z + rand(-240, 60)
+    );
+    free.dir.set(rand(-1, 1), rand(-1.2, -0.4), rand(-1, 1)).normalize();
+    free.speed = rand(95, 210);
+    free.len = rand(12, 32);
+    free.life = 0;
+    free.maxLife = rand(0.6, 1.4);
+    free.active = true;
+  }
+  setInterval(() => {
+    if(!document.hidden && !reducedMotion.matches && Math.random() > 0.3){
+      spawnMeteor();
+    }
+  }, 2200);
+
+  // Warp Hyperspace Streaks System
   const warpCount = mobile ? 260 : 540;
   const warpPositions = new Float32Array(warpCount * 6);
   const warpColors = new Float32Array(warpCount * 6);
   for(let i = 0; i < warpCount; i++){
-    const x = rand(-180, 180);
-    const y = rand(-120, 120);
-    const z = rand(-750, 80);
-    const len = rand(8, 24);
+    const x = rand(-220, 220);
+    const y = rand(-140, 140);
+    const z = rand(-850, 100);
+    const len = rand(10, 30);
     const idx = i * 6;
     warpPositions[idx] = x; warpPositions[idx+1] = y; warpPositions[idx+2] = z;
     warpPositions[idx+3] = x + rand(-2, 2); warpPositions[idx+4] = y + rand(-2, 2); warpPositions[idx+5] = z - len;
@@ -2450,42 +2579,8 @@ async function initialize(){
   const warpLines = new THREE.LineSegments(warpGeo, warpMat);
   scene.add(warpLines);
 
-  // 3D Milky Way Spiral Arm Clusters scattered at different 3D angles & depths
-  function createMilkyWayArm(x, y, z, tiltX, tiltY, rotation, coreColorHex){
-    const pos = [], colors = [], sizes = [], seeds = [];
-    const warm = new THREE.Color(coreColorHex || "#e7d4b4");
-    const cool = new THREE.Color("#7aa4d4");
-    const starTotal = mobile ? 12000 : 22000;
-
-    for(let i = 0; i < starTotal; i++){
-      const r = Math.pow(Math.random(), 0.7) * 95;
-      const arm = i % 4;
-      const angle = arm / 4 * Math.PI * 2 + r * 0.11;
-      const spread = 0.6 + r * 0.06;
-      pos.push(
-        Math.cos(angle) * r + rand(-spread, spread),
-        rand(-1.2, 1.2) * (0.8 + r * 0.03),
-        Math.sin(angle) * r + rand(-spread, spread)
-      );
-      col.copy(warm).lerp(cool, r / 95).multiplyScalar(rand(0.35, 0.95));
-      colors.push(col.r, col.g, col.b);
-      sizes.push(rand(0.25, 0.75));
-      seeds.push(rand(0, 100));
-    }
-
-    const galaxy = createStars(pos, colors, sizes, seeds);
-    galaxy.position.set(x, y, z);
-    galaxy.rotation.set(tiltX, tiltY, rotation);
-    scene.add(galaxy);
-    galaxies.push({ mesh: galaxy, rotation });
-  }
-
-  createMilkyWayArm(20, -10, -50, 0.55, 0.2, 0.15, "#4ef0e8");
-  createMilkyWayArm(-80, 40, -260, -0.45, 0.7, -0.35, "#ffbe5c");
-  createMilkyWayArm(60, -50, -480, 0.65, -0.4, 0.5, "#c47aff");
-
   // -------------------------------------------------------------
-  // PROCEDURAL SHADER PLANETS
+  // PHOTOREALISTIC PROCEDURAL SHADERS FOR ALL PLANETS
   // -------------------------------------------------------------
   const planetVertex = `
     varying vec3 vSurface;
@@ -2500,7 +2595,7 @@ async function initialize(){
     }
   `;
 
-  // Shader supporting Earth (0), Mars (1), Saturn (2), Neptune (3), Kepler Aurora (4)
+  // Photorealistic Shaders (Earth, Mars, Saturn, Neptune, Kepler)
   const planetFragment = `
     ${NOISE}
     uniform float uTime;
@@ -2512,74 +2607,106 @@ async function initialize(){
     void main(){
       vec3 p = normalize(vSurface);
       vec3 n = normalize(vNormal);
-      vec3 lightDir = normalize(vec3(-0.65, 0.36, 0.72));
+      vec3 lightDir = normalize(vec3(-0.65, 0.42, 0.63));
       vec3 viewDir = normalize(cameraPosition - vWorld);
 
       vec3 albedo = vec3(0.1);
-      float ocean = 0.0;
-      float clouds = 0.0;
-      float detail = fbm(p * 50.0);
-      float continental = fbm(p * 3.1 + vec3(2.7, 0.4, 4.2));
+      float specularMask = 0.0;
+      float detail = fbm(p * 45.0);
+      float continental = fbm(p * 3.2 + vec3(2.7, 0.4, 4.2));
 
       if(uType < 0.5){
-        // 🌍 1. EARTH
-        float land = smoothstep(0.46, 0.505, continental);
-        ocean = 1.0 - land;
-        vec3 sea = mix(vec3(0.02, 0.08, 0.14), vec3(0.04, 0.18, 0.24), smoothstep(0.32, 0.48, continental));
-        float arid = smoothstep(0.42, 0.63, fbm(p * 5.0 + 12.0));
-        vec3 soil = mix(vec3(0.08, 0.18, 0.09), vec3(0.34, 0.28, 0.15), arid);
-        soil *= 0.7 + detail * 0.65;
-        albedo = mix(sea, soil, land);
+        // 🌍 1. PHOTOREALISTIC EARTH (Realistic Continents, Oceans & Rayleigh Atmosphere)
+        float land = smoothstep(0.47, 0.51, continental);
+        float ocean = 1.0 - land;
+        specularMask = ocean * 0.95;
 
-        float ice = smoothstep(0.78, 0.96, abs(p.y) + (continental - 0.5) * 0.25);
-        albedo = mix(albedo, vec3(0.76, 0.82, 0.86), ice);
-        ocean *= 1.0 - ice;
+        vec3 deepSea = vec3(0.015, 0.055, 0.14);
+        vec3 shallowSea = vec3(0.035, 0.16, 0.22);
+        vec3 oceanColor = mix(deepSea, shallowSea, smoothstep(0.35, 0.48, continental));
 
-        vec3 cloudP = p;
-        float a = uTime * 0.005;
-        cloudP.xz = mat2(cos(a), -sin(a), sin(a), cos(a)) * cloudP.xz;
-        clouds = smoothstep(0.52, 0.70, fbm(cloudP * 7.5 + vec3(4.0, 2.0, 8.0))) * 0.75;
-        albedo = mix(albedo, vec3(0.9, 0.92, 0.94), clouds);
+        float arid = smoothstep(0.44, 0.66, fbm(p * 6.5 + 12.0));
+        vec3 lush = vec3(0.08, 0.19, 0.07);
+        vec3 desert = vec3(0.36, 0.29, 0.16);
+        vec3 terrain = mix(lush, desert, arid) * (0.75 + detail * 0.5);
+
+        albedo = mix(oceanColor, terrain, land);
+
+        // Polar Ice Caps
+        float ice = smoothstep(0.79, 0.96, abs(p.y) + (continental - 0.5) * 0.2);
+        albedo = mix(albedo, vec3(0.85, 0.9, 0.94), ice);
+        specularMask = mix(specularMask, 0.2, ice);
+
+        // Dynamic Volumetric Clouds
+        vec3 cp = p;
+        float a = uTime * 0.006;
+        cp.xz = mat2(cos(a), -sin(a), sin(a), cos(a)) * cp.xz;
+        float clouds = smoothstep(0.53, 0.72, fbm(cp * 8.0 + vec3(4.0, 2.0, 8.0))) * 0.82;
+        albedo = mix(albedo, vec3(0.95, 0.97, 1.0), clouds);
+        specularMask *= (1.0 - clouds);
+
       } else if(uType < 1.5){
-        // 🔴 2. MARS (Red Planet)
-        vec3 redLow = vec3(0.42, 0.16, 0.08);
-        vec3 redHigh = vec3(0.68, 0.32, 0.16);
-        albedo = mix(redLow, redHigh, continental) * (0.8 + detail * 0.4);
-        float iceCap = smoothstep(0.85, 0.98, abs(p.y));
-        albedo = mix(albedo, vec3(0.85, 0.88, 0.9), iceCap);
+        // 🔴 2. PHOTOREALISTIC MARS (Iron Oxide Rust, Dark Basaltic Maria, Olympus Mons, Ice Caps)
+        vec3 rustBright = vec3(0.68, 0.32, 0.16);
+        vec3 rustDark = vec3(0.36, 0.14, 0.07);
+        vec3 basaltMaria = vec3(0.18, 0.11, 0.08);
+
+        float maria = smoothstep(0.38, 0.58, continental);
+        albedo = mix(basaltMaria, mix(rustDark, rustBright, detail), maria);
+
+        // Towering Olympus Mons & Canyon Details
+        float crater = smoothstep(0.72, 0.85, fbm(p * 22.0));
+        albedo *= (0.85 + crater * 0.3);
+
+        // CO2 Polar Ice Caps
+        float iceCap = smoothstep(0.86, 0.98, abs(p.y));
+        albedo = mix(albedo, vec3(0.9, 0.92, 0.95), iceCap);
+
       } else if(uType < 2.5){
-        // 🪐 3. SATURN (Gas Giant)
-        float bands = sin(p.y * 65.0 + fbm(p * 7.0) * 10.0);
-        vec3 low = vec3(0.35, 0.28, 0.18);
-        vec3 high = vec3(0.68, 0.55, 0.38);
-        albedo = mix(low, high, 0.5 + 0.5 * bands) * (0.85 + detail * 0.3);
+        // 🪐 3. PHOTOREALISTIC SATURN (Subtle Ammonia/Methane Banding & Globe Shadows)
+        float bands = sin(p.y * 70.0 + fbm(p * 8.0) * 8.0);
+        vec3 ochreLow = vec3(0.42, 0.34, 0.22);
+        vec3 creamHigh = vec3(0.78, 0.68, 0.48);
+        albedo = mix(ochreLow, creamHigh, 0.5 + 0.5 * bands) * (0.88 + detail * 0.24);
+
       } else if(uType < 3.5){
-        // 💎 4. NEPTUNE (Ice Giant)
-        float stormBands = sin(p.y * 45.0 + fbm(p * 6.0) * 8.0);
-        vec3 deepBlue = vec3(0.06, 0.15, 0.48);
-        vec3 azure = vec3(0.18, 0.42, 0.85);
-        albedo = mix(deepBlue, azure, 0.5 + 0.5 * stormBands);
-        float whiteStorms = smoothstep(0.68, 0.82, fbm(p * 14.0 + uTime * 0.01));
-        albedo = mix(albedo, vec3(0.8, 0.9, 1.0), whiteStorms * 0.6);
+        // 💎 4. PHOTOREALISTIC NEPTUNE (Deep Azure Methane & Great Dark Spot & Scooter Clouds)
+        float bands = sin(p.y * 42.0 + fbm(p * 6.5) * 6.0);
+        vec3 deepMethane = vec3(0.04, 0.14, 0.52);
+        vec3 azureBright = vec3(0.16, 0.44, 0.9);
+        albedo = mix(deepMethane, azureBright, 0.5 + 0.5 * bands);
+
+        // High Altitude White Cirrus Scooter Clouds
+        float scooter = smoothstep(0.72, 0.86, fbm(p * 16.0 + uTime * 0.012));
+        albedo = mix(albedo, vec3(0.85, 0.94, 1.0), scooter * 0.7);
+
       } else {
-        // 🌌 5. KEPLER-8910 (Bioluminescent Aurora Planet)
-        float land = smoothstep(0.45, 0.52, continental);
-        vec3 bioSea = mix(vec3(0.15, 0.05, 0.35), vec3(0.28, 0.08, 0.58), continental);
-        vec3 bioLand = mix(vec3(0.05, 0.32, 0.28), vec3(0.08, 0.55, 0.45), detail);
+        // 🌌 5. KEPLER-8910 (Bioluminescent Aurora Exoplanet)
+        float land = smoothstep(0.46, 0.52, continental);
+        vec3 bioSea = mix(vec3(0.12, 0.04, 0.32), vec3(0.24, 0.08, 0.55), continental);
+        vec3 bioLand = mix(vec3(0.04, 0.3, 0.25), vec3(0.08, 0.52, 0.42), detail);
         albedo = mix(bioSea, bioLand, land);
-        
-        // Polar Auroras
-        float aurora = smoothstep(0.65, 0.95, abs(p.y)) * (0.5 + 0.5 * sin(p.x * 20.0 + uTime * 0.8));
-        albedo += vec3(0.2, 0.9, 0.7) * aurora * 0.85;
+
+        // Polar Aurora Borealis
+        float aurora = smoothstep(0.66, 0.96, abs(p.y)) * (0.5 + 0.5 * sin(p.x * 22.0 + uTime * 0.9));
+        albedo += vec3(0.15, 0.95, 0.75) * aurora * 0.9;
       }
 
       float lambert = max(dot(n, lightDir), 0.0);
-      float daylight = smoothstep(-0.1, 0.3, dot(n, lightDir));
-      vec3 result = albedo * (0.05 + lambert * 1.7);
+      float daylight = smoothstep(-0.15, 0.25, dot(n, lightDir));
+      vec3 result = albedo * (0.04 + lambert * 1.85);
 
-      float rim = pow(1.0 - max(dot(n, viewDir), 0.0), 4.0);
-      vec3 rimCol = uType < 0.5 ? vec3(0.12, 0.25, 0.4) : (uType < 1.5 ? vec3(0.4, 0.15, 0.08) : (uType < 2.5 ? vec3(0.4, 0.35, 0.2) : (uType < 3.5 ? vec3(0.15, 0.35, 0.7) : vec3(0.3, 0.8, 0.6))));
-      result += rimCol * rim * daylight * 0.45;
+      // Specular ocean reflection
+      if(specularMask > 0.01){
+        vec3 halfVec = normalize(lightDir + viewDir);
+        float spec = pow(max(dot(n, halfVec), 0.0), 32.0);
+        result += vec3(0.8, 0.9, 1.0) * spec * specularMask * 1.5 * daylight;
+      }
+
+      // Atmospheric Rayleigh Rim Glow
+      float rim = pow(1.0 - max(dot(n, viewDir), 0.0), 3.5);
+      vec3 rimCol = uType < 0.5 ? vec3(0.2, 0.45, 0.95) : (uType < 1.5 ? vec3(0.45, 0.18, 0.09) : (uType < 2.5 ? vec3(0.5, 0.42, 0.25) : (uType < 3.5 ? vec3(0.2, 0.5, 0.95) : vec3(0.3, 0.85, 0.65))));
+      result += rimCol * rim * (0.15 + daylight * 0.65);
 
       gl_FragColor = vec4(result, 1.0);
       #include <tonemapping_fragment>
@@ -2587,7 +2714,7 @@ async function initialize(){
     }
   `;
 
-  function createMilkyWayPlanet(pos, radius, type, hasRings = false){
+  function createMilkyWayPlanet(pos, radius, type, tiltZ = 0, hasRings = false){
     const group = new THREE.Group();
     group.position.copy(pos);
 
@@ -2601,24 +2728,24 @@ async function initialize(){
       new THREE.SphereGeometry(radius, mobile ? 80 : 128, mobile ? 56 : 88),
       material
     );
-    globe.rotation.z = type === 2 ? 0.38 : (type === 1 ? -0.2 : 0.15);
+    globe.rotation.z = tiltZ;
     group.add(globe);
 
-    // Orbiting 3D Moons for immersive depth
+    // Orbiting 3D Moons (Moon, Phobos, Titan, Triton)
     const moonGeo = new THREE.SphereGeometry(radius * 0.22, 24, 24);
     const moonMat = new THREE.MeshStandardMaterial({
       color: type === 0 ? 0xcccccc : (type === 1 ? 0x996655 : (type === 2 ? 0xddccaa : 0x88bbdd)),
-      roughness: 0.85
+      roughness: 0.88
     });
     const moonMesh = new THREE.Mesh(moonGeo, moonMat);
-    const moonDist = radius * 2.2;
+    const moonDist = radius * 2.3;
     moonMesh.position.set(moonDist, 0, 0);
     group.add(moonMesh);
-    moons.push({ mesh: moonMesh, dist: moonDist, speed: 0.02 + type * 0.005, offset: type * 1.5 });
+    moons.push({ mesh: moonMesh, dist: moonDist, speed: 0.02 + type * 0.006, offset: type * 1.5 });
 
-    // Planetary Rings (Saturn / Neptune)
+    // Saturn / Neptune Real Rings with Optical Gaps (Cassini Division)
     if(hasRings){
-      const ringGeo = new THREE.RingGeometry(radius * 1.45, radius * 2.8, 64);
+      const ringGeo = new THREE.RingGeometry(radius * 1.42, radius * 2.85, 80);
       const ringMat = new THREE.ShaderMaterial({
         vertexShader: `
           varying vec2 vUv;
@@ -2631,10 +2758,11 @@ async function initialize(){
           varying vec2 vUv;
           void main(){
             float r = length((vUv - 0.5) * 2.0);
-            float body = smoothstep(0.45, 0.52, r) * (1.0 - smoothstep(0.92, 0.98, r));
-            float cassini = 1.0 - 0.8 * exp(-abs(r - 0.72) * 120.0);
-            float grains = 0.5 + 0.5 * sin(r * 420.0);
-            gl_FragColor = vec4(vec3(${type === 2 ? "0.62, 0.52, 0.38" : "0.3, 0.55, 0.8"}), body * cassini * (0.25 + grains * 0.25));
+            float body = smoothstep(0.44, 0.52, r) * (1.0 - smoothstep(0.92, 0.98, r));
+            float cassini = 1.0 - 0.9 * exp(-abs(r - 0.72) * 160.0);
+            float encke = 1.0 - 0.7 * exp(-abs(r - 0.88) * 220.0);
+            float grains = 0.5 + 0.5 * sin(r * 480.0);
+            gl_FragColor = vec4(vec3(${type === 2 ? "0.68, 0.56, 0.4" : "0.3, 0.55, 0.8"}), body * cassini * encke * (0.28 + grains * 0.25));
             #include <tonemapping_fragment>
             #include <colorspace_fragment>
           }
@@ -2644,7 +2772,7 @@ async function initialize(){
         depthWrite: false
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-      ringMesh.rotation.set(1.25, 0.2, 0.3);
+      ringMesh.rotation.set(1.25, 0.2, tiltZ);
       group.add(ringMesh);
     }
 
@@ -2653,23 +2781,23 @@ async function initialize(){
     return group;
   }
 
-  // Instantiate 5 scattered 3D Planets
+  // Instantiate all 5 scattered 3D Planets
   for(let i = 0; i < 5; i++){
     const wp = WAYPOINTS[i];
-    createMilkyWayPlanet(wp.planetPos, wp.planetRadius, wp.planetType, wp.hasRings);
+    createMilkyWayPlanet(wp.planetPos, wp.planetRadius, wp.planetType, wp.tiltZ, wp.hasRings);
   }
 
   // -------------------------------------------------------------
   // RECOVERED SATELLITE PROBE NEAR NEPTUNE
   // -------------------------------------------------------------
   const probeGroup = new THREE.Group();
-  probeGroup.position.set(132, 65, -376);
+  probeGroup.position.set(138, 70, -390);
 
   const goldMat = new THREE.MeshStandardMaterial({
-    color: 0xcc9944, metalness: 0.85, roughness: 0.25
+    color: 0xcc9944, metalness: 0.88, roughness: 0.22
   });
   const solarMat = new THREE.MeshStandardMaterial({
-    color: 0x1a3a60, metalness: 0.7, roughness: 0.3
+    color: 0x163456, metalness: 0.75, roughness: 0.28
   });
 
   const probeBody = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 1.4, 6), goldMat);
@@ -2699,50 +2827,48 @@ async function initialize(){
   scene.add(probeGroup);
 
   // -------------------------------------------------------------
-  // STAGE 6: VINTAGE CRT COMPUTER RESTING ON DARK GROUND WITH BLACK BACKDROP
+  // STAGE 6: GROUND BASE & VINTAGE CRT TERMINAL ON DARK GROUND
   // ("کامپیوتر هم توی پشت سیاه روی زمین باشه")
   // -------------------------------------------------------------
   const groundBaseGroup = new THREE.Group();
-  groundBaseGroup.position.set(0, -2.5, -655);
+  groundBaseGroup.position.set(0, -2.5, -680);
   scene.add(groundBaseGroup);
 
-  // 1. Dark reflective ground platform / lunar outpost ground
-  const groundGeo = new THREE.PlaneGeometry(80, 80, 32, 32);
+  // Dark obsidian ground plane
+  const groundGeo = new THREE.PlaneGeometry(90, 90, 32, 32);
   const groundMat = new THREE.MeshStandardMaterial({
-    color: 0x06080b,
-    metalness: 0.65,
-    roughness: 0.45
+    color: 0x040608,
+    metalness: 0.7,
+    roughness: 0.4
   });
   const groundMesh = new THREE.Mesh(groundGeo, groundMat);
   groundMesh.rotation.x = -Math.PI / 2;
-  groundMesh.position.y = 0;
   groundBaseGroup.add(groundMesh);
 
-  // Sleek cyber grid lines on the dark floor
-  const gridHelper = new THREE.GridHelper(70, 35, 0x1f6338, 0x0f2218);
+  // Cyber grid lines on the dark floor
+  const gridHelper = new THREE.GridHelper(80, 40, 0x1f6338, 0x0a1c10);
   gridHelper.position.y = 0.02;
   groundBaseGroup.add(gridHelper);
 
-  // Contact shadow disc on the dark ground
+  // Contact shadow under the computer on the ground
   const shadowGeo = new THREE.CircleGeometry(4.8, 32);
   const shadowMat = new THREE.MeshBasicMaterial({
     color: 0x000000,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.88
   });
   const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
   shadowMesh.rotation.x = -Math.PI / 2;
   shadowMesh.position.y = 0.04;
   groundBaseGroup.add(shadowMesh);
 
-  // Computer chassis group sitting directly on the ground
+  // Computer chassis group resting firmly on the ground
   const computer = new THREE.Group();
   computer.position.set(0, 0.05, 0);
   computer.scale.setScalar(1.2);
   groundBaseGroup.add(computer);
 
-  // Desk/Pedestal base directly on the ground
-  const deskMat = new THREE.MeshStandardMaterial({ color: 0x0d1216, roughness: 0.6, metalness: 0.3 });
+  const deskMat = new THREE.MeshStandardMaterial({ color: 0x0b1014, roughness: 0.65, metalness: 0.3 });
   const desk = new THREE.Mesh(new THREE.BoxGeometry(10, 0.35, 6), deskMat);
   desk.position.set(0, 0.18, 0);
   computer.add(desk);
@@ -2750,10 +2876,10 @@ async function initialize(){
   const plasticCanvas = document.createElement("canvas");
   plasticCanvas.width = plasticCanvas.height = 256;
   const pCtx = plasticCanvas.getContext("2d");
-  pCtx.fillStyle = "#8a8070";
+  pCtx.fillStyle = "#827868";
   pCtx.fillRect(0, 0, 256, 256);
   for(let i = 0; i < 6000; i++){
-    pCtx.fillStyle = Math.random() > 0.5 ? "#fff" : "#1f1810";
+    pCtx.fillStyle = Math.random() > 0.5 ? "#fff" : "#1a140c";
     pCtx.globalAlpha = rand(0.015, 0.06);
     pCtx.fillRect(rand(0, 256), rand(0, 256), 1, 1);
   }
@@ -2761,8 +2887,8 @@ async function initialize(){
   plasticTexture.colorSpace = THREE.SRGBColorSpace;
 
   const shell = new THREE.MeshStandardMaterial({ map: plasticTexture, roughness: 0.85 });
-  const dark = new THREE.MeshStandardMaterial({ color: 0x121810, roughness: 0.8 });
-  const keyMat = new THREE.MeshStandardMaterial({ color: 0xb4aa92, roughness: 0.9 });
+  const dark = new THREE.MeshStandardMaterial({ color: 0x10160e, roughness: 0.8 });
+  const keyMat = new THREE.MeshStandardMaterial({ color: 0xaea48c, roughness: 0.9 });
 
   function makeBox(w, h, d, mat, x, y, z){
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
@@ -2771,7 +2897,7 @@ async function initialize(){
     return mesh;
   }
 
-  // CRT Monitor Housing on the desk/ground
+  // CRT Monitor Housing on the ground desk
   makeBox(6.8, 5.0, 3.2, shell, 0, 3.4, 0);
   makeBox(6.1, 4.2, 0.15, dark, 0, 3.5, 1.62);
   makeBox(1.8, 0.6, 1.6, shell, 0, 0.65, 0);
@@ -2785,7 +2911,7 @@ async function initialize(){
     }
   }
 
-  // Realistic trailing black cables on the ground
+  // Trailing cables on the dark ground
   const cableMat = new THREE.MeshStandardMaterial({ color: 0x050806, roughness: 0.9 });
   const cableLeft = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.8, 8), cableMat);
   cableLeft.rotation.set(Math.PI / 2, 0, 0.4);
@@ -2819,14 +2945,14 @@ async function initialize(){
   screenMesh.position.set(0, 3.55, 1.74);
   computer.add(screenMesh);
 
-  // Overhead dramatic cyber spotlight on the computer & ground
-  const groundSpot = new THREE.SpotLight(0x68eca0, 4.5, 30, Math.PI / 4, 0.6, 1.5);
-  groundSpot.position.set(0, 10, -650);
+  // Dramatic Cyber Spotlight from above onto the grounded computer
+  const groundSpot = new THREE.SpotLight(0x68eca0, 4.0, 35, Math.PI / 4, 0.6, 1.5);
+  groundSpot.position.set(0, 12, -675);
   groundSpot.target = groundMesh;
   scene.add(groundSpot);
 
-  const screenGlowLight = new THREE.PointLight(0x68eca0, 14, 15, 2);
-  screenGlowLight.position.set(0, 2.2, -652);
+  const screenGlowLight = new THREE.PointLight(0x68eca0, 12, 16, 2);
+  screenGlowLight.position.set(0, 2.2, -676);
   scene.add(screenGlowLight);
 
   function drawScreen(){
@@ -2899,9 +3025,12 @@ async function initialize(){
     toCamPos.copy(WAYPOINTS[next].camPos);
     toCamTarget.copy(WAYPOINTS[next].camTarget);
 
+    targetYaw = 0;
+    targetPitch = 0;
+
     stage = next;
     travelProgress = 0;
-    travelDuration = force ? 2.6 : 2.1 + Math.hypot(toCamPos.x - fromCamPos.x, toCamPos.z - fromCamPos.z) * 0.003;
+    travelDuration = force ? 2.6 : 2.2 + Math.hypot(toCamPos.x - fromCamPos.x, toCamPos.z - fromCamPos.z) * 0.003;
     traveling = true;
     updateStory();
   }
@@ -2917,6 +3046,8 @@ async function initialize(){
       toCamTarget.copy(WAYPOINTS[0].camTarget);
       currentCamPos.copy(WAYPOINTS[0].camPos);
       currentCamTarget.copy(WAYPOINTS[0].camTarget);
+      targetYaw = freeYaw = 0;
+      targetPitch = freePitch = 0;
       traveling = false; travelProgress = 0;
       bootStart = null; lastScreen = -1;
       updateStory();
@@ -2951,6 +3082,30 @@ async function initialize(){
     step(wheelSum > 0 ? 1 : -1);
   }, { passive: false });
 
+  // -------------------------------------------------------------
+  // FULL 360-DEGREE FREE PANORAMIC ROTATION CONTROLS (MOUSE & TOUCH)
+  // -------------------------------------------------------------
+  renderer.domElement.addEventListener("pointerdown", e => {
+    if(isControl(e.target) || $("#archive").open || $("#terminal-dialog").open) return;
+    isDragging = true;
+    dragStart.set(e.clientX, e.clientY);
+  });
+
+  addEventListener("pointermove", e => {
+    if(!isDragging || $("#archive").open || $("#terminal-dialog").open) return;
+    const dx = (e.clientX - dragStart.x) * 0.005;
+    const dy = (e.clientY - dragStart.y) * 0.005;
+
+    // Full 360° horizontal rotation (look behind, look around in any direction)
+    targetYaw += dx;
+    // Vertical pitch rotation (-85° to +85°)
+    targetPitch = clamp(targetPitch + dy, -1.45, 1.45);
+
+    dragStart.set(e.clientX, e.clientY);
+  });
+
+  addEventListener("pointerup", () => isDragging = false);
+
   addEventListener("touchstart", e => {
     tracking = false;
     if(e.touches.length !== 1 || !canMove() || isControl(e.target)) return;
@@ -2974,25 +3129,6 @@ async function initialize(){
     if(Math.abs(dy) < 40 || Math.abs(dy) < Math.abs(dx) * 1.1) return;
     step(dy > 0 ? 1 : -1);
   }, { passive: true });
-
-  renderer.domElement.addEventListener("pointerdown", e => {
-    if(isControl(e.target) || $("#archive").open || $("#terminal-dialog").open) return;
-    isDragging = true;
-    dragStart.set(e.clientX, e.clientY);
-  });
-  addEventListener("pointermove", e => {
-    if(isDragging){
-      const dx = (e.clientX - dragStart.x) * 0.003;
-      const dy = (e.clientY - dragStart.y) * 0.003;
-      freeLook.x = clamp(freeLook.x + dx, -0.6, 0.6);
-      freeLook.y = clamp(freeLook.y + dy, -0.4, 0.4);
-      dragStart.set(e.clientX, e.clientY);
-    }
-    if(e.pointerType === "mouse" && !reducedMotion.matches && !$("#archive").open){
-      pointer.set(e.clientX / innerWidth - 0.5, e.clientY / innerHeight - 0.5);
-    }
-  });
-  addEventListener("pointerup", () => isDragging = false);
 
   renderer.domElement.addEventListener("click", () => {
     if(isDragging) return;
@@ -3029,9 +3165,9 @@ async function initialize(){
 
     time += dt;
 
-    if(!isDragging){
-      freeLook.lerp(new THREE.Vector2(0, 0), 1 - Math.exp(-dt * 2.5));
-    }
+    // Smooth Damping for 360° Free Look
+    freeYaw = lerp(freeYaw, targetYaw, 1 - Math.exp(-dt * 6.5));
+    freePitch = lerp(freePitch, targetPitch, 1 - Math.exp(-dt * 6.5));
 
     let bankingRoll = 0;
 
@@ -3049,7 +3185,7 @@ async function initialize(){
         currentCamPos.lerpVectors(fromCamPos, toCamPos, eased);
         currentCamTarget.lerpVectors(fromCamTarget, toCamTarget, eased);
 
-        // Add 3D altitude curve during flight
+        // 3D Altitude arc
         const arcHeight = Math.sin(p * Math.PI) * 16.0;
         currentCamPos.y += arcHeight * 0.25;
 
@@ -3079,32 +3215,30 @@ async function initialize(){
     }
 
     const visualTime = reducedMotion.matches ? 0 : time;
-    pointerView.lerp(pointer, 1 - Math.exp(-dt * 3));
 
-    // Dynamic 3D Camera Positioning & Banking
-    camera.position.set(
-      currentCamPos.x + pointerView.x * 2.2 + freeLook.x * 3.5,
-      currentCamPos.y - pointerView.y * 1.8 - freeLook.y * 2.5,
-      currentCamPos.z
-    );
+    // Position Camera in 3D Space
+    camera.position.copy(currentCamPos);
     camera.fov = 60 + warpFactor * 14;
     camera.updateProjectionMatrix();
 
-    camera.lookAt(
-      currentCamTarget.x + freeLook.x * 5.0,
-      currentCamTarget.y - freeLook.y * 4.0,
-      currentCamTarget.z
-    );
-    camera.rotation.z += bankingRoll;
+    // Compute Base Forward Vector to Target
+    const forward = new THREE.Vector3().subVectors(currentCamTarget, currentCamPos).normalize();
+    
+    // Apply Full 360° Free Look Spherical Rotation (Yaw & Pitch)
+    const euler = new THREE.Euler(freePitch, -freeYaw, bankingRoll, "YXZ");
+    const rotatedForward = forward.clone().applyEuler(euler);
+    const lookAtPoint = camera.position.clone().add(rotatedForward.multiplyScalar(50));
+    camera.lookAt(lookAtPoint);
 
+    // Update Living Stars & Galaxy Scintillation
     starMaterials.forEach(m => {
       m.uniforms.uTime.value = visualTime;
       m.uniforms.uMotion.value = reducedMotion.matches ? 0 : 1;
       m.uniforms.uWarp.value = warpFactor;
     });
 
-    galaxies.forEach((g, i) => {
-      g.mesh.rotation.y = g.rotation + visualTime * (i % 2 ? -0.00045 : 0.00045);
+    galaxies.forEach(g => {
+      g.mesh.rotation.y += g.rotSpeed;
     });
 
     planets.forEach(p => {
@@ -3115,6 +3249,28 @@ async function initialize(){
     moons.forEach(m => {
       const angle = visualTime * m.speed + m.offset;
       m.mesh.position.set(Math.cos(angle) * m.dist, Math.sin(angle * 0.4) * 1.5, Math.sin(angle) * m.dist);
+    });
+
+    // Update Shooting Stars / Meteors
+    meteors.forEach(m => {
+      if(!m.active) return;
+      m.life += dt;
+      if(m.life >= m.maxLife){
+        m.active = false;
+        m.line.material.opacity = 0;
+        return;
+      }
+      m.pos.addScaledVector(m.dir, m.speed * dt);
+      const head = m.pos;
+      const tail = m.pos.clone().sub(m.dir.clone().multiplyScalar(m.len));
+
+      const posAttr = m.geo.attributes.position;
+      posAttr.setXYZ(0, head.x, head.y, head.z);
+      posAttr.setXYZ(1, tail.x, tail.y, tail.z);
+      posAttr.needsUpdate = true;
+
+      const progress = m.life / m.maxLife;
+      m.line.material.opacity = Math.sin(progress * Math.PI) * 0.95;
     });
 
     probeGroup.rotation.y = visualTime * 0.035;
