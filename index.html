@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#020309">
-<meta name="description" content="Erfan's Milky Way 3D Portfolio — Journey across planets in our galaxy, explore projects, and interact with the retro cyber terminal.">
+<meta name="description" content="Erfan's Milky Way 3D Portfolio — Cruise across 3D planets in the galaxy, explore projects, and interact with the vintage CRT cyber terminal.">
 <title>ERFAN / MILKY WAY 8910 — Interstellar 3D Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@ a{color:inherit;text-decoration:none}
 #speed-lines{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   opacity:0;transition:opacity .35s ease;
-  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.08) 100%);
+  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.1) 100%);
 }
 #speed-lines.active{opacity:1}
 
@@ -183,7 +183,7 @@ a{color:inherit;text-decoration:none}
   50%{transform:scaleY(1)}
 }
 
-/* Sidebar Waypoint Timeline */
+/* 3D Waypoint Navigator Sidebar */
 .waypoint-nav{
   position:fixed;inset-inline-start:2vw;top:50%;transform:translateY(-50%);
   z-index:18;display:flex;flex-direction:column;gap:14px;
@@ -244,19 +244,19 @@ a{color:inherit;text-decoration:none}
 }
 .story-actions{display:flex;gap:10px;flex-wrap:wrap}
 
-/* Ending Section */
+/* Stage 6 Destination HUD */
 #ending{
-  position:fixed;inset-inline:20px;bottom:12vh;z-index:16;
+  position:fixed;inset-inline:20px;bottom:11vh;z-index:16;
   text-align:center;pointer-events:auto;
 }
 .ending-card{
-  display:inline-block;width:min(580px,92vw);padding:26px 32px;
-  background:rgba(4,14,24,0.88);border:1px solid rgba(104,236,160,0.35);
+  display:inline-block;width:min(580px,92vw);padding:24px 30px;
+  background:rgba(3,8,14,0.92);border:1px solid rgba(104,236,160,0.35);
   border-radius:16px;backdrop-filter:blur(18px);
-  box-shadow:0 22px 64px rgba(0,0,0,0.75), 0 0 35px rgba(104,236,160,0.18);
+  box-shadow:0 22px 64px rgba(0,0,0,0.85), 0 0 35px rgba(104,236,160,0.2);
 }
-#ending h2{margin:0 0 8px;font-size:clamp(22px,3vw,34px);color:#fff}
-#ending p{font-size:13px;color:#bad8c6;margin:0 0 18px}
+#ending h2{margin:0 0 6px;font-size:clamp(20px,2.8vw,32px);color:#fff}
+#ending p{font-size:12.5px;color:#bad8c6;margin:0 0 16px}
 .end-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
 /* Bottom Controls & Telemetry */
@@ -554,12 +554,6 @@ input::placeholder{color:#6c8299}
 }
 .crt-log{margin-bottom:12px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
 .crt-log a{color:var(--cyan);text-decoration:underline;text-underline-offset:4px}
-.crt-ascii{
-  font-size:clamp(8.5px,2.1vw,11px);line-height:1.25;
-  overflow-x:auto;white-space:pre;display:block;
-  margin:6px 0;scrollbar-width:none;
-}
-.crt-ascii::-webkit-scrollbar{display:none}
 
 .crt-prompt-line{
   display:flex;align-items:center;gap:8px;margin-top:6px;
@@ -687,7 +681,7 @@ input::placeholder{color:#6c8299}
           <span class="lbl">WARP VELOCITY</span>
         </div>
         <div class="telemetry-item">
-          <span class="val" id="hud-dist">0.0 AU</span>
+          <span class="val" id="hud-dist">1.0 AU</span>
           <span class="lbl">TARGET DIST</span>
         </div>
       </div>
@@ -707,19 +701,19 @@ input::placeholder{color:#6c8299}
     </div>
   </header>
 
-  <!-- Sidebar Waypoint Navigator (Planets in Milky Way) -->
+  <!-- 3D Sidebar Waypoint Navigator across the Milky Way -->
   <nav class="waypoint-nav" id="waypoint-rail" aria-label="Planetary Waypoints">
     <button class="waypoint-dot active" data-step="0">01<span class="waypoint-tooltip" data-t="wp0">زمین (Earth)</span></button>
     <button class="waypoint-dot" data-step="1">02<span class="waypoint-tooltip" data-t="wp1">مریخ (Mars)</span></button>
     <button class="waypoint-dot" data-step="2">03<span class="waypoint-tooltip" data-t="wp2">زحل (Saturn)</span></button>
     <button class="waypoint-dot" data-step="3">04<span class="waypoint-tooltip" data-t="wp3">نپتون (Neptune)</span></button>
     <button class="waypoint-dot" data-step="4">05<span class="waypoint-tooltip" data-t="wp4">کپلر ۸۹۱۰ (Kepler)</span></button>
-    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال عرفان (Station)</span></button>
+    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال عرفان (Ground Terminal)</span></button>
   </nav>
 
   <main>
     <h1 class="sr-only" data-t="accessibleTitle">پورتفولیوی فضایی عرفان</h1>
-    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سفر بین سیارات کهکشان راه شیری</p>
+    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سفر بین سیارات سه‌بعدی کهکشان راه شیری</p>
 
     <section id="story" aria-labelledby="story-title" aria-hidden="true" inert>
       <div class="eyebrow" id="chapter-code">MILKY WAY EXPEDITION / 01</div>
@@ -735,14 +729,14 @@ input::placeholder{color:#6c8299}
   <!-- Stage 6 Destination HUD -->
   <footer id="ending" hidden>
     <div class="ending-card">
-      <div class="eyebrow">FINAL DESTINATION / CORE STATION</div>
-      <h2 data-t="endTitle">سیگنال ۸۹۱۰ رمزگشایی شد</h2>
-      <p data-t="endText">پایان سفر کهکشانی · توسعه یافته با عشق توسط عرفان (Erfan-8910)</p>
+      <div class="eyebrow">FINAL DESTINATION // CORE BASE</div>
+      <h2 data-t="endTitle">سیگنال ۸۹۱۰ روی زمین بازیابی شد</h2>
+      <p data-t="endText">پایان سفر کهکشانی · کنسول رترو روی زمین فعال است · توسعه یافته توسط عرفان (Erfan-8910)</p>
       <div class="end-actions">
-        <button class="button amber terminal-trigger" data-t="launchTerminal">>_ ورود به کنسول تعاملی</button>
+        <button class="button amber terminal-trigger" data-t="launchTerminal">>_ باز کردن کنسول سیستم</button>
         <button class="button primary archive-trigger" data-t="archive">مشاهده پروژه‌ها</button>
         <a class="button" href="https://github.com/Erfan-8910" target="_blank" rel="noopener noreferrer" data-t="github">GitHub ↗</a>
-        <button class="button" id="restart" data-t="restart">شروع دوباره ↺</button>
+        <button class="button" id="restart" data-t="restart">پرواز دوباره ↺</button>
       </div>
     </div>
   </footer>
@@ -753,14 +747,14 @@ input::placeholder{color:#6c8299}
     <button class="button" id="next-stage" aria-label="Next stage">↓</button>
   </nav>
 
-  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">سوایپ یا اسکرول برای پرواز بین سیارات راه شیری ↓</span></div>
-  <div id="coordinates" aria-hidden="true">ORBIT / EARTH</div>
+  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">سوایپ یا اسکرول برای پرواز سه‌بعدی بین سیارات راه شیری ↓</span></div>
+  <div id="coordinates" aria-hidden="true">ORBIT // EARTH [0, 0, 0]</div>
   <div id="progress" aria-hidden="true"></div>
 </div>
 
 <!-- Hologram Probe Telemetry Overlay -->
 <div id="probe-overlay">
-  <div class="eyebrow">NEPTUNE RELAY / PROBE 8910</div>
+  <div class="eyebrow">NEPTUNE RELAY // PROBE 8910</div>
   <h3 data-t="probeTitle">کاوشگر مخابراتی سیگنال ۸۹۱۰</h3>
   <p data-t="probeDesc">اطلاعات بازیابی‌شده از مدار نپتون شامل وب‌اپلیکیشن Climind-W و اکوسیستم توسعه‌دهنده عرفان است.</p>
   <button class="button primary archive-trigger" style="width:100%" data-t="archive">بررسی داده‌های پروژه</button>
@@ -770,17 +764,17 @@ input::placeholder{color:#6c8299}
 <section id="gate" aria-labelledby="gate-title">
   <div class="gate-inner">
     <div class="receiver" aria-hidden="true"></div>
-    <div class="eyebrow">MILKY WAY TRANSMISSION / 8910</div>
-    <h1 id="gate-title" data-t="welcome">سفری میان‌سیاره‌ای در کهکشان راه شیری</h1>
-    <p data-t="intro">از مدار زمین تا شفق‌های قطبی کپلر و ترمینال فضایی عرفان، منظومه را درنوردید و پروژه‌ها را کشف کنید.</p>
+    <div class="eyebrow">MILKY WAY EXPEDITION // 8910</div>
+    <h1 id="gate-title" data-t="welcome">سفری سه‌بعدی و شناور در کهکشان راه شیری</h1>
+    <p data-t="intro">از مدار زمین تا شفق‌های قطبی کپلر و فرود روی پایگاه زمینی عرفان، در فضای سه‌بعدی پرواز کنید و پروژه‌ها را کشف کنید.</p>
 
     <div class="language-picker" aria-label="Language / زبان">
       <button data-lang="fa" lang="fa" aria-pressed="true">فارسی</button>
       <button data-lang="en" lang="en">English</button>
     </div>
 
-    <button class="button primary" id="start" disabled data-t="start">آغاز سفر کهکشانی (پرواز)</button>
-    <div id="load-status" role="status">در حال هم‌تراز کردن گیرنده فضایی…</div>
+    <button class="button primary" id="start" disabled data-t="start">آغاز سفر سه‌بعدی کهکشانی (پرواز)</button>
+    <div id="load-status" role="status">در حال هم‌تراز کردن ناوبری سه‌بعدی فضا…</div>
 
     <div class="gate-actions">
       <button class="link-button terminal-trigger" data-t="directTerminal">کنسول مستقیم >_</button>
@@ -798,8 +792,8 @@ input::placeholder{color:#6c8299}
 <dialog id="archive" aria-labelledby="archive-title">
   <header class="dialog-head">
     <div>
-      <div class="eyebrow">RECOVERED DATA / GITHUB ECOSYSTEM</div>
-      <h2 id="archive-title" data-t="archiveTitle">فایل‌هایی که باقی مانده‌اند</h2>
+      <div class="eyebrow">RECOVERED DATA // GITHUB ECOSYSTEM</div>
+      <h2 id="archive-title" data-t="archiveTitle">فایل‌ها و پروژه‌های بازیابی‌شده</h2>
     </div>
     <div class="dialog-controls">
       <button class="button language-switch"></button>
@@ -935,7 +929,7 @@ input::placeholder{color:#6c8299}
     <div class="crt-header">
       <div class="crt-title">
         <div class="crt-led"></div>
-        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.2</span>
+        <span id="crt-heading">VT-8910 CYBER TERMINAL v4.5</span>
       </div>
       <div class="crt-top-actions">
         <button class="crt-theme-btn" id="theme-cycle-btn">🎨 THEME</button>
@@ -958,7 +952,7 @@ input::placeholder{color:#6c8299}
       </div>
 
       <div class="crt-prompt-line">
-        <span class="crt-prompt">erfan@signal-8910:~$</span>
+        <span class="crt-prompt">erfan@ground-8910:~$</span>
         <input type="text" id="crt-input" autocomplete="off" spellcheck="false" autofocus>
       </div>
     </div>
@@ -987,7 +981,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 /* ------------------------------------------------------------------
-   1. SERENE & CALM SPACE AMBIENT AUDIO (100% RELAXING & SOOTHING)
+   1. SERENE & CALM SPACE AMBIENT AUDIO (100% RELAXING & CELESTIAL)
    ------------------------------------------------------------------ */
 class SereneSpaceAtmosphere {
   constructor(){
@@ -1003,12 +997,12 @@ class SereneSpaceAtmosphere {
     this.chimeTimer = null;
     this.currentChord = 0;
 
-    // Harmonious Celestial Chords
+    // Peaceful celestial progression: Dm9 -> Bbmaj7 -> Gm7 -> Csus4
     this.chords = [
-      [50, 57, 62, 65, 69], // Dm9
-      [46, 53, 58, 62, 65], // Bbmaj7
-      [43, 50, 55, 58, 62], // Gm7
-      [48, 55, 60, 65, 67]  // Csus4
+      [50, 57, 62, 65, 69],
+      [46, 53, 58, 62, 65],
+      [43, 50, 55, 58, 62],
+      [48, 55, 60, 65, 67]
     ];
   }
 
@@ -1182,7 +1176,7 @@ class SereneSpaceAtmosphere {
       const gain = this.ctx.createGain();
       osc.type = "sine";
       osc.frequency.setValueAtTime(45, t);
-      osc.frequency.linearRampToValueAtTime(70, t + 0.8);
+      osc.frequency.linearRampToValueAtTime(75, t + 0.8);
       osc.frequency.linearRampToValueAtTime(40, t + 2.0);
       gain.gain.setValueAtTime(0.05, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 2.1);
@@ -1267,15 +1261,15 @@ const audio = new SereneSpaceAtmosphere();
 audio.updateUI();
 
 /* ------------------------------------------------------------------
-   2. BILINGUAL CONTENT & MILKY WAY EXPEDITION NARRATIVE
+   2. BILINGUAL CONTENT & 3D INTERPLANETARY NARRATIVE
    ------------------------------------------------------------------ */
 const COPY = {
   fa: {
-    welcome: "سفری میان‌سیاره‌ای در کهکشان راه شیری",
-    intro: "از مدار زمین تا شفق‌های قطبی کپلر و ترمینال فضایی عرفان، در پهنه کهکشان پرسه بزنید و پروژه‌ها را بررسی کنید.",
-    start: "آغاز سفر کهکشانی (پرواز)",
-    preparing: "در حال محاسبهٔ مختصات مدارهای کهکشان راه شیری…",
-    ready: "ناوبری آماده است · زبان را انتخاب کن و دکمه پرواز را بزن",
+    welcome: "سفری سه‌بعدی و شناور در کهکشان راه شیری",
+    intro: "از مدار زمین تا شفق‌های قطبی کپلر و فرود روی پایگاه زمینی عرفان، در فضای سه‌بعدی پرواز کنید و پروژه‌ها را کشف کنید.",
+    start: "آغاز سفر سه‌بعدی کهکشانی (پرواز)",
+    preparing: "در حال ترسیم خطوط ناوبری سه‌بعدی کهکشان راه شیری…",
+    ready: "مختصات سه‌بعدی تنظیم شد · زبان را انتخاب کن و دکمه پرواز را بزن",
     failure: "فضای سه‌بعدی بارگذاری نشد. WebGL و اتصال اینترنت را بررسی کن.",
     lost: "رندر سه‌بعدی متوقف شد؛ صفحه را تازه کن.",
     archive: "پروژه‌ها",
@@ -1287,10 +1281,10 @@ const COPY = {
     close: "بستن ×",
     github: "پروفایل GitHub ↗",
     restart: "پرواز دوباره ↺",
-    endTitle: "سیگنال ۸۹۱۰ رمزگشایی شد",
-    endText: "پایان مسیر انتقال داده در کهکشان · توسعه یافته با عشق توسط عرفان (Erfan-8910)",
-    launchTerminal: ">_ ورود به کنسول تعاملی",
-    scroll: "سوایپ یا اسکرول برای پرواز بین سیارات راه شیری ↓",
+    endTitle: "سیگنال ۸۹۱۰ روی زمین بازیابی شد",
+    endText: "پایان سفر کهکشانی · کنسول رترو روی زمین فعال است · توسعه یافته توسط عرفان (Erfan-8910)",
+    launchTerminal: ">_ باز کردن کنسول سیستم",
+    scroll: "سوایپ یا اسکرول برای پرواز سه‌بعدی بین سیارات راه شیری ↓",
     navigation: "سیارات کهکشان راه شیری",
     previous: "سیارهٔ قبل",
     next: "سیارهٔ بعد",
@@ -1324,26 +1318,26 @@ const COPY = {
     wp2: "زحل (Saturn)",
     wp3: "نپتون (Neptune)",
     wp4: "کپلر ۸۹۱۰ (Kepler)",
-    wp5: "ترمینال عرفان (Station)",
+    wp5: "ترمینال روی زمین (Ground)",
     accessibleTitle: "پورتفولیوی فضایی و تعاملی عرفان",
-    accessibleStory: "روایتی علمی-تخیلی و سه‌بعدی از پرسه زدن در سیارات کهکشان راه شیری تا ایستگاه مرکزی توسعه‌دهنده عرفان.",
+    accessibleStory: "روایتی علمی-تخیلی و سه‌بعدی از پرواز میان سیارات پراکنده کهکشان راه شیری تا کامپیوتر رتروی مستقر بر زمین عرفان.",
     count: (a,b) => `نمایش ${a} از ${b} پروژه`,
     numbers: (s,f) => `${s} ستاره و ${f} فورک`,
     chapters: [
-      ["ORBIT 01 // EARTH (مدار زمین)", "نقطهٔ آغاز در مدار آبی سیاره مادری.", "گیرنده‌های ایستگاه مداری، سیگنال فرکانس ۸۹۱۰ را از ژرفای کهکشان ردیابی کرده‌اند."],
-      ["ORBIT 02 // MARS (سیاره سرخ مریخ)", "در میان دره‌ها و طوفان‌های سرخ مریخ.", "امواج نوری سیگنال از کنار قله‌های کوه المپوس عبور کرده و به سمت کمربند سیارکی ادامه دارد."],
-      ["ORBIT 03 // SATURN (حلقه‌های باشکوه زحل)", "شکافتن صفحه‌های یخی و حلقه‌های زحل.", "میدان مغناطیسی این غول گازی داده‌های فرکانس را تقویت کرده است."],
-      ["ORBIT 04 // NEPTUNE (غول یخی نپتون و کاوشگر)", "در لبهٔ تاریک و لاجوردی منظومه شمسی.", "کاوشگر مخابراتی سالمی پیدا شد؛ پروژه‌های مدرن وب از جمله Climind-W از این مدار بازیابی شدند."],
-      ["ORBIT 05 // KEPLER-8910 (سیاره بیگانه شفق قطبی)", "سیاره‌ای فراخورشیدی با اقیانوس‌های نورانی و شفق‌های قطبی.", "انرژی سیگنال در جو بنفش و شفقی این سیاره به بیشترین حد رسیده است."],
-      ["ORBIT 06 // CORE STATION (ایستگاه فضایی ترمینال)", "فرود در داک ایستگاه مرکزی عرفان.", "صفحه ترمینال رترو روشن است: Developed by Erfan — آماده برای دریافت دستورات بعدی شما."]
+      ["ORBIT 01 // EARTH (مدار زمین)", "نقطهٔ آغاز در مدار آبی و اتمسفر زمین.", "سیگنال فرکانس ۸۹۱۰ با زاویه‌ای سه‌بعدی از اعماق پهنه کهکشان راه شیری دریافت می‌شود."],
+      ["ORBIT 02 // MARS (سیاره سرخ در ارتفاع بالا)", "صعود مایل به سمت مدار مرتفع مریخ.", "پرواز بر فراز دره‌های گرانیتی سرخ و کوه المپوس؛ امواج فرکانس در میان غبار کیهانی امتداد دارد."],
+      ["ORBIT 03 // SATURN (فرود بر فراز حلقه‌های زحل)", "شیرجه در اعماق جنوبی منظومه و چرخش به چپ.", "عبور از میان میلیاردها کریستال یخی و حلقه‌های باشکوه زحل در زاویه‌ای سه‌بعدی و شیب‌دار."],
+      ["ORBIT 04 // NEPTUNE (مدار لاجوردی نپتون و کاوشگر)", "صعود سه‌بعدی به دوردست‌ترین کرانهٔ منظومه شمسی.", "کاوشگر طلایی نپتون پیدا شد؛ پروژه‌های مدرن وب از جمله Climind-W از این نقطه بازیابی شدند."],
+      ["ORBIT 05 // KEPLER-8910 (سیاره بیگانه شفق قطبی)", "پرواز در صفحه کهکشانی به سمت سیاره فراخورشیدی.", "شفق‌های قطبی زمردین و اقیانوس‌های نورانی کپلر، پرتوهای سیگنال ۸۹۱۰ را بازتاب می‌دهند."],
+      ["GROUND BASE // RETRO COMPUTER (فرود بر پایگاه زمینی)", "فرود نهایی روی زمین در پس‌زمینهٔ تاریک کیهان.", "کامپیوتر رترو CRT روی زمین روشن است: Developed by Erfan — آماده برای دریافت فرامین شما."]
     ]
   },
   en: {
-    welcome: "Interplanetary Journey across the Milky Way",
-    intro: "From Earth's orbit to the auroras of Kepler and Erfan's space terminal, cruise through the galaxy and explore projects.",
-    start: "Launch Galactic Expedition (Fly)",
-    preparing: "Calculating orbital trajectories across the Milky Way…",
-    ready: "Navigation aligned · Select language and hit launch",
+    welcome: "3D Interplanetary Odyssey across the Milky Way",
+    intro: "From Earth's orbit to the auroras of Kepler and landing on Erfan's ground terminal, fly through 3D space and explore projects.",
+    start: "Launch 3D Galactic Expedition (Fly)",
+    preparing: "Plotting 3D non-linear orbital trajectories across the Milky Way…",
+    ready: "3D coordinates aligned · Select language and hit launch",
     failure: "3D scene failed to load. Check WebGL and internet connection.",
     lost: "3D renderer lost context. Please reload the page.",
     archive: "Projects",
@@ -1355,10 +1349,10 @@ const COPY = {
     close: "Close ×",
     github: "GitHub Profile ↗",
     restart: "Travel Again ↺",
-    endTitle: "Signal 8910 Decrypted",
-    endText: "Transmission end · Developed with passion by Erfan (Erfan-8910)",
-    launchTerminal: ">_ Enter Interactive Console",
-    scroll: "Swipe, scroll, or use arrow keys to cruise between planets ↓",
+    endTitle: "Signal 8910 Recovered on Ground",
+    endText: "Expedition complete · CRT Terminal active on ground · Developed by Erfan (Erfan-8910)",
+    launchTerminal: ">_ Enter Ground Console",
+    scroll: "Swipe, scroll, or use arrow keys to cruise in 3D space between planets ↓",
     navigation: "Milky Way Planetary Waypoints",
     previous: "Previous Planet",
     next: "Next Planet",
@@ -1388,22 +1382,22 @@ const COPY = {
     probeTitle: "Neptune Relay // Probe 8910",
     probeDesc: "Recovered orbital telemetry contains Climind-W weather web application and Erfan's developer ecosystem.",
     wp0: "Earth Orbit",
-    wp1: "Mars Corridor",
-    wp2: "Saturn Rings",
+    wp1: "Mars High Corridor",
+    wp2: "Saturn Ring Dive",
     wp3: "Neptune Relay",
     wp4: "Kepler Aurora",
-    wp5: "Core Station",
+    wp5: "Ground CRT Terminal",
     accessibleTitle: "Erfan's Interstellar 3D Portfolio",
-    accessibleStory: "An interactive sci-fi narrative exploring planets across the Milky Way towards developer Erfan's retro terminal.",
+    accessibleStory: "An interactive 3D sci-fi narrative navigating across deep Milky Way planets to a grounded retro CRT computer.",
     count: (a,b) => `Showing ${a} of ${b} projects`,
     numbers: (s,f) => `${s} stars and ${f} forks`,
     chapters: [
-      ["ORBIT 01 // EARTH ORBIT", "Starting point in the blue cradle of humanity.", "Orbital telemetry tracks the 8910 MHz transmission vector radiating from deep Milky Way space."],
-      ["ORBIT 02 // MARS CORRIDOR", "Gliding over the rust canyons and Olympus Mons.", "The signal beam cuts through Martian dust storms towards the outer asteroid belt."],
-      ["ORBIT 03 // SATURN RINGS", "Cruising through the majestic icy rings of Saturn.", "The gas giant's magnetosphere amplifies the incoming frequency harmonics."],
-      ["ORBIT 04 // NEPTUNE RELAY", "At the deep sapphire frontier of the solar system.", "An intact communications probe discovered: web applications and developer telemetry recovered."],
-      ["ORBIT 05 // KEPLER-8910 AURORA", "An exoplanet with bioluminescent seas and polar auroras.", "Atmospheric ion storms reach resonance with the 8910 signal core."],
-      ["ORBIT 06 // CORE STATION", "Docked at the central orbital space terminal.", "The vintage phosphor CRT terminal is active: Developed by Erfan — Standing by for your input."]
+      ["ORBIT 01 // EARTH ORBIT", "Starting point in the blue cradle of humanity.", "Orbital telemetry tracks the 8910 MHz transmission vector radiating from deep 3D Milky Way space."],
+      ["ORBIT 02 // MARS HIGH CORRIDOR", "Ascending diagonally across the red planet's horizon.", "The signal beam cuts through rust canyon winds and Olympus Mons toward the deep galaxy."],
+      ["ORBIT 03 // SATURN RING DIVE", "Swooping low and left over Saturn's tilted ice rings.", "Dynamic 3D perspective over billions of sparkling ice fragments and atmospheric bands."],
+      ["ORBIT 04 // NEPTUNE RELAY", "Climbing to the deep sapphire frontier of the solar system.", "An intact communications probe discovered: web applications and developer telemetry recovered."],
+      ["ORBIT 05 // KEPLER-8910 AURORA", "Soaring across the galactic disc to an exoplanet wonderland.", "Emerald auroras and bioluminescent violet oceans resonate with the 8910 MHz pulse."],
+      ["GROUND BASE // RETRO COMPUTER", "Descending to the dark ground outpost beneath black space.", "The vintage CRT terminal sits grounded on a sleek dark surface: Developed by Erfan."]
     ]
   }
 };
@@ -1500,9 +1494,16 @@ function updateStory(){
     dot.classList.toggle("active", i === stage);
   });
 
-  const planetCoords = ["ORBIT / EARTH", "ORBIT / MARS", "ORBIT / SATURN", "ORBIT / NEPTUNE", "ORBIT / KEPLER-8910", "ORBIT / CORE STATION"];
-  const planetDist = ["1.0 AU", "1.5 AU", "9.5 AU", "30.1 AU", "120.4 AU", "TERMINAL DOCK"];
-  $("#coordinates").textContent = planetCoords[stage] || "ORBIT / SPACE";
+  const planetCoords = [
+    "ORBIT // EARTH [0, 0, 0]",
+    "ORBIT // MARS [+95, +45, -120]",
+    "ORBIT // SATURN [-135, -40, -250]",
+    "ORBIT // NEPTUNE [+140, +68, -390]",
+    "ORBIT // KEPLER-8910 [-115, +80, -530]",
+    "GROUND BASE // TERMINAL [0, -2.5, -660]"
+  ];
+  const planetDist = ["1.0 AU", "1.5 AU", "9.5 AU", "30.1 AU", "120.4 AU", "GROUND DOCKED"];
+  $("#coordinates").textContent = planetCoords[stage] || "ORBIT // SPACE";
   $("#hud-dist").textContent = planetDist[stage] || "0.0 AU";
 
   const isProbeStage = started && !traveling && stage === 3;
@@ -1833,8 +1834,8 @@ class ResponsiveCyberTerminal {
   printBanner(){
     const banner = [
       "╔════════════════════════════════════════════════════════════╗",
-      "║  VT-8910 CYBER COMMAND // MILKY WAY TERMINAL v4.2          ║",
-      "║  STATUS: SIGNAL 8910 MHz ACTIVE · AMBIENT ATMOSPHERE: OK   ║",
+      "║  VT-8910 CYBER COMMAND // GROUND TERMINAL v4.5             ║",
+      "║  STATUS: SIGNAL 8910 RESTORED · DARK GROUND DOCK: ACTIVE   ║",
       "╚════════════════════════════════════════════════════════════╝",
       "Type 'help' for instructions or tap the command chips below.",
       ""
@@ -1851,7 +1852,7 @@ class ResponsiveCyberTerminal {
   }
 
   execute(cmdStr){
-    this.log(`erfan@signal-8910:~$ ${cmdStr}`);
+    this.log(`erfan@ground-8910:~$ ${cmdStr}`);
     const parts = cmdStr.toLowerCase().split(" ");
     const cmd = parts[0];
 
@@ -1865,11 +1866,11 @@ class ResponsiveCyberTerminal {
           "  contact    - Direct communication channels (GitHub, Live App)",
           "  play       - Launch 'COSMIC INTERCEPTOR' arcade space game",
           "  matrix     - Stream digital phosphor matrix rain",
-          "  sysinfo    - Display spacecraft & developer system info",
+          "  sysinfo    - Display system info & ground station telemetry",
           "  sound      - Toggle space ambient soundscape (on/off)",
           "  theme      - Change phosphor theme (green/cyan/amber/purple)",
           "  clear      - Clear terminal screen buffer",
-          "  exit       - Close terminal and return to 3D orbit",
+          "  exit       - Close terminal and return to 3D base",
           ""
         ].join("\n"));
         break;
@@ -1932,13 +1933,13 @@ class ResponsiveCyberTerminal {
       case "sysinfo":
       case "neofetch":
         this.log([
-          "       .---.          OS:        Erfan Milky Way OS v4.2",
-          "      /     \\         Host:      Signal 8910 Transmission Core",
-          "     | () () |        Kernel:    WebGL 2.0 / Three.js 0.170",
-          "      \\  _  /         Audio:     Serene Polyphonic Space Atmosphere",
+          "       .---.          OS:        Erfan Milky Way OS v4.5",
+          "      /     \\         Host:      Ground Station Terminal 8910",
+          "     | () () |        Location:  Dark Obsidian Ground Plane",
+          "      \\  _  /         Kernel:    WebGL 2.0 / Three.js 0.170",
+          "       |||||          Audio:     Serene Polyphonic Space Atmosphere",
           "       |||||          Display:   " + window.innerWidth + "x" + window.innerHeight + " (Responsive)",
-          "       |||||          Shell:     VT-8910 Cyber Console",
-          "       '---'          Status:    Cruising Milky Way Planets",
+          "       '---'          Status:    Standing on Dark Ground Base",
           ""
         ].join("\n"));
         break;
@@ -2159,7 +2160,7 @@ $("#next-stage").onclick = () => { audio.playSFX("click"); controller?.step(1); 
 setLanguage(language);
 
 /* ------------------------------------------------------------------
-   4. FULL 3D MILKY WAY UNIVERSE & PROCEDURAL PLANETS (THREE.JS)
+   4. FULL NON-LINEAR 3D MILKY WAY UNIVERSE & GROUNDED CRT TERMINAL
    ------------------------------------------------------------------ */
 const loadTimer = setTimeout(() => {
   if(sceneStatus === "preparing"){
@@ -2198,7 +2199,7 @@ async function initialize(){
   renderer.toneMappingExposure = 1.05;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1500);
+  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 2000);
 
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
@@ -2206,9 +2207,9 @@ async function initialize(){
   composer.addPass(bloomPass);
   composer.addPass(new OutputPass());
 
-  scene.add(new THREE.AmbientLight(0xa5b8cc, 0.65));
+  scene.add(new THREE.AmbientLight(0xa5b8cc, 0.7));
   const sun = new THREE.DirectionalLight(0xfffaed, 2.8);
-  sun.position.set(-40, 25, 35);
+  sun.position.set(-60, 45, 60);
   scene.add(sun);
 
   const rand = (a, b) => a + Math.random() * (b - a);
@@ -2216,14 +2217,75 @@ async function initialize(){
   const lerp = THREE.MathUtils.lerp;
   const smooth = THREE.MathUtils.smoothstep;
 
-  // 6 Planetary Destinations in the Milky Way
-  // 0: Earth (Z=18), 1: Mars (Z=-75), 2: Saturn (Z=-165), 3: Neptune & Probe (Z=-255), 4: Kepler Aurora (Z=-335), 5: Terminal Station (Z=-390)
-  const destinations = [0.035, 0.21, 0.42, 0.63, 0.82, 1.0];
-  let progress = destinations[0];
-  let fromProgress = progress;
-  let toProgress = progress;
-  let travelTime = 0;
-  let travelDuration = 2.2;
+  // -------------------------------------------------------------
+  // NON-LINEAR 3D WAYPOINTS (SCATTERED IN FULL 3D SPACE)
+  // -------------------------------------------------------------
+  const WAYPOINTS = [
+    {
+      // 0: Earth (Center-Front)
+      camPos: new THREE.Vector3(0, 3.2, 22),
+      camTarget: new THREE.Vector3(0, 0, 0),
+      planetPos: new THREE.Vector3(0, 0, 0),
+      planetRadius: 7.2,
+      planetType: 0,
+      name: "Earth"
+    },
+    {
+      // 1: Mars (Upper Right Diagonal in Deep 3D Space)
+      camPos: new THREE.Vector3(76, 44, -100),
+      camTarget: new THREE.Vector3(95, 38, -125),
+      planetPos: new THREE.Vector3(95, 38, -125),
+      planetRadius: 5.8,
+      planetType: 1,
+      name: "Mars"
+    },
+    {
+      // 2: Saturn (Lower Left Deep Dive with Giant Tilted Rings)
+      camPos: new THREE.Vector3(-118, -32, -225),
+      camTarget: new THREE.Vector3(-142, -45, -255),
+      planetPos: new THREE.Vector3(-142, -45, -255),
+      planetRadius: 8.8,
+      planetType: 2,
+      hasRings: true,
+      name: "Saturn"
+    },
+    {
+      // 3: Neptune (Far Upper Right Frontier with Orbiting Satellite Probe)
+      camPos: new THREE.Vector3(124, 62, -365),
+      camTarget: new THREE.Vector3(145, 72, -395),
+      planetPos: new THREE.Vector3(145, 72, -395),
+      planetRadius: 7.6,
+      planetType: 3,
+      hasRings: true,
+      name: "Neptune"
+    },
+    {
+      // 4: Kepler Exoplanet (Far High Left Bioluminescent Nebula)
+      camPos: new THREE.Vector3(-98, 76, -505),
+      camTarget: new THREE.Vector3(-120, 84, -538),
+      planetPos: new THREE.Vector3(-120, 84, -538),
+      planetRadius: 8.2,
+      planetType: 4,
+      name: "Kepler"
+    },
+    {
+      // 5: Ground Base & Vintage CRT Terminal (Resting on Dark Ground with Black Backdrop)
+      camPos: new THREE.Vector3(0, 1.4, -642),
+      camTarget: new THREE.Vector3(0, 0.5, -655),
+      groundPos: new THREE.Vector3(0, -2.5, -655),
+      name: "GroundTerminal"
+    }
+  ];
+
+  let currentCamPos = WAYPOINTS[0].camPos.clone();
+  let currentCamTarget = WAYPOINTS[0].camTarget.clone();
+  let fromCamPos = currentCamPos.clone();
+  let fromCamTarget = currentCamTarget.clone();
+  let toCamPos = currentCamPos.clone();
+  let toCamTarget = currentCamTarget.clone();
+
+  let travelProgress = 0;
+  let travelDuration = 2.4;
   let time = 0;
   let lastTime = 0;
   let frame = 0;
@@ -2242,6 +2304,7 @@ async function initialize(){
   const starMaterials = [];
   const planets = [];
   const galaxies = [];
+  const moons = [];
 
   const NOISE = `
     float hash3(vec3 p){
@@ -2347,9 +2410,9 @@ async function initialize(){
 
   {
     const pos = [], colors = [], sizes = [], seeds = [];
-    const count = mobile ? 5000 : 10000;
+    const count = mobile ? 6000 : 12000;
     for(let i = 0; i < count; i++){
-      pos.push(rand(-240, 240), rand(-150, 150), rand(-650, 120));
+      pos.push(rand(-450, 450), rand(-300, 300), rand(-850, 150));
       col.copy(stellarColors[Math.floor(Math.random() * stellarColors.length)]);
       col.multiplyScalar(rand(0.5, 1.5));
       colors.push(col.r, col.g, col.b);
@@ -2359,18 +2422,18 @@ async function initialize(){
     scene.add(createStars(pos, colors, sizes, seeds));
   }
 
-  // Warp Hyperspace Streaks System
-  const warpCount = mobile ? 220 : 480;
+  // Warp Hyperspace Streaks System (Scattered in 3D volume)
+  const warpCount = mobile ? 260 : 540;
   const warpPositions = new Float32Array(warpCount * 6);
   const warpColors = new Float32Array(warpCount * 6);
   for(let i = 0; i < warpCount; i++){
-    const x = rand(-35, 35);
-    const y = rand(-25, 25);
-    const z = rand(-450, 40);
-    const len = rand(6, 18);
+    const x = rand(-180, 180);
+    const y = rand(-120, 120);
+    const z = rand(-750, 80);
+    const len = rand(8, 24);
     const idx = i * 6;
     warpPositions[idx] = x; warpPositions[idx+1] = y; warpPositions[idx+2] = z;
-    warpPositions[idx+3] = x; warpPositions[idx+4] = y; warpPositions[idx+5] = z - len;
+    warpPositions[idx+3] = x + rand(-2, 2); warpPositions[idx+4] = y + rand(-2, 2); warpPositions[idx+5] = z - len;
     const c = Math.random() > 0.5 ? [0.3, 0.88, 0.87] : [0.45, 0.9, 0.6];
     warpColors[idx] = c[0]; warpColors[idx+1] = c[1]; warpColors[idx+2] = c[2];
     warpColors[idx+3] = c[0]; warpColors[idx+4] = c[1]; warpColors[idx+5] = c[2];
@@ -2387,42 +2450,42 @@ async function initialize(){
   const warpLines = new THREE.LineSegments(warpGeo, warpMat);
   scene.add(warpLines);
 
-  // 3D Milky Way Spiral Arm Clusters
-  function createMilkyWayArm(z, tilt, rotation, coreColorHex){
+  // 3D Milky Way Spiral Arm Clusters scattered at different 3D angles & depths
+  function createMilkyWayArm(x, y, z, tiltX, tiltY, rotation, coreColorHex){
     const pos = [], colors = [], sizes = [], seeds = [];
     const warm = new THREE.Color(coreColorHex || "#e7d4b4");
     const cool = new THREE.Color("#7aa4d4");
-    const starTotal = mobile ? 11000 : 22000;
+    const starTotal = mobile ? 12000 : 22000;
 
     for(let i = 0; i < starTotal; i++){
-      const r = Math.pow(Math.random(), 0.7) * 85;
+      const r = Math.pow(Math.random(), 0.7) * 95;
       const arm = i % 4;
       const angle = arm / 4 * Math.PI * 2 + r * 0.11;
-      const spread = 0.5 + r * 0.05;
+      const spread = 0.6 + r * 0.06;
       pos.push(
         Math.cos(angle) * r + rand(-spread, spread),
-        rand(-1, 1) * (0.8 + r * 0.025),
+        rand(-1.2, 1.2) * (0.8 + r * 0.03),
         Math.sin(angle) * r + rand(-spread, spread)
       );
-      col.copy(warm).lerp(cool, r / 85).multiplyScalar(rand(0.35, 0.95));
+      col.copy(warm).lerp(cool, r / 95).multiplyScalar(rand(0.35, 0.95));
       colors.push(col.r, col.g, col.b);
       sizes.push(rand(0.25, 0.75));
       seeds.push(rand(0, 100));
     }
 
     const galaxy = createStars(pos, colors, sizes, seeds);
-    galaxy.position.z = z;
-    galaxy.rotation.set(tilt, rotation, 0.1);
+    galaxy.position.set(x, y, z);
+    galaxy.rotation.set(tiltX, tiltY, rotation);
     scene.add(galaxy);
     galaxies.push({ mesh: galaxy, rotation });
   }
 
-  createMilkyWayArm(-40, 0.55, 0.2, "#4ef0e8");
-  createMilkyWayArm(-200, -0.45, 0.7, "#ffbe5c");
-  createMilkyWayArm(-380, 0.65, -0.4, "#c47aff");
+  createMilkyWayArm(20, -10, -50, 0.55, 0.2, 0.15, "#4ef0e8");
+  createMilkyWayArm(-80, 40, -260, -0.45, 0.7, -0.35, "#ffbe5c");
+  createMilkyWayArm(60, -50, -480, 0.65, -0.4, 0.5, "#c47aff");
 
   // -------------------------------------------------------------
-  // 6 UNIQUE 3D PLANETS (EARTH -> MARS -> SATURN -> NEPTUNE -> KEPLER -> STATION)
+  // PROCEDURAL SHADER PLANETS
   // -------------------------------------------------------------
   const planetVertex = `
     varying vec3 vSurface;
@@ -2441,7 +2504,7 @@ async function initialize(){
   const planetFragment = `
     ${NOISE}
     uniform float uTime;
-    uniform float uType; // 0: Earth, 1: Mars, 2: Saturn, 3: Neptune, 4: Kepler Aurora
+    uniform float uType;
     varying vec3 vSurface;
     varying vec3 vNormal;
     varying vec3 vWorld;
@@ -2479,7 +2542,6 @@ async function initialize(){
         albedo = mix(albedo, vec3(0.9, 0.92, 0.94), clouds);
       } else if(uType < 1.5){
         // 🔴 2. MARS (Red Planet)
-        float canyon = fbm(p * 8.0);
         vec3 redLow = vec3(0.42, 0.16, 0.08);
         vec3 redHigh = vec3(0.68, 0.32, 0.16);
         albedo = mix(redLow, redHigh, continental) * (0.8 + detail * 0.4);
@@ -2506,7 +2568,7 @@ async function initialize(){
         vec3 bioLand = mix(vec3(0.05, 0.32, 0.28), vec3(0.08, 0.55, 0.45), detail);
         albedo = mix(bioSea, bioLand, land);
         
-        // Shimmering Aurora Borealis curtains at the poles
+        // Polar Auroras
         float aurora = smoothstep(0.65, 0.95, abs(p.y)) * (0.5 + 0.5 * sin(p.x * 20.0 + uTime * 0.8));
         albedo += vec3(0.2, 0.9, 0.7) * aurora * 0.85;
       }
@@ -2515,7 +2577,6 @@ async function initialize(){
       float daylight = smoothstep(-0.1, 0.3, dot(n, lightDir));
       vec3 result = albedo * (0.05 + lambert * 1.7);
 
-      // Atmosphere rim glow
       float rim = pow(1.0 - max(dot(n, viewDir), 0.0), 4.0);
       vec3 rimCol = uType < 0.5 ? vec3(0.12, 0.25, 0.4) : (uType < 1.5 ? vec3(0.4, 0.15, 0.08) : (uType < 2.5 ? vec3(0.4, 0.35, 0.2) : (uType < 3.5 ? vec3(0.15, 0.35, 0.7) : vec3(0.3, 0.8, 0.6))));
       result += rimCol * rim * daylight * 0.45;
@@ -2526,9 +2587,9 @@ async function initialize(){
     }
   `;
 
-  function createMilkyWayPlanet(x, y, z, radius, type, hasRings = false, ringColor = "#c8ab82"){
+  function createMilkyWayPlanet(pos, radius, type, hasRings = false){
     const group = new THREE.Group();
-    group.position.set(x, y, z);
+    group.position.copy(pos);
 
     const material = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 }, uType: { value: type } },
@@ -2540,8 +2601,20 @@ async function initialize(){
       new THREE.SphereGeometry(radius, mobile ? 80 : 128, mobile ? 56 : 88),
       material
     );
-    globe.rotation.z = type === 2 ? 0.35 : 0.15;
+    globe.rotation.z = type === 2 ? 0.38 : (type === 1 ? -0.2 : 0.15);
     group.add(globe);
+
+    // Orbiting 3D Moons for immersive depth
+    const moonGeo = new THREE.SphereGeometry(radius * 0.22, 24, 24);
+    const moonMat = new THREE.MeshStandardMaterial({
+      color: type === 0 ? 0xcccccc : (type === 1 ? 0x996655 : (type === 2 ? 0xddccaa : 0x88bbdd)),
+      roughness: 0.85
+    });
+    const moonMesh = new THREE.Mesh(moonGeo, moonMat);
+    const moonDist = radius * 2.2;
+    moonMesh.position.set(moonDist, 0, 0);
+    group.add(moonMesh);
+    moons.push({ mesh: moonMesh, dist: moonDist, speed: 0.02 + type * 0.005, offset: type * 1.5 });
 
     // Planetary Rings (Saturn / Neptune)
     if(hasRings){
@@ -2580,24 +2653,17 @@ async function initialize(){
     return group;
   }
 
-  // 1. Earth (Z=18)
-  createMilkyWayPlanet(7.5, 1.5, 12, 6.8, 0);
+  // Instantiate 5 scattered 3D Planets
+  for(let i = 0; i < 5; i++){
+    const wp = WAYPOINTS[i];
+    createMilkyWayPlanet(wp.planetPos, wp.planetRadius, wp.planetType, wp.hasRings);
+  }
 
-  // 2. Mars (Z=-75)
-  createMilkyWayPlanet(-9.0, 2.0, -75, 5.5, 1);
-
-  // 3. Saturn with Rings (Z=-165)
-  createMilkyWayPlanet(11.0, 3.0, -165, 8.2, 2, true);
-
-  // 4. Neptune (Z=-255)
-  createMilkyWayPlanet(-8.5, 1.8, -255, 7.2, 3, true);
-
-  // 5. Kepler-8910 Aurora Exoplanet (Z=-335)
-  createMilkyWayPlanet(9.0, 2.5, -335, 7.8, 4);
-
-  // 4. Stage 4: Recovered Space Probe / Satellite near Neptune
+  // -------------------------------------------------------------
+  // RECOVERED SATELLITE PROBE NEAR NEPTUNE
+  // -------------------------------------------------------------
   const probeGroup = new THREE.Group();
-  probeGroup.position.set(-2.8, 1.2, -245);
+  probeGroup.position.set(132, 65, -376);
 
   const goldMat = new THREE.MeshStandardMaterial({
     color: 0xcc9944, metalness: 0.85, roughness: 0.25
@@ -2632,19 +2698,62 @@ async function initialize(){
 
   scene.add(probeGroup);
 
-  // 6. Stage 6: Core Station Vintage CRT Terminal Computer (Z=-390)
+  // -------------------------------------------------------------
+  // STAGE 6: VINTAGE CRT COMPUTER RESTING ON DARK GROUND WITH BLACK BACKDROP
+  // ("کامپیوتر هم توی پشت سیاه روی زمین باشه")
+  // -------------------------------------------------------------
+  const groundBaseGroup = new THREE.Group();
+  groundBaseGroup.position.set(0, -2.5, -655);
+  scene.add(groundBaseGroup);
+
+  // 1. Dark reflective ground platform / lunar outpost ground
+  const groundGeo = new THREE.PlaneGeometry(80, 80, 32, 32);
+  const groundMat = new THREE.MeshStandardMaterial({
+    color: 0x06080b,
+    metalness: 0.65,
+    roughness: 0.45
+  });
+  const groundMesh = new THREE.Mesh(groundGeo, groundMat);
+  groundMesh.rotation.x = -Math.PI / 2;
+  groundMesh.position.y = 0;
+  groundBaseGroup.add(groundMesh);
+
+  // Sleek cyber grid lines on the dark floor
+  const gridHelper = new THREE.GridHelper(70, 35, 0x1f6338, 0x0f2218);
+  gridHelper.position.y = 0.02;
+  groundBaseGroup.add(gridHelper);
+
+  // Contact shadow disc on the dark ground
+  const shadowGeo = new THREE.CircleGeometry(4.8, 32);
+  const shadowMat = new THREE.MeshBasicMaterial({
+    color: 0x000000,
+    transparent: true,
+    opacity: 0.85
+  });
+  const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+  shadowMesh.rotation.x = -Math.PI / 2;
+  shadowMesh.position.y = 0.04;
+  groundBaseGroup.add(shadowMesh);
+
+  // Computer chassis group sitting directly on the ground
   const computer = new THREE.Group();
-  computer.position.set(0, -1, -390);
-  computer.scale.setScalar(1.4);
-  scene.add(computer);
+  computer.position.set(0, 0.05, 0);
+  computer.scale.setScalar(1.2);
+  groundBaseGroup.add(computer);
+
+  // Desk/Pedestal base directly on the ground
+  const deskMat = new THREE.MeshStandardMaterial({ color: 0x0d1216, roughness: 0.6, metalness: 0.3 });
+  const desk = new THREE.Mesh(new THREE.BoxGeometry(10, 0.35, 6), deskMat);
+  desk.position.set(0, 0.18, 0);
+  computer.add(desk);
 
   const plasticCanvas = document.createElement("canvas");
   plasticCanvas.width = plasticCanvas.height = 256;
   const pCtx = plasticCanvas.getContext("2d");
-  pCtx.fillStyle = "#a89d88";
+  pCtx.fillStyle = "#8a8070";
   pCtx.fillRect(0, 0, 256, 256);
   for(let i = 0; i < 6000; i++){
-    pCtx.fillStyle = Math.random() > 0.5 ? "#fff" : "#2f2214";
+    pCtx.fillStyle = Math.random() > 0.5 ? "#fff" : "#1f1810";
     pCtx.globalAlpha = rand(0.015, 0.06);
     pCtx.fillRect(rand(0, 256), rand(0, 256), 1, 1);
   }
@@ -2662,45 +2771,66 @@ async function initialize(){
     return mesh;
   }
 
-  makeBox(7.4, 5.45, 3.5, shell, 0, 2, 0);
-  makeBox(6.7, 4.65, 0.15, dark, 0, 2.15, 1.83);
-  makeBox(2, 0.7, 1.8, shell, 0, -1.05, 0);
-  makeBox(8, 0.6, 4, shell, 0, -1.6, 0.25);
-  makeBox(7.25, 0.3, 2.45, shell, 0, -2.05, 3.4);
+  // CRT Monitor Housing on the desk/ground
+  makeBox(6.8, 5.0, 3.2, shell, 0, 3.4, 0);
+  makeBox(6.1, 4.2, 0.15, dark, 0, 3.5, 1.62);
+  makeBox(1.8, 0.6, 1.6, shell, 0, 0.65, 0);
+
+  // Mechanical Keyboard resting on the dark ground/desk
+  makeBox(6.4, 0.28, 2.2, shell, 0, 0.45, 1.8);
 
   for(let r = 0; r < 4; r++){
-    for(let c = 0; c < 13; c++){
-      makeBox(0.43, 0.13, 0.37, keyMat, -3 + c * 0.5, -1.85, 2.55 + r * 0.46);
+    for(let c = 0; c < 12; c++){
+      makeBox(0.38, 0.12, 0.32, keyMat, -2.6 + c * 0.47, 0.65, 1.1 + r * 0.42);
     }
   }
 
+  // Realistic trailing black cables on the ground
+  const cableMat = new THREE.MeshStandardMaterial({ color: 0x050806, roughness: 0.9 });
+  const cableLeft = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.8, 8), cableMat);
+  cableLeft.rotation.set(Math.PI / 2, 0, 0.4);
+  cableLeft.position.set(-2.2, 0.04, 1.6);
+  groundBaseGroup.add(cableLeft);
+
+  const cableRight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.2, 8), cableMat);
+  cableRight.rotation.set(Math.PI / 2, 0, -0.35);
+  cableRight.position.set(2.4, 0.04, 1.8);
+  groundBaseGroup.add(cableRight);
+
+  // Phosphor Curved CRT Screen
   const screenCanvas = document.createElement("canvas");
   screenCanvas.width = 1024; screenCanvas.height = 768;
   const crt = screenCanvas.getContext("2d");
   const screenTexture = new THREE.CanvasTexture(screenCanvas);
   screenTexture.colorSpace = THREE.SRGBColorSpace;
 
-  const screenGeometry = new THREE.PlaneGeometry(6.05, 4.03, 32, 24);
+  const screenGeometry = new THREE.PlaneGeometry(5.6, 3.7, 32, 24);
   const sPos = screenGeometry.attributes.position;
   for(let i = 0; i < sPos.count; i++){
-    const x = sPos.getX(i) / 3.025;
-    const y = sPos.getY(i) / 2.015;
-    sPos.setZ(i, 0.17 * (1 - x * x) * (1 - y * y));
+    const x = sPos.getX(i) / 2.8;
+    const y = sPos.getY(i) / 1.85;
+    sPos.setZ(i, 0.16 * (1 - x * x) * (1 - y * y));
   }
   screenGeometry.computeVertexNormals();
 
   const screenMesh = new THREE.Mesh(screenGeometry, new THREE.MeshBasicMaterial({
     map: screenTexture, toneMapped: false
   }));
-  screenMesh.position.set(0, 2.23, 1.95);
+  screenMesh.position.set(0, 3.55, 1.74);
   computer.add(screenMesh);
 
-  const greenLight = new THREE.PointLight(0x68eca0, 18, 20, 2);
-  greenLight.position.set(0, 2, 5);
-  computer.add(greenLight);
+  // Overhead dramatic cyber spotlight on the computer & ground
+  const groundSpot = new THREE.SpotLight(0x68eca0, 4.5, 30, Math.PI / 4, 0.6, 1.5);
+  groundSpot.position.set(0, 10, -650);
+  groundSpot.target = groundMesh;
+  scene.add(groundSpot);
+
+  const screenGlowLight = new THREE.PointLight(0x68eca0, 14, 15, 2);
+  screenGlowLight.position.set(0, 2.2, -652);
+  scene.add(screenGlowLight);
 
   function drawScreen(){
-    if(bootStart === null && progress > 0.865) bootStart = time;
+    if(bootStart === null && stage === 5) bootStart = time;
     const age = bootStart === null ? -1 : time - bootStart;
 
     crt.fillStyle = "#020804";
@@ -2713,10 +2843,10 @@ async function initialize(){
       crt.shadowBlur = 14;
       crt.textAlign = "left";
       crt.font = "24px monospace";
-      crt.fillText("MILKY WAY CORE TERMINAL // 8910", 60, 80);
+      crt.fillText("GROUND BASE TERMINAL // SIGNAL 8910", 60, 80);
 
       crt.font = "18px monospace";
-      crt.fillText("EXPEDITION COMPLETE · PLANETARY TELEMETRY RESTORED", 60, 125);
+      crt.fillText("EXPEDITION COMPLETED · DOCKED ON DARK GROUND BASE", 60, 125);
 
       if(age > 0.6 || reducedMotion.matches){
         crt.fillText("DEVELOPER ARCHIVES & PROJECTS UNLOCKED", 60, 195);
@@ -2758,17 +2888,20 @@ async function initialize(){
 
   function goTo(index, force = false){
     if(!force && !canMove()) return;
-    const next = clamp(index, 0, destinations.length - 1);
+    const next = clamp(index, 0, WAYPOINTS.length - 1);
     if(!force && next === stage) return;
 
     audio.init();
     audio.playSFX("warp");
 
-    fromProgress = progress;
-    toProgress = destinations[next];
+    fromCamPos.copy(currentCamPos);
+    fromCamTarget.copy(currentCamTarget);
+    toCamPos.copy(WAYPOINTS[next].camPos);
+    toCamTarget.copy(WAYPOINTS[next].camTarget);
+
     stage = next;
-    travelTime = 0;
-    travelDuration = force ? 2.6 : 2.0 + Math.abs(toProgress - fromProgress) * 2;
+    travelProgress = 0;
+    travelDuration = force ? 2.6 : 2.1 + Math.hypot(toCamPos.x - fromCamPos.x, toCamPos.z - fromCamPos.z) * 0.003;
     traveling = true;
     updateStory();
   }
@@ -2777,9 +2910,14 @@ async function initialize(){
 
   controller = {
     start(){
-      stage = 0; progress = destinations[0];
-      fromProgress = toProgress = progress;
-      traveling = false; travelTime = 0;
+      stage = 0;
+      fromCamPos.copy(WAYPOINTS[0].camPos);
+      fromCamTarget.copy(WAYPOINTS[0].camTarget);
+      toCamPos.copy(WAYPOINTS[0].camPos);
+      toCamTarget.copy(WAYPOINTS[0].camTarget);
+      currentCamPos.copy(WAYPOINTS[0].camPos);
+      currentCamTarget.copy(WAYPOINTS[0].camTarget);
+      traveling = false; travelProgress = 0;
       bootStart = null; lastScreen = -1;
       updateStory();
     },
@@ -2856,7 +2994,7 @@ async function initialize(){
   });
   addEventListener("pointerup", () => isDragging = false);
 
-  renderer.domElement.addEventListener("click", e => {
+  renderer.domElement.addEventListener("click", () => {
     if(isDragging) return;
     if(stage === 5 && !traveling){
       terminal.open();
@@ -2895,26 +3033,41 @@ async function initialize(){
       freeLook.lerp(new THREE.Vector2(0, 0), 1 - Math.exp(-dt * 2.5));
     }
 
+    let bankingRoll = 0;
+
     if(traveling){
       if(reducedMotion.matches){
-        progress = toProgress;
-        travelTime = travelDuration;
+        currentCamPos.copy(toCamPos);
+        currentCamTarget.copy(toCamTarget);
+        travelProgress = 1;
       } else {
-        travelTime += dt;
-        const p = clamp(travelTime / travelDuration, 0, 1);
+        travelProgress += dt / travelDuration;
+        const p = clamp(travelProgress, 0, 1);
         const eased = p * p * p * (p * (p * 6 - 15) + 10);
-        progress = lerp(fromProgress, toProgress, eased);
+
+        // 3D Curving Flight Arc
+        currentCamPos.lerpVectors(fromCamPos, toCamPos, eased);
+        currentCamTarget.lerpVectors(fromCamTarget, toCamTarget, eased);
+
+        // Add 3D altitude curve during flight
+        const arcHeight = Math.sin(p * Math.PI) * 16.0;
+        currentCamPos.y += arcHeight * 0.25;
+
+        // Space flight banking roll
+        const deltaX = toCamPos.x - fromCamPos.x;
+        bankingRoll = Math.sin(p * Math.PI) * clamp(deltaX * 0.003, -0.3, 0.3);
       }
 
-      const warpSpeed = Math.sin((travelTime / travelDuration) * Math.PI);
+      const warpSpeed = Math.sin(clamp(travelProgress, 0, 1) * Math.PI);
       warpFactor = warpSpeed;
       audio.setWarp(warpFactor);
       warpMat.opacity = warpSpeed * 0.85;
       $("#speed-lines").classList.toggle("active", warpSpeed > 0.25);
       $("#hud-warp").textContent = (warpSpeed * 9.4).toFixed(1) + " c";
 
-      if(travelTime >= travelDuration){
-        progress = toProgress;
+      if(travelProgress >= 1){
+        currentCamPos.copy(toCamPos);
+        currentCamTarget.copy(toCamTarget);
         traveling = false;
         warpFactor = 0;
         audio.setWarp(0);
@@ -2928,17 +3081,21 @@ async function initialize(){
     const visualTime = reducedMotion.matches ? 0 : time;
     pointerView.lerp(pointer, 1 - Math.exp(-dt * 3));
 
-    const finalPullback = Math.max(0, 1 - innerWidth / innerHeight) * 10 * Math.pow(progress, 10);
-    const parallax = reducedMotion.matches ? 0 : 1 - smooth(progress, 0.86, 0.99);
-
+    // Dynamic 3D Camera Positioning & Banking
     camera.position.set(
-      pointerView.x * 0.32 * parallax + freeLook.x * 2.5,
-      1 - pointerView.y * 0.2 * parallax - freeLook.y * 2.0,
-      32 - progress * 409 + finalPullback
+      currentCamPos.x + pointerView.x * 2.2 + freeLook.x * 3.5,
+      currentCamPos.y - pointerView.y * 1.8 - freeLook.y * 2.5,
+      currentCamPos.z
     );
     camera.fov = 60 + warpFactor * 14;
     camera.updateProjectionMatrix();
-    camera.lookAt(freeLook.x * 4, 1 - freeLook.y * 3, camera.position.z - 35);
+
+    camera.lookAt(
+      currentCamTarget.x + freeLook.x * 5.0,
+      currentCamTarget.y - freeLook.y * 4.0,
+      currentCamTarget.z
+    );
+    camera.rotation.z += bankingRoll;
 
     starMaterials.forEach(m => {
       m.uniforms.uTime.value = visualTime;
@@ -2955,20 +3112,22 @@ async function initialize(){
       p.material.uniforms.uTime.value = visualTime;
     });
 
+    moons.forEach(m => {
+      const angle = visualTime * m.speed + m.offset;
+      m.mesh.position.set(Math.cos(angle) * m.dist, Math.sin(angle * 0.4) * 1.5, Math.sin(angle) * m.dist);
+    });
+
     probeGroup.rotation.y = visualTime * 0.035;
     probeGroup.rotation.z = Math.sin(visualTime * 0.5) * 0.04;
     probeBeacon.scale.setScalar(1.0 + Math.sin(visualTime * 6.0) * 0.4);
 
-    computer.rotation.y = Math.sin(visualTime * 0.24) * 0.018;
-    computer.rotation.z = Math.sin(visualTime * 0.31) * 0.009;
-    computer.position.y = -1 + Math.sin(visualTime * 0.38) * 0.04;
-
-    if(progress > 0.84 && time - lastScreen > 0.12){
+    // Terminal Screen Update
+    if(stage === 5 && time - lastScreen > 0.12){
       drawScreen();
       lastScreen = time;
     }
 
-    $("#progress").style.transform = `scaleX(${progress})`;
+    $("#progress").style.transform = `scaleX(${(stage + (traveling ? travelProgress : 1)) / 6})`;
 
     audio.drawScope($("#scope-canvas"));
 
@@ -3009,8 +3168,8 @@ async function initialize(){
   });
 
   resize();
-  camera.position.set(0, 1, 32 - progress * 409);
-  camera.lookAt(0, 1, 0);
+  camera.position.copy(WAYPOINTS[0].camPos);
+  camera.lookAt(WAYPOINTS[0].camTarget);
   composer.render();
 
   sceneStatus = "ready";
