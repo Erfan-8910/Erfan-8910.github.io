@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#020309">
-<meta name="description" content="Erfan's interstellar 3D portfolio — an interactive cosmic mystery, ultra-responsive retro terminal, serene space atmosphere, and project archive.">
-<title>ERFAN / SIGNAL 8910 — Interstellar 3D Portfolio</title>
+<meta name="description" content="Erfan's Milky Way 3D Portfolio — Journey across planets in our galaxy, explore projects, and interact with the retro cyber terminal.">
+<title>ERFAN / MILKY WAY 8910 — Interstellar 3D Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,18 +71,14 @@ a{color:inherit;text-decoration:none}
 }
 .vignette{
   position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 50%,transparent 42%,rgba(2,3,9,0.5) 75%,rgba(2,3,9,0.96) 100%);
+  background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(2,3,9,0.45) 75%,rgba(2,3,9,0.94) 100%);
 }
 #speed-lines{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   opacity:0;transition:opacity .35s ease;
-  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.09) 100%);
+  background:radial-gradient(circle at center, transparent 35%, rgba(78,240,232,0.08) 100%);
 }
 #speed-lines.active{opacity:1}
-#blackout{
-  position:fixed;inset:0;z-index:3;pointer-events:none;
-  background:#000;opacity:0;transition:opacity .15s ease;
-}
 
 /* Sci-Fi HUD Header */
 .hud{
@@ -195,7 +191,7 @@ a{color:inherit;text-decoration:none}
   border-radius:24px;backdrop-filter:blur(10px);
 }
 .waypoint-dot{
-  position:relative;width:30px;height:30px;border-radius:50%;
+  position:relative;width:32px;height:32px;border-radius:50%;
   border:1px solid rgba(185,208,228,0.25);background:rgba(12,24,38,0.8);
   display:grid;place-items:center;font-family:var(--font-mono);font-size:10px;
   color:var(--muted);transition:all .25s ease;
@@ -209,7 +205,7 @@ a{color:inherit;text-decoration:none}
   color:var(--green);font-weight:700;box-shadow:0 0 16px rgba(104,236,160,0.5);
 }
 .waypoint-tooltip{
-  position:absolute;inset-inline-start:42px;top:50%;transform:translateY(-50%);
+  position:absolute;inset-inline-start:44px;top:50%;transform:translateY(-50%);
   background:rgba(8,18,32,0.94);border:1px solid var(--panel-border);
   padding:6px 12px;border-radius:6px;font-size:11.5px;white-space:nowrap;
   color:#e4effa;pointer-events:none;opacity:0;transition:opacity .2s,transform .2s;
@@ -224,7 +220,7 @@ a{color:inherit;text-decoration:none}
   opacity:0;transform:translateY(12px);pointer-events:none;
   transition:opacity .65s ease,transform .8s cubic-bezier(0.16,1,0.3,1);
   padding:22px 26px;border-radius:14px;
-  background:rgba(4,12,22,0.78);border:1px solid rgba(148,185,214,0.2);
+  background:rgba(4,12,22,0.8);border:1px solid rgba(148,185,214,0.2);
   backdrop-filter:blur(16px);
   box-shadow:0 18px 52px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.08);
 }
@@ -503,7 +499,6 @@ input::placeholder{color:#6c8299}
 
 /* -------------------------------------------------------------
    ULTRA-RESPONSIVE CYBER-RETRO CRT TERMINAL
-   Adapts perfectly from 320px mobile screens to 4K desktop
    ------------------------------------------------------------- */
 #terminal-dialog{
   width:min(960px,95vw);max-height:88svh;
@@ -652,7 +647,6 @@ input::placeholder{color:#6c8299}
   .dialog-head h2{font-size:16px}
   .eyebrow{font-size:9px;letter-spacing:2px}
   
-  /* Mobile Terminal adjustments */
   #terminal-dialog{width:96vw;max-height:92svh}
   .crt-bezel{height:88svh;max-height:none;min-height:360px}
   .crt-body{padding:10px 12px;font-size:11.5px}
@@ -664,7 +658,7 @@ input::placeholder{color:#6c8299}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  #blackout,#speed-lines{display:none}
+  #speed-lines{display:none}
   #story{transform:none}
 }
 </style>
@@ -674,13 +668,12 @@ input::placeholder{color:#6c8299}
 <canvas id="space" aria-hidden="true"></canvas>
 <div class="vignette" aria-hidden="true"></div>
 <div id="speed-lines" aria-hidden="true"></div>
-<div id="blackout" aria-hidden="true"></div>
 
 <div id="experience" inert>
   <header class="hud">
     <a class="brand" href="https://github.com/Erfan-8910" target="_blank" rel="noopener noreferrer">
       <div class="brand-pulse"></div>
-      ERFAN <span>/ 8910</span>
+      ERFAN <span>/ MILKY WAY</span>
     </a>
 
     <div class="hud-center">
@@ -694,7 +687,7 @@ input::placeholder{color:#6c8299}
           <span class="lbl">WARP VELOCITY</span>
         </div>
         <div class="telemetry-item">
-          <span class="val" id="hud-dist">11.4 LY</span>
+          <span class="val" id="hud-dist">0.0 AU</span>
           <span class="lbl">TARGET DIST</span>
         </div>
       </div>
@@ -714,22 +707,22 @@ input::placeholder{color:#6c8299}
     </div>
   </header>
 
-  <!-- Sidebar Waypoint Navigator -->
-  <nav class="waypoint-nav" id="waypoint-rail" aria-label="Journey Waypoints">
-    <button class="waypoint-dot active" data-step="0">01<span class="waypoint-tooltip" data-t="wp0">آغاز مخابره</span></button>
-    <button class="waypoint-dot" data-step="1">02<span class="waypoint-tooltip" data-t="wp1">همگرایی گرانشی</span></button>
-    <button class="waypoint-dot" data-step="2">03<span class="waypoint-tooltip" data-t="wp2">اختلال زمانی</span></button>
-    <button class="waypoint-dot" data-step="3">04<span class="waypoint-tooltip" data-t="wp3">کاوشگر بازیابی‌شده</span></button>
-    <button class="waypoint-dot" data-step="4">05<span class="waypoint-tooltip" data-t="wp4">افق رویداد</span></button>
-    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال عرفان</span></button>
+  <!-- Sidebar Waypoint Navigator (Planets in Milky Way) -->
+  <nav class="waypoint-nav" id="waypoint-rail" aria-label="Planetary Waypoints">
+    <button class="waypoint-dot active" data-step="0">01<span class="waypoint-tooltip" data-t="wp0">زمین (Earth)</span></button>
+    <button class="waypoint-dot" data-step="1">02<span class="waypoint-tooltip" data-t="wp1">مریخ (Mars)</span></button>
+    <button class="waypoint-dot" data-step="2">03<span class="waypoint-tooltip" data-t="wp2">زحل (Saturn)</span></button>
+    <button class="waypoint-dot" data-step="3">04<span class="waypoint-tooltip" data-t="wp3">نپتون (Neptune)</span></button>
+    <button class="waypoint-dot" data-step="4">05<span class="waypoint-tooltip" data-t="wp4">کپلر ۸۹۱۰ (Kepler)</span></button>
+    <button class="waypoint-dot" data-step="5">06<span class="waypoint-tooltip" data-t="wp5">ترمینال عرفان (Station)</span></button>
   </nav>
 
   <main>
     <h1 class="sr-only" data-t="accessibleTitle">پورتفولیوی فضایی عرفان</h1>
-    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سیگنال ناشناس فضایی</p>
+    <p class="sr-only" data-t="accessibleStory">داستان تعاملی سفر بین سیارات کهکشان راه شیری</p>
 
     <section id="story" aria-labelledby="story-title" aria-hidden="true" inert>
-      <div class="eyebrow" id="chapter-code">RECOVERED TRANSMISSION / 01</div>
+      <div class="eyebrow" id="chapter-code">MILKY WAY EXPEDITION / 01</div>
       <h2 id="story-title"></h2>
       <p id="story-copy"></p>
       <div class="story-actions">
@@ -742,9 +735,9 @@ input::placeholder{color:#6c8299}
   <!-- Stage 6 Destination HUD -->
   <footer id="ending" hidden>
     <div class="ending-card">
-      <div class="eyebrow">FINAL DESTINATION / 8910</div>
-      <h2 data-t="endTitle">سیگنال رمزگشایی شد</h2>
-      <p data-t="endText">توسعه یافته توسط عرفان · پروژه‌ها و ارتباط در دسترس است.</p>
+      <div class="eyebrow">FINAL DESTINATION / CORE STATION</div>
+      <h2 data-t="endTitle">سیگنال ۸۹۱۰ رمزگشایی شد</h2>
+      <p data-t="endText">پایان سفر کهکشانی · توسعه یافته با عشق توسط عرفان (Erfan-8910)</p>
       <div class="end-actions">
         <button class="button amber terminal-trigger" data-t="launchTerminal">>_ ورود به کنسول تعاملی</button>
         <button class="button primary archive-trigger" data-t="archive">مشاهده پروژه‌ها</button>
@@ -760,16 +753,16 @@ input::placeholder{color:#6c8299}
     <button class="button" id="next-stage" aria-label="Next stage">↓</button>
   </nav>
 
-  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">سوایپ یا اسکرول برای پرواز بین سیارات ↓</span></div>
-  <div id="coordinates" aria-hidden="true">RX / 0000</div>
+  <div id="hint"><span class="hint-pulse"></span><span id="hint-text" data-t="scroll">سوایپ یا اسکرول برای پرواز بین سیارات راه شیری ↓</span></div>
+  <div id="coordinates" aria-hidden="true">ORBIT / EARTH</div>
   <div id="progress" aria-hidden="true"></div>
 </div>
 
 <!-- Hologram Probe Telemetry Overlay -->
 <div id="probe-overlay">
-  <div class="eyebrow">DERELICT PROBE / TELEMETRY</div>
-  <h3 data-t="probeTitle">کاوشگر فضایی سیگنال ۸۹۱۰</h3>
-  <p data-t="probeDesc">اطلاعات بازیابی‌شده از کاوشگر نشان‌دهندهٔ پروژه‌های مدرن وب و برنامه‌های تحت کلاد است.</p>
+  <div class="eyebrow">NEPTUNE RELAY / PROBE 8910</div>
+  <h3 data-t="probeTitle">کاوشگر مخابراتی سیگنال ۸۹۱۰</h3>
+  <p data-t="probeDesc">اطلاعات بازیابی‌شده از مدار نپتون شامل وب‌اپلیکیشن Climind-W و اکوسیستم توسعه‌دهنده عرفان است.</p>
   <button class="button primary archive-trigger" style="width:100%" data-t="archive">بررسی داده‌های پروژه</button>
 </div>
 
@@ -777,17 +770,17 @@ input::placeholder{color:#6c8299}
 <section id="gate" aria-labelledby="gate-title">
   <div class="gate-inner">
     <div class="receiver" aria-hidden="true"></div>
-    <div class="eyebrow">UNREGISTERED TRANSMISSION / 8910</div>
-    <h1 id="gate-title" data-t="welcome">این سیگنال نباید می‌رسید.</h1>
-    <p data-t="intro">۳۷ سال از آخرین مخابره گذشته بود. یازده دقیقه پیش، همان فرکانس در عمق کهکشان دوباره فعال شد.</p>
+    <div class="eyebrow">MILKY WAY TRANSMISSION / 8910</div>
+    <h1 id="gate-title" data-t="welcome">سفری میان‌سیاره‌ای در کهکشان راه شیری</h1>
+    <p data-t="intro">از مدار زمین تا شفق‌های قطبی کپلر و ترمینال فضایی عرفان، منظومه را درنوردید و پروژه‌ها را کشف کنید.</p>
 
     <div class="language-picker" aria-label="Language / زبان">
       <button data-lang="fa" lang="fa" aria-pressed="true">فارسی</button>
       <button data-lang="en" lang="en">English</button>
     </div>
 
-    <button class="button primary" id="start" disabled data-t="start">بررسی سیگنال (ورود به فضا)</button>
-    <div id="load-status" role="status">در حال هم‌تراز کردن گیرنده…</div>
+    <button class="button primary" id="start" disabled data-t="start">آغاز سفر کهکشانی (پرواز)</button>
+    <div id="load-status" role="status">در حال هم‌تراز کردن گیرنده فضایی…</div>
 
     <div class="gate-actions">
       <button class="link-button terminal-trigger" data-t="directTerminal">کنسول مستقیم >_</button>
@@ -994,8 +987,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 /* ------------------------------------------------------------------
-   1. SERENE & CALM SPACE AMBIENT AUDIO ENGINE
-   Zero harsh tones, warm cosmic breeze, gentle celestial chords
+   1. SERENE & CALM SPACE AMBIENT AUDIO (100% RELAXING & SOOTHING)
    ------------------------------------------------------------------ */
 class SereneSpaceAtmosphere {
   constructor(){
@@ -1011,7 +1003,7 @@ class SereneSpaceAtmosphere {
     this.chimeTimer = null;
     this.currentChord = 0;
 
-    // Serene Minor 9th & Suspended Space Chords (Warm & Ethereal)
+    // Harmonious Celestial Chords
     this.chords = [
       [50, 57, 62, 65, 69], // Dm9
       [46, 53, 58, 62, 65], // Bbmaj7
@@ -1027,8 +1019,7 @@ class SereneSpaceAtmosphere {
     this.ctx = new AudioContext();
 
     this.master = this.ctx.createGain();
-    // Default to gentle background level (0.35) or 0 if muted
-    this.master.gain.setValueAtTime(this.muted ? 0 : 0.35, this.ctx.currentTime);
+    this.master.gain.setValueAtTime(this.muted ? 0 : 0.32, this.ctx.currentTime);
 
     this.analyser = this.ctx.createAnalyser();
     this.analyser.fftSize = 64;
@@ -1053,7 +1044,7 @@ class SereneSpaceAtmosphere {
     if(this.master && this.ctx){
       const t = this.ctx.currentTime;
       this.master.gain.cancelScheduledValues(t);
-      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.35, t + 0.35);
+      this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.32, t + 0.35);
     }
     this.updateUI();
     return !this.muted;
@@ -1075,25 +1066,22 @@ class SereneSpaceAtmosphere {
     const t = this.ctx.currentTime;
 
     this.padGain = this.ctx.createGain();
-    this.padGain.gain.setValueAtTime(0.22, t);
+    this.padGain.gain.setValueAtTime(0.2, t);
 
-    // Warm 24dB lowpass filter to remove all harsh high frequencies
     this.filter = this.ctx.createBiquadFilter();
     this.filter.type = "lowpass";
-    this.filter.frequency.setValueAtTime(260, t);
-    this.filter.Q.setValueAtTime(1.5, t);
+    this.filter.frequency.setValueAtTime(240, t);
+    this.filter.Q.setValueAtTime(1.4, t);
 
-    // Gentle slow breathing LFO (0.04 Hz)
     const lfo = this.ctx.createOscillator();
     const lfoGain = this.ctx.createGain();
     lfo.type = "sine";
-    lfo.frequency.setValueAtTime(0.04, t);
-    lfoGain.gain.setValueAtTime(80, t);
+    lfo.frequency.setValueAtTime(0.035, t);
+    lfoGain.gain.setValueAtTime(60, t);
     lfo.connect(lfoGain);
     lfoGain.connect(this.filter.frequency);
     lfo.start();
 
-    // 5 Polyphonic Warm Sine & Triangle Voices
     const initialChord = this.chords[0];
     for(let i = 0; i < 5; i++){
       const osc = this.ctx.createOscillator();
@@ -1101,9 +1089,9 @@ class SereneSpaceAtmosphere {
 
       osc.type = i < 2 ? "triangle" : "sine";
       const freq = this.midiToFreq(initialChord[i]);
-      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.25 : -0.25), t);
+      osc.frequency.setValueAtTime(freq + (i % 2 === 0 ? 0.2 : -0.2), t);
 
-      voiceGain.gain.setValueAtTime(0.14, t);
+      voiceGain.gain.setValueAtTime(0.12, t);
 
       osc.connect(voiceGain);
       voiceGain.connect(this.filter);
@@ -1115,7 +1103,6 @@ class SereneSpaceAtmosphere {
     this.filter.connect(this.padGain);
     this.padGain.connect(this.master);
 
-    // Smooth chord progression every 14s
     setInterval(() => {
       if(!this.ctx || this.muted) return;
       this.currentChord = (this.currentChord + 1) % this.chords.length;
@@ -1123,7 +1110,7 @@ class SereneSpaceAtmosphere {
       const now = this.ctx.currentTime;
       this.voices.forEach((v, idx) => {
         const targetFreq = this.midiToFreq(targetChord[idx]);
-        v.osc.frequency.setTargetAtTime(targetFreq, now, 3.0);
+        v.osc.frequency.setTargetAtTime(targetFreq, now, 3.2);
       });
     }, 14000);
 
@@ -1138,7 +1125,7 @@ class SereneSpaceAtmosphere {
         const freq = bellNotes[Math.floor(Math.random() * bellNotes.length)];
         this.playWarmBell(freq);
       }
-      const delay = 5000 + Math.random() * 7000;
+      const delay = 5500 + Math.random() * 7000;
       this.chimeTimer = setTimeout(playNext, delay);
     };
     this.chimeTimer = setTimeout(playNext, 2500);
@@ -1153,9 +1140,8 @@ class SereneSpaceAtmosphere {
     osc.type = "sine";
     osc.frequency.setValueAtTime(freq, t);
 
-    // Warm, soft envelope without harsh attack
     gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(0.035, t + 0.25);
+    gain.gain.linearRampToValueAtTime(0.03, t + 0.25);
     gain.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
 
     osc.connect(gain);
@@ -1167,10 +1153,10 @@ class SereneSpaceAtmosphere {
   setWarp(warpFactor){
     if(!this.ctx || !this.filter) return;
     const t = this.ctx.currentTime;
-    const cutoff = 260 + warpFactor * 500;
+    const cutoff = 240 + warpFactor * 450;
     this.filter.frequency.setTargetAtTime(cutoff, t, 0.2);
     if(this.padGain){
-      this.padGain.gain.setTargetAtTime(0.22 + warpFactor * 0.15, t, 0.2);
+      this.padGain.gain.setTargetAtTime(0.2 + warpFactor * 0.15, t, 0.2);
     }
   }
 
@@ -1185,7 +1171,7 @@ class SereneSpaceAtmosphere {
       osc.type = "sine";
       osc.frequency.setValueAtTime(360, t);
       osc.frequency.exponentialRampToValueAtTime(540, t + 0.07);
-      gain.gain.setValueAtTime(0.035, t);
+      gain.gain.setValueAtTime(0.03, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
       osc.connect(gain);
       gain.connect(this.master);
@@ -1198,7 +1184,7 @@ class SereneSpaceAtmosphere {
       osc.frequency.setValueAtTime(45, t);
       osc.frequency.linearRampToValueAtTime(70, t + 0.8);
       osc.frequency.linearRampToValueAtTime(40, t + 2.0);
-      gain.gain.setValueAtTime(0.06, t);
+      gain.gain.setValueAtTime(0.05, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 2.1);
       osc.connect(gain);
       gain.connect(this.master);
@@ -1221,7 +1207,7 @@ class SereneSpaceAtmosphere {
       osc.type = "sine";
       osc.frequency.setValueAtTime(600, t);
       osc.frequency.exponentialRampToValueAtTime(150, t + 0.1);
-      gain.gain.setValueAtTime(0.045, t);
+      gain.gain.setValueAtTime(0.04, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.1);
       osc.connect(gain);
       gain.connect(this.master);
@@ -1233,7 +1219,7 @@ class SereneSpaceAtmosphere {
       osc.type = "triangle";
       osc.frequency.setValueAtTime(85, t);
       osc.frequency.exponentialRampToValueAtTime(30, t + 0.18);
-      gain.gain.setValueAtTime(0.06, t);
+      gain.gain.setValueAtTime(0.05, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
       osc.connect(gain);
       gain.connect(this.master);
@@ -1281,16 +1267,16 @@ const audio = new SereneSpaceAtmosphere();
 audio.updateUI();
 
 /* ------------------------------------------------------------------
-   2. BILINGUAL CONTENT & LOCALIZATION (PERSIAN & ENGLISH)
+   2. BILINGUAL CONTENT & MILKY WAY EXPEDITION NARRATIVE
    ------------------------------------------------------------------ */
 const COPY = {
   fa: {
-    welcome: "این سیگنال نباید می‌رسید.",
-    intro: "۳۷ سال از آخرین مخابره گذشته بود. یازده دقیقه پیش، همان فرکانس در عمق کهکشان دوباره فعال شد.",
-    start: "بررسی سیگنال (ورود به فضا)",
-    preparing: "در حال هم‌تراز کردن گیرنده فضایی…",
-    ready: "گیرنده آماده است · زبان را انتخاب کن و دکمه بررسی را بزن",
-    failure: "فضای سه‌بعدی بارگذاری نشد. WebGL و اینترنت را بررسی کن.",
+    welcome: "سفری میان‌سیاره‌ای در کهکشان راه شیری",
+    intro: "از مدار زمین تا شفق‌های قطبی کپلر و ترمینال فضایی عرفان، در پهنه کهکشان پرسه بزنید و پروژه‌ها را بررسی کنید.",
+    start: "آغاز سفر کهکشانی (پرواز)",
+    preparing: "در حال محاسبهٔ مختصات مدارهای کهکشان راه شیری…",
+    ready: "ناوبری آماده است · زبان را انتخاب کن و دکمه پرواز را بزن",
+    failure: "فضای سه‌بعدی بارگذاری نشد. WebGL و اتصال اینترنت را بررسی کن.",
     lost: "رندر سه‌بعدی متوقف شد؛ صفحه را تازه کن.",
     archive: "پروژه‌ها",
     archiveTitle: "فایل‌ها و پروژه‌های بازیابی‌شده",
@@ -1300,14 +1286,14 @@ const COPY = {
     directTerminal: "کنسول مستقیم >_",
     close: "بستن ×",
     github: "پروفایل GitHub ↗",
-    restart: "شروع دوباره ↺",
+    restart: "پرواز دوباره ↺",
     endTitle: "سیگنال ۸۹۱۰ رمزگشایی شد",
-    endText: "پایان مسیر انتقال داده · توسعه یافته با عشق توسط عرفان (Erfan-8910)",
+    endText: "پایان مسیر انتقال داده در کهکشان · توسعه یافته با عشق توسط عرفان (Erfan-8910)",
     launchTerminal: ">_ ورود به کنسول تعاملی",
-    scroll: "سوایپ، اسکرول یا کلیدهای جهت‌نما برای پرواز بین سیارات ↓",
-    navigation: "مراحل سفر فضایی",
-    previous: "مرحلهٔ قبل",
-    next: "مرحلهٔ بعد",
+    scroll: "سوایپ یا اسکرول برای پرواز بین سیارات راه شیری ↓",
+    navigation: "سیارات کهکشان راه شیری",
+    previous: "سیارهٔ قبل",
+    next: "سیارهٔ بعد",
     search: "نام پروژه، موضوع یا توضیحات…",
     all: "همهٔ زبان‌ها",
     languageLabel: "فیلتر زبان برنامه‌نویسی",
@@ -1331,33 +1317,33 @@ const COPY = {
     tabContact: "📡 برقراری ارتباط",
     terminalBtn: "ترمینال",
     terminal: "ترمینال",
-    probeTitle: "کاوشگر فضایی ۸۹۱۰ (بازیابی‌شده)",
-    probeDesc: "یک واحد فرستنده مخابراتی در لبه منظومه. داده‌های بازیابی‌شده شامل وب‌اپلیکیشن Climind-W و پروژه‌های خلاقانه است.",
-    wp0: "آغاز مخابره",
-    wp1: "همگرایی گرانشی",
-    wp2: "اختلال زمانی",
-    wp3: "کاوشگر بازیابی‌شده",
-    wp4: "افق رویداد",
-    wp5: "ترمینال عرفان",
+    probeTitle: "کاوشگر مخابراتی سیگنال ۸۹۱۰",
+    probeDesc: "اطلاعات بازیابی‌شده از مدار نپتون شامل وب‌اپلیکیشن Climind-W و اکوسیستم توسعه‌دهنده عرفان است.",
+    wp0: "زمین (Earth)",
+    wp1: "مریخ (Mars)",
+    wp2: "زحل (Saturn)",
+    wp3: "نپتون (Neptune)",
+    wp4: "کپلر ۸۹۱۰ (Kepler)",
+    wp5: "ترمینال عرفان (Station)",
     accessibleTitle: "پورتفولیوی فضایی و تعاملی عرفان",
-    accessibleStory: "روایتی علمی-تخیلی و سه‌بعدی از یک سیگنال ناشناس فضایی. سفر به سمت ترمینال مرکزی توسعه‌دهنده عرفان.",
+    accessibleStory: "روایتی علمی-تخیلی و سه‌بعدی از پرسه زدن در سیارات کهکشان راه شیری تا ایستگاه مرکزی توسعه‌دهنده عرفان.",
     count: (a,b) => `نمایش ${a} از ${b} پروژه`,
     numbers: (s,f) => `${s} ستاره و ${f} فورک`,
     chapters: [
-      ["RECOVERED TRANSMISSION / 01", "فرستنده‌ای در این مختصات ثبت نشده.", "اما سیگنال فرکانس ۸۹۱۰، دقیقاً از همین محور اعماق کیهان می‌آید."],
-      ["GRAVITATIONAL LENS / 02", "بخشی از آسمان دچار انحنا شده.", "ستاره‌ها در جای خود هستند؛ اما امواج نوری در میدان گرانشی سیاهچاله خمیده شده‌اند."],
-      ["CHRONO ANOMALY / 03", "ساعت ایستگاه متوقف نشده، فقط همگام نیست.", "گیرنده اعلام می‌کند که بسته داده بعدی را، شش دقیقه قبل دریافت کرده‌ایم."],
-      ["DERELICT PROBE / 04", "کاوشگر ارتباطی سالمی پیدا شد.", "فایل‌های رمزنگاری شده بازیابی شدند؛ پروژه‌های وب و داده‌های تکنولوژی عرفان در این مدارند."],
-      ["EVENT HORIZON / 05", "دیگر چیزی به خارج مخابره نمی‌شود.", "با این وجود، قدرت میدان داده‌ها در مرکز چاله سیاه به اوج رسیده است."],
-      ["CORE TERMINAL / 06", "صفحه ترمینال هنوز گرم و روشن است.", "پیام پایانی: Developed by Erfan — آماده برای دریافت دستورات بعدی شما."]
+      ["ORBIT 01 // EARTH (مدار زمین)", "نقطهٔ آغاز در مدار آبی سیاره مادری.", "گیرنده‌های ایستگاه مداری، سیگنال فرکانس ۸۹۱۰ را از ژرفای کهکشان ردیابی کرده‌اند."],
+      ["ORBIT 02 // MARS (سیاره سرخ مریخ)", "در میان دره‌ها و طوفان‌های سرخ مریخ.", "امواج نوری سیگنال از کنار قله‌های کوه المپوس عبور کرده و به سمت کمربند سیارکی ادامه دارد."],
+      ["ORBIT 03 // SATURN (حلقه‌های باشکوه زحل)", "شکافتن صفحه‌های یخی و حلقه‌های زحل.", "میدان مغناطیسی این غول گازی داده‌های فرکانس را تقویت کرده است."],
+      ["ORBIT 04 // NEPTUNE (غول یخی نپتون و کاوشگر)", "در لبهٔ تاریک و لاجوردی منظومه شمسی.", "کاوشگر مخابراتی سالمی پیدا شد؛ پروژه‌های مدرن وب از جمله Climind-W از این مدار بازیابی شدند."],
+      ["ORBIT 05 // KEPLER-8910 (سیاره بیگانه شفق قطبی)", "سیاره‌ای فراخورشیدی با اقیانوس‌های نورانی و شفق‌های قطبی.", "انرژی سیگنال در جو بنفش و شفقی این سیاره به بیشترین حد رسیده است."],
+      ["ORBIT 06 // CORE STATION (ایستگاه فضایی ترمینال)", "فرود در داک ایستگاه مرکزی عرفان.", "صفحه ترمینال رترو روشن است: Developed by Erfan — آماده برای دریافت دستورات بعدی شما."]
     ]
   },
   en: {
-    welcome: "This signal should never have arrived.",
-    intro: "37 years had passed since the last transmission. Eleven minutes ago, the same frequency lit up again from deep space.",
-    start: "Investigate Signal (Launch Spacecraft)",
-    preparing: "Aligning deep space receiver…",
-    ready: "Receiver aligned · Choose language and hit investigate",
+    welcome: "Interplanetary Journey across the Milky Way",
+    intro: "From Earth's orbit to the auroras of Kepler and Erfan's space terminal, cruise through the galaxy and explore projects.",
+    start: "Launch Galactic Expedition (Fly)",
+    preparing: "Calculating orbital trajectories across the Milky Way…",
+    ready: "Navigation aligned · Select language and hit launch",
     failure: "3D scene failed to load. Check WebGL and internet connection.",
     lost: "3D renderer lost context. Please reload the page.",
     archive: "Projects",
@@ -1372,10 +1358,10 @@ const COPY = {
     endTitle: "Signal 8910 Decrypted",
     endText: "Transmission end · Developed with passion by Erfan (Erfan-8910)",
     launchTerminal: ">_ Enter Interactive Console",
-    scroll: "Swipe, scroll, or use arrow keys to warp between orbits ↓",
-    navigation: "Journey Waypoints",
-    previous: "Previous Waypoint",
-    next: "Next Waypoint",
+    scroll: "Swipe, scroll, or use arrow keys to cruise between planets ↓",
+    navigation: "Milky Way Planetary Waypoints",
+    previous: "Previous Planet",
+    next: "Next Planet",
     search: "Search project name, topics, or description…",
     all: "All Languages",
     languageLabel: "Filter by language",
@@ -1399,25 +1385,25 @@ const COPY = {
     tabContact: "📡 Transmit Message",
     terminalBtn: "Terminal",
     terminal: "Terminal",
-    probeTitle: "Derelict Probe 8910 (Recovered)",
-    probeDesc: "An orbital communication unit at system edge. Decrypted packets include Climind-W weather app and creative web projects.",
-    wp0: "Origin",
-    wp1: "Grav Lens",
-    wp2: "Chrono Drift",
-    wp3: "Probe Orbit",
-    wp4: "Event Horizon",
-    wp5: "Core Terminal",
+    probeTitle: "Neptune Relay // Probe 8910",
+    probeDesc: "Recovered orbital telemetry contains Climind-W weather web application and Erfan's developer ecosystem.",
+    wp0: "Earth Orbit",
+    wp1: "Mars Corridor",
+    wp2: "Saturn Rings",
+    wp3: "Neptune Relay",
+    wp4: "Kepler Aurora",
+    wp5: "Core Station",
     accessibleTitle: "Erfan's Interstellar 3D Portfolio",
-    accessibleStory: "An interactive sci-fi narrative about an unknown cosmic signal leading to developer Erfan's retro terminal.",
+    accessibleStory: "An interactive sci-fi narrative exploring planets across the Milky Way towards developer Erfan's retro terminal.",
     count: (a,b) => `Showing ${a} of ${b} projects`,
     numbers: (s,f) => `${s} stars and ${f} forks`,
     chapters: [
-      ["RECOVERED TRANSMISSION / 01", "No transmitter is registered at these coordinates.", "Yet the 8910 frequency signal originates unmistakably from here."],
-      ["GRAVITATIONAL LENS / 02", "A sector of space is warped.", "The stars remain in place, but their light is gravitationally curved around the singularity."],
-      ["CHRONO ANOMALY / 03", "The clock has not stopped; it merely disagrees.", "Telemetry confirms we received the upcoming transmission block six minutes ago."],
-      ["DERELICT PROBE / 04", "An intact orbital relay unit discovered.", "Decrypted data streams contain modern web applications and developer telemetry."],
-      ["EVENT HORIZON / 05", "No outward transmission escapes the event horizon.", "Yet data density at the singularity core has reached critical mass."],
-      ["CORE TERMINAL / 06", "The vintage phosphor CRT terminal is still warm.", "Final prompt: Developed by Erfan — Standing by for your input."]
+      ["ORBIT 01 // EARTH ORBIT", "Starting point in the blue cradle of humanity.", "Orbital telemetry tracks the 8910 MHz transmission vector radiating from deep Milky Way space."],
+      ["ORBIT 02 // MARS CORRIDOR", "Gliding over the rust canyons and Olympus Mons.", "The signal beam cuts through Martian dust storms towards the outer asteroid belt."],
+      ["ORBIT 03 // SATURN RINGS", "Cruising through the majestic icy rings of Saturn.", "The gas giant's magnetosphere amplifies the incoming frequency harmonics."],
+      ["ORBIT 04 // NEPTUNE RELAY", "At the deep sapphire frontier of the solar system.", "An intact communications probe discovered: web applications and developer telemetry recovered."],
+      ["ORBIT 05 // KEPLER-8910 AURORA", "An exoplanet with bioluminescent seas and polar auroras.", "Atmospheric ion storms reach resonance with the 8910 signal core."],
+      ["ORBIT 06 // CORE STATION", "Docked at the central orbital space terminal.", "The vintage phosphor CRT terminal is active: Developed by Erfan — Standing by for your input."]
     ]
   }
 };
@@ -1434,7 +1420,6 @@ let controller = null;
 let stage = 0;
 let traveling = false;
 
-// Curated fallback portfolio data
 const DEFAULT_REPOS = [
   {
     name: "Climind-W",
@@ -1449,7 +1434,7 @@ const DEFAULT_REPOS = [
   },
   {
     name: "Erfan-8910.github.io",
-    description: "Interstellar 3D Interactive Portfolio featuring Three.js shaders, procedural celestial bodies, soothing space ambient, and retro CRT terminal.",
+    description: "Interstellar 3D Interactive Portfolio cruising through the Milky Way with procedural planets and retro CRT terminal.",
     html_url: "https://github.com/Erfan-8910/Erfan-8910.github.io",
     homepage: "https://Erfan-8910.github.io",
     stargazers_count: 3,
@@ -1515,8 +1500,10 @@ function updateStory(){
     dot.classList.toggle("active", i === stage);
   });
 
-  const distances = ["11.4 LY", "8.7 LY", "5.2 LY", "2.8 LY", "0.9 LY", "0.0 LY"];
-  $("#hud-dist").textContent = distances[stage] || "0.0 LY";
+  const planetCoords = ["ORBIT / EARTH", "ORBIT / MARS", "ORBIT / SATURN", "ORBIT / NEPTUNE", "ORBIT / KEPLER-8910", "ORBIT / CORE STATION"];
+  const planetDist = ["1.0 AU", "1.5 AU", "9.5 AU", "30.1 AU", "120.4 AU", "TERMINAL DOCK"];
+  $("#coordinates").textContent = planetCoords[stage] || "ORBIT / SPACE";
+  $("#hud-dist").textContent = planetDist[stage] || "0.0 AU";
 
   const isProbeStage = started && !traveling && stage === 3;
   const probeOverlay = $("#probe-overlay");
@@ -1670,7 +1657,7 @@ function renderProjects(){
     }
 
     card.append(
-      node("div", "repo-code", `SIGNAL_DATA / 0${i + 1}`),
+      node("div", "repo-code", `PLANETARY_DATA / 0${i + 1}`),
       heading, description, footer, extra
     );
     fragment.append(card);
@@ -1846,7 +1833,7 @@ class ResponsiveCyberTerminal {
   printBanner(){
     const banner = [
       "╔════════════════════════════════════════════════════════════╗",
-      "║  VT-8910 CYBER COMMAND // ERFAN TERMINAL v4.2              ║",
+      "║  VT-8910 CYBER COMMAND // MILKY WAY TERMINAL v4.2          ║",
       "║  STATUS: SIGNAL 8910 MHz ACTIVE · AMBIENT ATMOSPHERE: OK   ║",
       "╚════════════════════════════════════════════════════════════╝",
       "Type 'help' for instructions or tap the command chips below.",
@@ -1910,7 +1897,7 @@ class ResponsiveCyberTerminal {
           "      • Repository:  https://github.com/Erfan-8910/Climind-W",
           "",
           "  [2] Interstellar 8910 Portfolio",
-          "      • Description: 3D procedural universe, shaders, serene ambient sound.",
+          "      • Description: 3D procedural Milky Way, planets, serene ambient sound.",
           "      • Live Web:    https://Erfan-8910.github.io",
           "      • Repository:  https://github.com/Erfan-8910/Erfan-8910.github.io",
           "",
@@ -1945,13 +1932,13 @@ class ResponsiveCyberTerminal {
       case "sysinfo":
       case "neofetch":
         this.log([
-          "       .---.          OS:        Erfan Interstellar OS v4.2",
+          "       .---.          OS:        Erfan Milky Way OS v4.2",
           "      /     \\         Host:      Signal 8910 Transmission Core",
           "     | () () |        Kernel:    WebGL 2.0 / Three.js 0.170",
           "      \\  _  /         Audio:     Serene Polyphonic Space Atmosphere",
           "       |||||          Display:   " + window.innerWidth + "x" + window.innerHeight + " (Responsive)",
           "       |||||          Shell:     VT-8910 Cyber Console",
-          "       '---'          Status:    All Systems Nominal",
+          "       '---'          Status:    Cruising Milky Way Planets",
           ""
         ].join("\n"));
         break;
@@ -2009,7 +1996,6 @@ class ResponsiveCyberTerminal {
     }, 55);
   }
 
-  /* Upgraded Mini-Game: COSMIC INTERCEPTOR 8910 */
   startGame(){
     this.log("LAUNCHING 'COSMIC INTERCEPTOR 8910'...");
     this.log("Controls: [A / ◄] Left | [D / ►] Right | [Space / Fire Button] Blast Asteroids!");
@@ -2032,7 +2018,6 @@ class ResponsiveCyberTerminal {
       ctx.fillStyle = "rgba(1, 6, 3, 0.45)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Spawn items
       if(frame % 28 === 0){
         items.push({
           x: 24 + Math.random() * (canvas.width - 48),
@@ -2042,7 +2027,6 @@ class ResponsiveCyberTerminal {
         });
       }
 
-      // Update & Draw Lasers
       ctx.fillStyle = "#4ef0e8";
       ctx.shadowBlur = 8;
       ctx.shadowColor = "#4ef0e8";
@@ -2065,7 +2049,6 @@ class ResponsiveCyberTerminal {
         if(laser && laser.y < -10) lasers.splice(l, 1);
       }
 
-      // Draw Ship
       ctx.fillStyle = "#68eca0";
       ctx.shadowBlur = 10;
       ctx.shadowColor = "#68eca0";
@@ -2076,7 +2059,6 @@ class ResponsiveCyberTerminal {
       ctx.closePath();
       ctx.fill();
 
-      // Update & Draw items
       for(let i = items.length - 1; i >= 0; i--){
         const it = items[i];
         it.y += it.speed;
@@ -2109,7 +2091,6 @@ class ResponsiveCyberTerminal {
         if(it.y > canvas.height + 10) items.splice(i, 1);
       }
 
-      // Draw HUD
       ctx.fillStyle = "#68eca0";
       ctx.shadowBlur = 0;
       ctx.font = "12px monospace";
@@ -2178,7 +2159,7 @@ $("#next-stage").onclick = () => { audio.playSFX("click"); controller?.step(1); 
 setLanguage(language);
 
 /* ------------------------------------------------------------------
-   4. THREE.JS 3D INTERSTELLAR SCENE, SHADERS & CAMERAS
+   4. FULL 3D MILKY WAY UNIVERSE & PROCEDURAL PLANETS (THREE.JS)
    ------------------------------------------------------------------ */
 const loadTimer = setTimeout(() => {
   if(sceneStatus === "preparing"){
@@ -2217,7 +2198,7 @@ async function initialize(){
   renderer.toneMappingExposure = 1.05;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1400);
+  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1500);
 
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
@@ -2225,9 +2206,9 @@ async function initialize(){
   composer.addPass(bloomPass);
   composer.addPass(new OutputPass());
 
-  scene.add(new THREE.AmbientLight(0x9cb0c2, 0.55));
-  const sun = new THREE.DirectionalLight(0xffeed8, 2.7);
-  sun.position.set(-30, 20, 30);
+  scene.add(new THREE.AmbientLight(0xa5b8cc, 0.65));
+  const sun = new THREE.DirectionalLight(0xfffaed, 2.8);
+  sun.position.set(-40, 25, 35);
   scene.add(sun);
 
   const rand = (a, b) => a + Math.random() * (b - a);
@@ -2235,7 +2216,9 @@ async function initialize(){
   const lerp = THREE.MathUtils.lerp;
   const smooth = THREE.MathUtils.smoothstep;
 
-  const destinations = [0.035, 0.195, 0.34, 0.55, 0.73, 1];
+  // 6 Planetary Destinations in the Milky Way
+  // 0: Earth (Z=18), 1: Mars (Z=-75), 2: Saturn (Z=-165), 3: Neptune & Probe (Z=-255), 4: Kepler Aurora (Z=-335), 5: Terminal Station (Z=-390)
+  const destinations = [0.035, 0.21, 0.42, 0.63, 0.82, 1.0];
   let progress = destinations[0];
   let fromProgress = progress;
   let toProgress = progress;
@@ -2357,15 +2340,16 @@ async function initialize(){
     new THREE.Color("#c5daf2"),
     new THREE.Color("#ebf4fa"),
     new THREE.Color("#e0b48a"),
-    new THREE.Color("#74e0d0")
+    new THREE.Color("#74e0d0"),
+    new THREE.Color("#c47aff")
   ];
   const col = new THREE.Color();
 
   {
     const pos = [], colors = [], sizes = [], seeds = [];
-    const count = mobile ? 4500 : 9000;
+    const count = mobile ? 5000 : 10000;
     for(let i = 0; i < count; i++){
-      pos.push(rand(-220, 220), rand(-140, 140), rand(-600, 120));
+      pos.push(rand(-240, 240), rand(-150, 150), rand(-650, 120));
       col.copy(stellarColors[Math.floor(Math.random() * stellarColors.length)]);
       col.multiplyScalar(rand(0.5, 1.5));
       colors.push(col.r, col.g, col.b);
@@ -2403,24 +2387,24 @@ async function initialize(){
   const warpLines = new THREE.LineSegments(warpGeo, warpMat);
   scene.add(warpLines);
 
-  // Spiral Galaxies
-  function createGalaxy(z, tilt, rotation, coreColorHex){
+  // 3D Milky Way Spiral Arm Clusters
+  function createMilkyWayArm(z, tilt, rotation, coreColorHex){
     const pos = [], colors = [], sizes = [], seeds = [];
     const warm = new THREE.Color(coreColorHex || "#e7d4b4");
-    const cool = new THREE.Color("#8fa8c6");
-    const starTotal = mobile ? 10000 : 20000;
+    const cool = new THREE.Color("#7aa4d4");
+    const starTotal = mobile ? 11000 : 22000;
 
     for(let i = 0; i < starTotal; i++){
-      const r = Math.pow(Math.random(), 0.72) * 75;
+      const r = Math.pow(Math.random(), 0.7) * 85;
       const arm = i % 4;
-      const angle = arm / 4 * Math.PI * 2 + r * 0.105;
-      const spread = 0.4 + r * 0.045;
+      const angle = arm / 4 * Math.PI * 2 + r * 0.11;
+      const spread = 0.5 + r * 0.05;
       pos.push(
         Math.cos(angle) * r + rand(-spread, spread),
-        rand(-1, 1) * (0.6 + r * 0.02),
+        rand(-1, 1) * (0.8 + r * 0.025),
         Math.sin(angle) * r + rand(-spread, spread)
       );
-      col.copy(warm).lerp(cool, r / 75).multiplyScalar(rand(0.35, 0.95));
+      col.copy(warm).lerp(cool, r / 85).multiplyScalar(rand(0.35, 0.95));
       colors.push(col.r, col.g, col.b);
       sizes.push(rand(0.25, 0.75));
       seeds.push(rand(0, 100));
@@ -2433,11 +2417,13 @@ async function initialize(){
     galaxies.push({ mesh: galaxy, rotation });
   }
 
-  createGalaxy(-34, 0.58, 0.2, "#4ef0e8");
-  createGalaxy(-216, -0.5, 0.7, "#ffbe5c");
-  createGalaxy(-450, 0.8, -0.4, "#68eca0");
+  createMilkyWayArm(-40, 0.55, 0.2, "#4ef0e8");
+  createMilkyWayArm(-200, -0.45, 0.7, "#ffbe5c");
+  createMilkyWayArm(-380, 0.65, -0.4, "#c47aff");
 
-  // Detailed Procedural Planets
+  // -------------------------------------------------------------
+  // 6 UNIQUE 3D PLANETS (EARTH -> MARS -> SATURN -> NEPTUNE -> KEPLER -> STATION)
+  // -------------------------------------------------------------
   const planetVertex = `
     varying vec3 vSurface;
     varying vec3 vNormal;
@@ -2451,10 +2437,11 @@ async function initialize(){
     }
   `;
 
+  // Shader supporting Earth (0), Mars (1), Saturn (2), Neptune (3), Kepler Aurora (4)
   const planetFragment = `
     ${NOISE}
     uniform float uTime;
-    uniform float uKind;
+    uniform float uType; // 0: Earth, 1: Mars, 2: Saturn, 3: Neptune, 4: Kepler Aurora
     varying vec3 vSurface;
     varying vec3 vNormal;
     varying vec3 vWorld;
@@ -2465,50 +2452,73 @@ async function initialize(){
       vec3 lightDir = normalize(vec3(-0.65, 0.36, 0.72));
       vec3 viewDir = normalize(cameraPosition - vWorld);
 
-      float continental = fbm(p * 3.1 + vec3(2.7, 0.4, 4.2));
-      float detail = fbm(p * 52.0);
-      float micro = noise3(p * 190.0);
-
-      vec3 albedo;
+      vec3 albedo = vec3(0.1);
       float ocean = 0.0;
       float clouds = 0.0;
+      float detail = fbm(p * 50.0);
+      float continental = fbm(p * 3.1 + vec3(2.7, 0.4, 4.2));
 
-      if(uKind < 0.5){
+      if(uType < 0.5){
+        // 🌍 1. EARTH
         float land = smoothstep(0.46, 0.505, continental);
         ocean = 1.0 - land;
-        vec3 sea = mix(vec3(0.02, 0.08, 0.12), vec3(0.04, 0.18, 0.22), smoothstep(0.32, 0.48, continental));
+        vec3 sea = mix(vec3(0.02, 0.08, 0.14), vec3(0.04, 0.18, 0.24), smoothstep(0.32, 0.48, continental));
         float arid = smoothstep(0.42, 0.63, fbm(p * 5.0 + 12.0));
-        vec3 soil = mix(vec3(0.08, 0.16, 0.09), vec3(0.32, 0.26, 0.15), arid);
-        soil *= 0.7 + detail * 0.65 + micro * 0.13;
+        vec3 soil = mix(vec3(0.08, 0.18, 0.09), vec3(0.34, 0.28, 0.15), arid);
+        soil *= 0.7 + detail * 0.65;
         albedo = mix(sea, soil, land);
 
         float ice = smoothstep(0.78, 0.96, abs(p.y) + (continental - 0.5) * 0.25);
-        albedo = mix(albedo, vec3(0.72, 0.78, 0.82), ice);
+        albedo = mix(albedo, vec3(0.76, 0.82, 0.86), ice);
         ocean *= 1.0 - ice;
 
         vec3 cloudP = p;
         float a = uTime * 0.005;
         cloudP.xz = mat2(cos(a), -sin(a), sin(a), cos(a)) * cloudP.xz;
         clouds = smoothstep(0.52, 0.70, fbm(cloudP * 7.5 + vec3(4.0, 2.0, 8.0))) * 0.75;
-        albedo = mix(albedo, vec3(0.88, 0.90, 0.92), clouds);
-      } else {
+        albedo = mix(albedo, vec3(0.9, 0.92, 0.94), clouds);
+      } else if(uType < 1.5){
+        // 🔴 2. MARS (Red Planet)
+        float canyon = fbm(p * 8.0);
+        vec3 redLow = vec3(0.42, 0.16, 0.08);
+        vec3 redHigh = vec3(0.68, 0.32, 0.16);
+        albedo = mix(redLow, redHigh, continental) * (0.8 + detail * 0.4);
+        float iceCap = smoothstep(0.85, 0.98, abs(p.y));
+        albedo = mix(albedo, vec3(0.85, 0.88, 0.9), iceCap);
+      } else if(uType < 2.5){
+        // 🪐 3. SATURN (Gas Giant)
         float bands = sin(p.y * 65.0 + fbm(p * 7.0) * 10.0);
-        vec3 low = vec3(0.18, 0.14, 0.11);
-        vec3 high = vec3(0.52, 0.41, 0.29);
-        albedo = mix(low, high, 0.5 + 0.5 * bands);
-        albedo *= 0.72 + detail * 0.5;
+        vec3 low = vec3(0.35, 0.28, 0.18);
+        vec3 high = vec3(0.68, 0.55, 0.38);
+        albedo = mix(low, high, 0.5 + 0.5 * bands) * (0.85 + detail * 0.3);
+      } else if(uType < 3.5){
+        // 💎 4. NEPTUNE (Ice Giant)
+        float stormBands = sin(p.y * 45.0 + fbm(p * 6.0) * 8.0);
+        vec3 deepBlue = vec3(0.06, 0.15, 0.48);
+        vec3 azure = vec3(0.18, 0.42, 0.85);
+        albedo = mix(deepBlue, azure, 0.5 + 0.5 * stormBands);
+        float whiteStorms = smoothstep(0.68, 0.82, fbm(p * 14.0 + uTime * 0.01));
+        albedo = mix(albedo, vec3(0.8, 0.9, 1.0), whiteStorms * 0.6);
+      } else {
+        // 🌌 5. KEPLER-8910 (Bioluminescent Aurora Planet)
+        float land = smoothstep(0.45, 0.52, continental);
+        vec3 bioSea = mix(vec3(0.15, 0.05, 0.35), vec3(0.28, 0.08, 0.58), continental);
+        vec3 bioLand = mix(vec3(0.05, 0.32, 0.28), vec3(0.08, 0.55, 0.45), detail);
+        albedo = mix(bioSea, bioLand, land);
+        
+        // Shimmering Aurora Borealis curtains at the poles
+        float aurora = smoothstep(0.65, 0.95, abs(p.y)) * (0.5 + 0.5 * sin(p.x * 20.0 + uTime * 0.8));
+        albedo += vec3(0.2, 0.9, 0.7) * aurora * 0.85;
       }
 
       float lambert = max(dot(n, lightDir), 0.0);
       float daylight = smoothstep(-0.1, 0.3, dot(n, lightDir));
-      vec3 result = albedo * (0.04 + lambert * 1.7);
+      vec3 result = albedo * (0.05 + lambert * 1.7);
 
-      vec3 halfDir = normalize(lightDir + viewDir);
-      float spec = pow(max(dot(n, halfDir), 0.0), 95.0);
-      result += vec3(0.7, 0.8, 0.85) * spec * ocean * (1.0 - clouds) * daylight * 0.7;
-
+      // Atmosphere rim glow
       float rim = pow(1.0 - max(dot(n, viewDir), 0.0), 4.0);
-      result += vec3(0.12, 0.24, 0.35) * rim * daylight * 0.3 * (1.0 - uKind);
+      vec3 rimCol = uType < 0.5 ? vec3(0.12, 0.25, 0.4) : (uType < 1.5 ? vec3(0.4, 0.15, 0.08) : (uType < 2.5 ? vec3(0.4, 0.35, 0.2) : (uType < 3.5 ? vec3(0.15, 0.35, 0.7) : vec3(0.3, 0.8, 0.6))));
+      result += rimCol * rim * daylight * 0.45;
 
       gl_FragColor = vec4(result, 1.0);
       #include <tonemapping_fragment>
@@ -2516,12 +2526,12 @@ async function initialize(){
     }
   `;
 
-  function createPlanet(x, y, z, radius, kind){
+  function createMilkyWayPlanet(x, y, z, radius, type, hasRings = false, ringColor = "#c8ab82"){
     const group = new THREE.Group();
     group.position.set(x, y, z);
 
     const material = new THREE.ShaderMaterial({
-      uniforms: { uTime: { value: 0 }, uKind: { value: kind } },
+      uniforms: { uTime: { value: 0 }, uType: { value: type } },
       vertexShader: planetVertex,
       fragmentShader: planetFragment
     });
@@ -2530,87 +2540,64 @@ async function initialize(){
       new THREE.SphereGeometry(radius, mobile ? 80 : 128, mobile ? 56 : 88),
       material
     );
-    globe.rotation.z = kind ? 0.18 : 0.13;
+    globe.rotation.z = type === 2 ? 0.35 : 0.15;
     group.add(globe);
+
+    // Planetary Rings (Saturn / Neptune)
+    if(hasRings){
+      const ringGeo = new THREE.RingGeometry(radius * 1.45, radius * 2.8, 64);
+      const ringMat = new THREE.ShaderMaterial({
+        vertexShader: `
+          varying vec2 vUv;
+          void main(){
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          varying vec2 vUv;
+          void main(){
+            float r = length((vUv - 0.5) * 2.0);
+            float body = smoothstep(0.45, 0.52, r) * (1.0 - smoothstep(0.92, 0.98, r));
+            float cassini = 1.0 - 0.8 * exp(-abs(r - 0.72) * 120.0);
+            float grains = 0.5 + 0.5 * sin(r * 420.0);
+            gl_FragColor = vec4(vec3(${type === 2 ? "0.62, 0.52, 0.38" : "0.3, 0.55, 0.8"}), body * cassini * (0.25 + grains * 0.25));
+            #include <tonemapping_fragment>
+            #include <colorspace_fragment>
+          }
+        `,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false
+      });
+      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+      ringMesh.rotation.set(1.25, 0.2, 0.3);
+      group.add(ringMesh);
+    }
 
     scene.add(group);
     planets.push({ group, globe, material });
+    return group;
   }
 
-  createPlanet(11, 2, -132, 7.5, 0);
-  createPlanet(-15, 4, -239, 8.3, 1);
+  // 1. Earth (Z=18)
+  createMilkyWayPlanet(7.5, 1.5, 12, 6.8, 0);
 
-  // Black Holes & Accretion Disks
-  const holes = [];
-  const diskVertex = `
-    varying vec2 vUv;
-    void main(){
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `;
-  const diskFragment = `
-    ${NOISE}
-    varying vec2 vUv;
-    uniform float uTime;
+  // 2. Mars (Z=-75)
+  createMilkyWayPlanet(-9.0, 2.0, -75, 5.5, 1);
 
-    void main(){
-      vec2 p = (vUv - 0.5) * 2.0;
-      float r = length(p);
-      float a = atan(p.y, p.x);
-      float flow = a - uTime * 0.05 / max(r, 0.2);
-      vec3 field = vec3(cos(flow) * 5.0, sin(flow) * 5.0, r * 23.0);
+  // 3. Saturn with Rings (Z=-165)
+  createMilkyWayPlanet(11.0, 3.0, -165, 8.2, 2, true);
 
-      float dust = fbm(field);
-      float fine = noise3(field * 4.0);
-      float body = smoothstep(0.305, 0.35, r) * (1.0 - smoothstep(0.5, 0.98, r));
-      float strands = 0.64 + 0.36 * sin(r * 130.0 + dust * 6.0);
-      float rim = exp(-abs(r - 0.337) * 92.0);
-      float asymmetry = 0.7 + 0.3 * cos(a - 0.8);
+  // 4. Neptune (Z=-255)
+  createMilkyWayPlanet(-8.5, 1.8, -255, 7.2, 3, true);
 
-      vec3 warm = vec3(0.78, 0.52, 0.30);
-      vec3 hot = vec3(1.0, 0.92, 0.74);
-      vec3 col = mix(warm, hot, rim * 0.85);
-      col *= asymmetry * (0.8 + rim * 1.8);
+  // 5. Kepler-8910 Aurora Exoplanet (Z=-335)
+  createMilkyWayPlanet(9.0, 2.5, -335, 7.8, 4);
 
-      float alpha = body * (0.3 + dust * 0.7) * strands * (0.8 + fine * 0.2) * 0.88 + rim * 0.35;
-      gl_FragColor = vec4(col, clamp(alpha, 0.0, 0.92));
-      #include <tonemapping_fragment>
-      #include <colorspace_fragment>
-    }
-  `;
-
-  [-72, -170, -283].forEach((z, i) => {
-    const group = new THREE.Group();
-    group.position.set(0, 1, z);
-
-    const material = new THREE.ShaderMaterial({
-      uniforms: { uTime: { value: 0 } },
-      vertexShader: diskVertex,
-      fragmentShader: diskFragment,
-      transparent: true,
-      depthWrite: false,
-      side: THREE.DoubleSide,
-      blending: THREE.AdditiveBlending
-    });
-
-    const disk = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), material);
-    disk.rotation.set(0.83 + i * 0.035, 0, 0.12);
-    group.add(disk);
-
-    // Event Horizon Sphere
-    group.add(new THREE.Mesh(
-      new THREE.SphereGeometry(3.55, 64, 48),
-      new THREE.MeshBasicMaterial({ color: 0x000000 })
-    ));
-
-    scene.add(group);
-    holes.push({ group, material });
-  });
-
-  // Stage 4: Recovered Space Probe / Satellite
+  // 4. Stage 4: Recovered Space Probe / Satellite near Neptune
   const probeGroup = new THREE.Group();
-  probeGroup.position.set(5.8, 1.6, -220);
+  probeGroup.position.set(-2.8, 1.2, -245);
 
   const goldMat = new THREE.MeshStandardMaterial({
     color: 0xcc9944, metalness: 0.85, roughness: 0.25
@@ -2645,7 +2632,7 @@ async function initialize(){
 
   scene.add(probeGroup);
 
-  // Stage 6: Vintage CRT Terminal Computer
+  // 6. Stage 6: Core Station Vintage CRT Terminal Computer (Z=-390)
   const computer = new THREE.Group();
   computer.position.set(0, -1, -390);
   computer.scale.setScalar(1.4);
@@ -2681,14 +2668,12 @@ async function initialize(){
   makeBox(8, 0.6, 4, shell, 0, -1.6, 0.25);
   makeBox(7.25, 0.3, 2.45, shell, 0, -2.05, 3.4);
 
-  // Keyboard keys
   for(let r = 0; r < 4; r++){
     for(let c = 0; c < 13; c++){
       makeBox(0.43, 0.13, 0.37, keyMat, -3 + c * 0.5, -1.85, 2.55 + r * 0.46);
     }
   }
 
-  // CRT Screen Canvas
   const screenCanvas = document.createElement("canvas");
   screenCanvas.width = 1024; screenCanvas.height = 768;
   const crt = screenCanvas.getContext("2d");
@@ -2728,13 +2713,13 @@ async function initialize(){
       crt.shadowBlur = 14;
       crt.textAlign = "left";
       crt.font = "24px monospace";
-      crt.fillText("PERSONAL TERMINAL // SIGNAL 8910", 60, 80);
+      crt.fillText("MILKY WAY CORE TERMINAL // 8910", 60, 80);
 
       crt.font = "18px monospace";
-      crt.fillText("STATUS: CORE RESTORED · ALL SYSTEMS NOMINAL", 60, 125);
+      crt.fillText("EXPEDITION COMPLETE · PLANETARY TELEMETRY RESTORED", 60, 125);
 
       if(age > 0.6 || reducedMotion.matches){
-        crt.fillText("UNSAVED TRANSMISSION FOUND IN MEMORY BUFFER", 60, 195);
+        crt.fillText("DEVELOPER ARCHIVES & PROJECTS UNLOCKED", 60, 195);
       }
 
       if(age > 1.2 || reducedMotion.matches){
@@ -2760,7 +2745,6 @@ async function initialize(){
       crt.restore();
     }
 
-    // Scanlines
     crt.fillStyle = "rgba(0, 0, 0, 0.28)";
     for(let y = 0; y < 768; y += 4) crt.fillRect(0, y, 1024, 1);
 
@@ -2807,7 +2791,6 @@ async function initialize(){
     }
   };
 
-  // Wheel, Touch & Key Events
   let wheelSum = 0, lastWheel = 0, wheelUsed = false;
   let tracking = false, touchX = 0, touchY = 0;
 
@@ -2854,7 +2837,6 @@ async function initialize(){
     step(dy > 0 ? 1 : -1);
   }, { passive: true });
 
-  // Free-look drag controls on canvas
   renderer.domElement.addEventListener("pointerdown", e => {
     if(isControl(e.target) || $("#archive").open || $("#terminal-dialog").open) return;
     isDragging = true;
@@ -2883,7 +2865,6 @@ async function initialize(){
     }
   });
 
-  // Global Keyboard Shortcuts
   addEventListener("keydown", e => {
     if(!$("#gate").hidden || $("#archive").open || $("#terminal-dialog").open || isControl(e.target) || e.ctrlKey || e.metaKey || e.altKey) return;
     if(["ArrowDown", "PageDown", "j", "s"].includes(e.key)) step(1);
@@ -2970,21 +2951,13 @@ async function initialize(){
     });
 
     planets.forEach(p => {
-      p.globe.rotation.y = visualTime * 0.007;
+      p.globe.rotation.y = visualTime * 0.008;
       p.material.uniforms.uTime.value = visualTime;
     });
 
     probeGroup.rotation.y = visualTime * 0.035;
     probeGroup.rotation.z = Math.sin(visualTime * 0.5) * 0.04;
     probeBeacon.scale.setScalar(1.0 + Math.sin(visualTime * 6.0) * 0.4);
-
-    let blackout = 0;
-    holes.forEach(h => {
-      h.material.uniforms.uTime.value = visualTime;
-      const dist = Math.abs(camera.position.z - h.group.position.z);
-      blackout = Math.max(blackout, 1 - smooth(dist, 1.4, 5.2));
-    });
-    $("#blackout").style.opacity = reducedMotion.matches || !started ? 0 : blackout;
 
     computer.rotation.y = Math.sin(visualTime * 0.24) * 0.018;
     computer.rotation.z = Math.sin(visualTime * 0.31) * 0.009;
@@ -2996,7 +2969,6 @@ async function initialize(){
     }
 
     $("#progress").style.transform = `scaleX(${progress})`;
-    $("#coordinates").textContent = `RX / ${String(Math.round(progress * 8910)).padStart(4, "0")}`;
 
     audio.drawScope($("#scope-canvas"));
 
